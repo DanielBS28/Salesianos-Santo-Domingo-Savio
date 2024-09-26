@@ -1,0 +1,131 @@
+package EjerciciosBásicos;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class ejercicio1 {
+
+	static Scanner teclado = new Scanner(System.in);
+	static int contador = 0;
+
+	static void comprobarDirectorio(File directorio) {
+		
+		if (directorio.exists()) {
+			System.out.println("El directorio es valido, vamos a ver los archivos");
+			File [] ficheros = directorio.listFiles();
+			nombrarArchivos(ficheros);
+		}else 
+			System.out.println("Has introducido mal los datos del directorio o el directorio no existe");
+		
+	}
+	
+	static void nombrarArchivos(File[] ficheros) {
+		
+		
+		
+		// for (File f : ficheros)
+			// System.out.println("El nombre del archivo es: " + f.getName());
+		
+		/*for(int i = 0; i<ficheros.length; i++)
+			System.out.println("El nombre del archivo es: " + ficheros[i].getName());
+		 */
+		if(ficheros == null)
+			return;
+		else {
+			nombrarArchivos(ficheros);
+			nombrarArray(ficheros[contador++]);
+			
+		}
+		
+	}
+	static void nombrarArray(File f) {
+		System.out.println("El nombre del archivo es: " + f.getName());
+	}
+	
+	static void ejercicio1() {
+		
+		System.out.println("Dime el nombre del directorio que quieras (A partir de la ruta actual)");
+		String directorioSolicitado = teclado.nextLine();
+		File directorio = new File(".\\" + directorioSolicitado + "\\");
+		comprobarDirectorio(directorio);
+		
+		/* Estas lineas de código me permiten ver todos los archivos si introduzco una ruta absoluta
+		 * System.out.println("Introduce la ruta absoluta del directorio que quieres ver");
+		File directorio2 = new File(teclado.nextLine());
+		comprobarDirectorio(directorio2);
+		 */
+	}
+	
+	static void ejercicio2() {
+		String fichero = ("ficheroprueba.txt");
+		File documento = new File(fichero);
+		crearFichero(documento);
+		comprobarFichero(documento);
+	}
+	
+	static void crearFichero(File fichero) {
+		
+		try {
+		if(!fichero.exists()) {
+			if(fichero.createNewFile())
+				System.out.println("El fichero se ha creado correctamente");
+			else 
+				System.out.println("El fichero no se ha podido crear");
+		}else
+			System.out.println("El fichero ya existe");
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	static void comprobarFichero(File fichero) {
+		
+		
+		if(fichero.exists()) {
+			System.out.println("El fichero existe, vamos a borrarlo");
+			fichero.delete();
+		}else 
+			System.out.println("El fichero no existe");
+		}
+	
+	static void ejercicio3() {
+		
+		System.out.println("Dime el nombre del directorio");
+		String nombreDir = teclado.nextLine();
+		System.out.println("Dime el nombre del fichero que quieres crear");
+		String nombreFichero = teclado.nextLine();
+		
+		File fichero = new File(".\\"+nombreDir+"\\"+nombreFichero+".txt");
+		File directorio = new File(".\\"+nombreDir+"\\");
+		
+		crearDirectorio(directorio);
+		crearFichero(fichero);
+		
+	}
+	
+	static void crearDirectorio(File directorio) {
+		
+		if(!directorio.exists())
+			if(directorio.mkdirs())
+					System.out.println("Se ha creado el directorio");
+			else 
+				System.out.println("No se ha podido crear el directorio");
+		else
+			System.out.println("El directorio ya existe");
+	}
+			
+	public static void main(String[] args) {
+		
+		ejercicio1();
+		
+		//  ejercicio2();
+		
+		// ejercicio3();
+		
+		// ejercicio4()
+		
+	}
+
+}

@@ -88,18 +88,15 @@ public class ejercicio1 {
 			
 			if(directorio.mkdirs()) {
 				
-				crearFichero(fichero);
-			
+				crearFichero(fichero);	
 				/*verPermisos(fichero);
 				cambiarPermisos(fichero);
 				verPermisos(fichero);
 				 fichero.delete();
-				 */
-				
+				 */	
 			}else
 				System.out.println("No se ha podido crear el directorio");
-				
-
+		
 		}else {
 			
 			System.out.println("El directorio existe");
