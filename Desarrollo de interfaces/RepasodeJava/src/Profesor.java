@@ -1,3 +1,4 @@
+import javax.swing.plaf.synth.SynthOptionPaneUI;
 
 public class Profesor extends Persona{
 	
@@ -12,9 +13,10 @@ public class Profesor extends Persona{
 		this.Salario = Salario;
 	}
 
-	public String toString() {
-		
-		return PersonatoString() + ", Asignaturas=" + Asignaturas + ", Tutor=" + Tutor + ", Salario= "+ Salario +"]";
+	public void ProfesortoString() {
+		PersonatoString();
+		System.out.println(", Asignaturas=" + Asignaturas + ", Tutor=" + Tutor + ", Salario= "+ Salario +"]");
+
 	}
 	
 	

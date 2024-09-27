@@ -15,9 +15,10 @@ public class Modulo {
 	}
 
 
-	public String informacion() {
-		return "Modulo [Nombre=" + Nombre + ", NumeroHoras=" + NumeroHoras + ", profesor=" + profesor
-				+ ", convalidable=" + convalidable + "]";
+	public void informacion() {
+		
+		System.out.println("Modulo [Nombre=" + Nombre + ", NumeroHoras=" + NumeroHoras + ", convalidable=" + convalidable + "]");
+		profesor.ProfesortoString();
 	}
 	
 	

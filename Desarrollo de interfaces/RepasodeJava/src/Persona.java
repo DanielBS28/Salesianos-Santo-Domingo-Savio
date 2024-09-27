@@ -15,9 +15,41 @@ public class Persona {
 	}
 	
 
-	public String PersonatoString() {
-		return "Datos [DNI=" + DNI + ", Nombre=" + Nombre + ", Apellidos=" + Apellidos;
+	public void PersonatoString() {
+		System.out.print("Datos [DNI=" + DNI + ", Nombre=" + Nombre + ", Apellidos=" + Apellidos); 
 	}
+
+
+	public String getDNI() {
+		return DNI;
+	}
+
+
+	public void setDNI(String dNI) {
+		DNI = dNI;
+	}
+
+
+	public String getNombre() {
+		return Nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		Nombre = nombre;
+	}
+
+
+	public String getApellidos() {
+		return Apellidos;
+	}
+
+
+	public void setApellidos(String apellidos) {
+		Apellidos = apellidos;
+	}
+	
+	
 	
 	
 	
