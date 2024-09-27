@@ -49,9 +49,9 @@ public class Ejercicio6MAIN {
 		
 		
 		// System.out.println(Pepito.toString());
-		System.out.println(Pepito.toString());
-		for (Modulo f : Pepito.modulosAlumno())
-			System.out.println(f.informacion());
+		Pepito.informacionAlumno();
+		// for (Modulo f : Pepito.modulosAlumno())
+			// System.out.println(f.informacion());
 		
 		
 		

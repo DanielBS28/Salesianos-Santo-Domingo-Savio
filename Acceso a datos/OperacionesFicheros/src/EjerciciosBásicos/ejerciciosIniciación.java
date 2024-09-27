@@ -7,13 +7,13 @@ import java.util.Scanner;
 public class ejerciciosIniciación {
 
 	static Scanner teclado = new Scanner(System.in);
-	// static int contador = 0;
+	static int contador = 0;
 
 	public static void existeDirectorio(File directorio) {
 
 		if (directorio.exists()) {
 			System.out.println("El directorio es valido, vamos a ver los archivos");
-			nombrarArchivos(directorio);
+			nombrarArchivos2(directorio);
 		} else
 			System.out.println("Has introducido mal los datos del directorio o el directorio no existe");
 
@@ -26,15 +26,28 @@ public class ejerciciosIniciación {
 		for (File f : ficheros)
 			System.out.println("El nombre del archivo es: " + f.getName());
 
-		/*
-		 * for(int i = 0; i<ficheros.length; i++)
-		 * System.out.println("El nombre del archivo es: " + ficheros[i].getName());
-		 * 
-		 * if(ficheros == null) return; else { nombrarArchivos(ficheros[contador++]);
-		 * System.out.println("El nombre del archivo es: " +
-		 * ficheros[contador].getName()); }
-		 */
+	}
+	
 
+	public static void nombrarArchivos2(File directorio) {
+
+		// File[] ficheros = directorio.list();
+		if (directorio == null) {
+			System.out.println("No hay nada");
+		} else {
+			if (directorio.isFile()) {
+				System.out.println("Es un fichero " + directorio.getName());
+			}
+			if (directorio.isDirectory()) {
+
+				// nombrarArchivos2(directorio);
+				File[] ficheros = directorio.listFiles();
+				System.out.println("Es un directorios " + directorio.getName());
+				System.out.println(ficheros.toString());
+
+			}
+
+		}
 	}
 
 	public static void ejercicio1() {
@@ -114,7 +127,7 @@ public class ejerciciosIniciación {
 
 		if (f.isDirectory()) {
 			System.out.println("El archivo que has pasado es un directorio y sus archivos son:");
-			nombrarArchivos(f);
+			nombrarArchivos2(f);
 		} else
 			System.out.println("No es un directorio");
 
