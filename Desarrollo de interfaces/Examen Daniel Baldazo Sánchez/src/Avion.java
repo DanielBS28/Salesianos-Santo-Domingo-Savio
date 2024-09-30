@@ -3,33 +3,40 @@ public class Avion extends Vehiculos{
 
 	
 	private byte motores;
-	private double velocidadMax;
 	private boolean combate;
 	
-	public Avion(String marca, String color, String numeroBastidor, int kilometros, byte motores, double velocidadMax,
+	
+
+	public Avion(String marca, String color, String numeroBastidor, int kilometros, double velocidadMax, byte motores,
 			boolean combate) {
-		super(marca, color, numeroBastidor, kilometros);
+		super(marca, color, numeroBastidor, kilometros, velocidadMax);
 		this.motores = motores;
-		this.velocidadMax = velocidadMax;
 		this.combate = combate;
 	}
 
-	public Avion(String marca, String color, String numeroBastidor, int kilometros, boolean combate) {
-		super(marca, color, numeroBastidor, kilometros);
+	
+
+	public Avion(String marca, String color, String numeroBastidor, int kilometros, double velocidadMax,
+			boolean combate) {
+		super(marca, color, numeroBastidor, kilometros, velocidadMax);
 		this.combate = combate;
 	}
+
+
 
 	public Avion(Avion avion) {
 		
-		super(avion.getMarca(), avion.getColor(), avion.getNumeroBastidor(), avion.getKilometros());
+		super(avion.getMarca(), avion.getColor(), avion.getNumeroBastidor(), avion.getKilometros(),avion.getVelocidadMax());
 		this.motores = avion.getMotores();
-		this.velocidadMax = avion.getVelocidadMax();
 		this.combate = avion.isCombate();
 	}
 	
+
 	public Avion() {
-		super();
+		
 	}
+
+
 
 	public byte getMotores() {
 		return motores;
@@ -39,13 +46,6 @@ public class Avion extends Vehiculos{
 		this.motores = motores;
 	}
 
-	public double getVelocidadMax() {
-		return velocidadMax;
-	}
-
-	public void setVelocidadMax(double velocidadMax) {
-		this.velocidadMax = velocidadMax;
-	}
 
 	public boolean isCombate() {
 		return combate;
@@ -56,10 +56,13 @@ public class Avion extends Vehiculos{
 	}
 
 
-	public void AviontoString() {
-		System.out.print(VehiculotoString());
-		System.out.println("Avion [motores=" + motores + ", velocidadMax=" + velocidadMax + ", combate=" + combate + "]");
+	@Override
+	public String toString() {
+		return super.toString()+", motores=" + motores + ", combate=" + combate + "]";
 	}
+
+
+	
 	
 	
 	

@@ -4,9 +4,22 @@ public class Coche extends Vehiculos{
 	protected boolean electrico;
 	private boolean antiguo;
 	
-	public Coche(String marca, String color, String numeroBastidor, int kilometros, boolean electrico) {
-		super(marca, color, numeroBastidor, kilometros);
+	
+	
+	public Coche(String marca, String color, String numeroBastidor, int kilometros, double velocidadMax,
+			boolean electrico, boolean antiguo) {
+		super(marca, color, numeroBastidor, kilometros, velocidadMax);
 		this.electrico = electrico;
+		this.antiguo = antiguo;
+	}
+
+	public Coche(Coche coche) {
+		super(coche.getMarca(), coche.getColor(), coche.NumeroBastidor, coche.getKilometros(),coche.getVelocidadMax());
+		this.electrico = coche.isElectrico();
+		this.antiguo = coche.isAntiguo();
+	}
+
+	public Coche() {
 	}
 
 	public boolean isElectrico() {
@@ -25,12 +38,13 @@ public class Coche extends Vehiculos{
 		this.antiguo = antiguo;
 	}
 
-
-	public void cochetoString() {
-		
-		System.out.print(VehiculotoString());
-		System.out.println( " electrico=" + electrico + ", antiguo=" + antiguo + "]");
+	@Override
+	public String toString() {
+		return super.toString() +", electrico=" + electrico + ", antiguo=" + antiguo + "]";
 	}
+
+
+	
 	
 	
 	

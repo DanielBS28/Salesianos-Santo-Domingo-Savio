@@ -5,11 +5,24 @@ public class Barco extends Vehiculos{
 	private int calado;
 	private String tipo;
 	
-	public Barco(String marca, String color, String numeroBastidor, int kilometros, int eslora, int calado, String tipo) {
-		super(marca, color, numeroBastidor, kilometros);
+	
+
+	public Barco(String marca, String color, String numeroBastidor, int kilometros, double velocidadMax, int eslora,
+			int calado, String tipo) {
+		super(marca, color, numeroBastidor, kilometros, velocidadMax);
 		this.eslora = eslora;
 		this.calado = calado;
 		this.tipo = tipo;
+	}
+	
+	public Barco(Barco barco) {
+		super(barco.getMarca(), barco.getColor(), barco.getNumeroBastidor(), barco.getKilometros(), barco.getVelocidadMax());
+		this.eslora = barco.getEslora();
+		this.calado = barco.getCalado();
+		this.tipo = barco.getTipo();
+	}
+
+	public Barco() {
 	}
 
 	public int getEslora() {
@@ -38,7 +51,7 @@ public class Barco extends Vehiculos{
 
 	@Override
 	public String toString() {
-		return "Barco [eslora=" + eslora + ", calado=" + calado + ", tipo=" + tipo + "]";
+		return  super.toString() + ", eslora=" + eslora + ", calado=" + calado + ", tipo=" + tipo + "]";
 	}
 	
 	

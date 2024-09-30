@@ -5,14 +5,18 @@ public class Vehiculos {
 	public String Color;
 	public String NumeroBastidor;
 	public int Kilometros;
+	private double VelocidadMax;
 	protected int añofabricacion;
 	
 	
-	public Vehiculos(String marca, String color, String numeroBastidor, int kilometros) {
+	
+	
+	public Vehiculos(String marca, String color, String numeroBastidor, int kilometros, double velocidadMax) {
 		Marca = marca;
 		Color = color;
 		NumeroBastidor = numeroBastidor;
 		Kilometros = kilometros;
+		VelocidadMax = velocidadMax;
 	}
 	
 	public Vehiculos() {
@@ -67,13 +71,30 @@ public class Vehiculos {
 
 	public void setAñofabricacion(int añofabricacion) {
 		this.añofabricacion = añofabricacion;
+		
+		
+	}
+	
+
+	public double getVelocidadMax() {
+		return VelocidadMax;
 	}
 
 
-	public String VehiculotoString() {
-		return "Vehiculos [Marca=" + Marca + ", Color=" + Color + ", NumeroBastidor=" + NumeroBastidor + ", Kilometros="
-				+ Kilometros + ", añofabricacion=" + añofabricacion + ",";
+	public void setVelocidadMax(double velocidadMax) {
+		VelocidadMax = velocidadMax;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Vehiculo: [Marca=" + Marca + ", Color=" + Color + ", NumeroBastidor=" + NumeroBastidor + ", Kilometros="
+				+ Kilometros + ", VelocidadMax=" + VelocidadMax;
+	}
+
+
+	
+	
 	
 	
 	
