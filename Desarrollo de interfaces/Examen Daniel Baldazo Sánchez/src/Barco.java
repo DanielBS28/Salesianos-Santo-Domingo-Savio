@@ -51,7 +51,7 @@ public class Barco extends Vehiculos{
 
 	@Override
 	public String toString() {
-		return  super.toString() + ", eslora=" + eslora + ", calado=" + calado + ", tipo=" + tipo + "]";
+		return  super.toString() + ", eslora=" + eslora + ", calado=" + calado + ", tipo=" + tipo + "]\n";
 	}
 	
 	

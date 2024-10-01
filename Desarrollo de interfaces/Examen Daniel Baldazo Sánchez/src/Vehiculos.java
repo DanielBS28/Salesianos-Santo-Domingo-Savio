@@ -1,5 +1,5 @@
 
-public class Vehiculos {
+public class Vehiculos implements Comparable<Vehiculos>{
 	
 	public String Marca;
 	public String Color;
@@ -90,6 +90,16 @@ public class Vehiculos {
 	public String toString() {
 		return "Vehiculo: [Marca=" + Marca + ", Color=" + Color + ", NumeroBastidor=" + NumeroBastidor + ", Kilometros="
 				+ Kilometros + ", VelocidadMax=" + VelocidadMax;
+	}
+
+	@Override
+	public int compareTo(Vehiculos v) {
+		if(VelocidadMax >v.getVelocidadMax())
+			return 1;
+		if(VelocidadMax < v.getVelocidadMax())
+		return -1;
+		
+		return 0;
 	}
 
 

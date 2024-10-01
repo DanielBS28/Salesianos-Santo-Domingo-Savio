@@ -40,7 +40,7 @@ public class Coche extends Vehiculos{
 
 	@Override
 	public String toString() {
-		return super.toString() +", electrico=" + electrico + ", antiguo=" + antiguo + "]";
+		return super.toString() +", electrico=" + electrico + ", antiguo=" + antiguo + "]\n";
 	}
 
 

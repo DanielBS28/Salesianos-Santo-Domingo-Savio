@@ -58,7 +58,7 @@ public class Avion extends Vehiculos{
 
 	@Override
 	public String toString() {
-		return super.toString()+", motores=" + motores + ", combate=" + combate + "]";
+		return super.toString()+", motores=" + motores + ", combate=" + combate + "]\n";
 	}
 
 
