@@ -16,48 +16,34 @@ public class L_ejercicio4 {
 		File archivo = new File("frutas.txt");
 		leerFrutas(archivo);
 	}
-	
-	static ArrayList<Fruta>rellenarFrutas(File archivo){
-		
-		ArrayList<Fruta> FRUTAS = new ArrayList<>();
-		String linea;
-
-		try {
-			BufferedReader lector = new BufferedReader(new FileReader(archivo));
-			while ((linea = lector.readLine()) != null) {
-				Fruta f = new Fruta(linea);
-				FRUTAS.add(f);
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return FRUTAS;
-		
-	}
 
 	static void leerFrutas(File archivo) {
 
 		String linea;
-		ArrayList<Fruta> FRUTAS = rellenarFrutas(archivo);
-		
+		ArrayList<Fruta> FRUTAS = new ArrayList<>();
+		boolean frutaencontrada = false;
+
 		try {
 			BufferedReader lector = new BufferedReader(new FileReader(archivo));
 			while ((linea = lector.readLine()) != null) {
+				frutaencontrada = false;
 
 				for (int i = 0; i < FRUTAS.size(); i++) {
-
-					if(FRUTAS.get(i).getNombre().equals(linea))
+					if (FRUTAS.get(i).getNombre().equals(linea)) {
 						FRUTAS.get(i).cantidad++;
+						frutaencontrada = true;
+					}
+
 				}
+				if (!frutaencontrada)
+					FRUTAS.add(new Fruta(linea));
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		for(int i=0; i<FRUTAS.size();i++) {
+
+		for (int i = 0; i < FRUTAS.size(); i++) {
 			System.out.println(FRUTAS.get(i).toString());
 		}
 	}

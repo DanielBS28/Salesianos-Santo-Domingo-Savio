@@ -39,14 +39,14 @@ public class ExplicacionEnClase {
 			fis.close();
 
 		} catch (IOException e) {
-			e.getStackTrace();
+			e.printStackTrace();
 		}
 	}
 
 	public static void EscribirCoches(String ruta) {
 
 		try {
-
+				// new FileOutputStream verifica si el File existe, si no existe lo crea
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream((new File(ruta))));
 
 			Coche c1 = new Coche(5, "Opel", "Astra", 500, 200, 20000);
@@ -57,9 +57,9 @@ public class ExplicacionEnClase {
 
 			oos.close();
 		} catch (FileNotFoundException fnfe) {
-			fnfe.getStackTrace();
+			fnfe.printStackTrace();
 		} catch (IOException ioe) {
-			ioe.getStackTrace();
+			ioe.printStackTrace();
 
 		}
 	}
@@ -80,9 +80,9 @@ public class ExplicacionEnClase {
 			ois.close();
 
 		} catch (ClassNotFoundException fnfe) {
-			fnfe.getStackTrace();
+			fnfe.printStackTrace();
 		} catch (IOException ioe) {
-			ioe.getStackTrace();
+			ioe.printStackTrace();
 
 		}
 	}
@@ -92,8 +92,8 @@ public class ExplicacionEnClase {
 		String ruta = "fichero.bin";
 		String ruta2 = "fichero2.bin";
 		
-		// escribirBinario(ruta);
-		// lecturaBinarios(ruta);
+		//escribirBinario(ruta);
+		//lecturaBinarios(ruta);
 		EscribirCoches(ruta2);
 		lecturaObjetos(ruta2);
 

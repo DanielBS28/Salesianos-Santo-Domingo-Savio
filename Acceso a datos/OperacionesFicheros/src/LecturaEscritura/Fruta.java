@@ -3,7 +3,7 @@ package LecturaEscritura;
 public class Fruta {
 	
 	String Nombre;
-	int cantidad = 0;
+	int cantidad = 1;
 	
 	public Fruta(String nombre) {
 	
