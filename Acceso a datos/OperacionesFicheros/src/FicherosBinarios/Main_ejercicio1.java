@@ -34,7 +34,7 @@ public class Main_ejercicio1 {
 		
 		Persona persona = pedirDatos();
 		
-		oos.writeObject(persona);;
+		oos.writeObject(persona);
 		
 		
 		}catch (FileNotFoundException fnfe) {
