@@ -16,8 +16,10 @@ int main(){
 	else {
 	
 	wait(&status);
-	printf("\nHola, soy el proceso padre con PID: %d, y PPID: %d. He creado un proceso con PID: %d",getpid(), getppid(),pid);
+	printf("\nHola, soy el proceso padre con PID: %d, y PPID: %d.\nHe creado un proceso con PID: %d",getpid(), getppid(),pid);
 	
+	/* Coinciden el PPID del hijo con el PID del padre, ya que el PPID es el ID de proceso 
+	por tanto el PPID del hijo debe de coindicir con el PID del proceso padre*/
 
 	}
 	
