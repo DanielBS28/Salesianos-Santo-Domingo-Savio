@@ -9,4 +9,5 @@
     <fullyQualifiedTypeName name="java.io.Serializable"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="javax.imageio.spi.ImageOutputStreamSpi"/>
+    <fullyQualifiedTypeName name="java.io.LineNumberInputStream"/>
 </qualifiedTypeNameHistroy>

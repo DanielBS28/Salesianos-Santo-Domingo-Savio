@@ -9,7 +9,7 @@ public class Main_ejercicio1_v2 {
 	static Scanner teclado = new Scanner(System.in);
 
 	public static void escribirPersonas(ArrayList<Persona> p, String ruta) {
-
+		
 		try {
 
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File(ruta)));

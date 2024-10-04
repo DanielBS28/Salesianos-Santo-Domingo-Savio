@@ -4,4 +4,7 @@
     <fullyQualifiedTypeName name="Avion"/>
     <fullyQualifiedTypeName name="java.lang.Comparable"/>
     <fullyQualifiedTypeName name="Barco"/>
+    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
+    <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+    <fullyQualifiedTypeName name="org.jsoup.Jsoup"/>
 </qualifiedTypeNameHistroy>
