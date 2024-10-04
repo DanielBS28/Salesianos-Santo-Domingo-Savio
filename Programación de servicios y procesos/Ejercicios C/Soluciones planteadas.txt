@@ -1,0 +1,17 @@
+Ejercicio1: 
+
+Seleccione una de las practicas ya realizadas en clase ya que es muy similar y modifiqué los printf. 
+
+Ejercicio2:
+
+Aqui realicé un proceso para el hijo 1, luego otro proceso para el hijo 2 pero con la condición de que el hijo 2 no acabe hastá que no se completen los dos hijos del hijo2.
+En cada creación de proceso puse un print f con la información solicitada.
+
+Ejercicio3: 
+
+En la primera parte hice 3 funciones, una para sumar los numeros impares hasta 500.000, otra para los comprobar si un número es primo o no y otra para sumar los numeros de 1 a 1.000.000 comprobando que sean primos.
+En la parte b reutilice los códigos pero tuve que cambiar algunos datos ya que ahora los número impares son hasta el 5.000.000 y es el producto. Y Tuve que aplicar la logica de crear dos susprocesos una para cada operación con fork();
+
+Ejercicio 4:
+
+Ordenar al imprimir el código -> está mal ya que el código imprime "Hola, ¿qué tal? Todo bien, gracias." tanto en el proceso padre como en el hijo, lo cual no hace falta si el padre solo quiere preguntar y el hijo debe responder.
