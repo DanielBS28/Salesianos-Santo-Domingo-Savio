@@ -5,11 +5,15 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JComboBox;
 import java.awt.Cursor;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaTraductor {
 
@@ -21,6 +25,22 @@ public class VentanaTraductor {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
+		UIManager.LookAndFeelInfo [] looks = UIManager.getInstalledLookAndFeels();
+	
+		for(int i = 0; i< looks.length; i++) 
+			System.out.println("Looks instalados: " + looks[i].getClassName());
+
+		
+	
+			try {
+				UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+					| UnsupportedLookAndFeelException e) {
+		
+				e.printStackTrace();
+			}
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -47,7 +67,8 @@ public class VentanaTraductor {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(0, 128, 255));
 		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 500, 500);
+		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -76,6 +97,12 @@ public class VentanaTraductor {
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("SIGUIENTE");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {		
+				
+				frame.getContentPane().setVisible(false);
+			}
+		});
 		btnNewButton_1.setBackground(new Color(0, 128, 0));
 		btnNewButton_1.setBounds(302, 197, 89, 23);
 		frame.getContentPane().add(btnNewButton_1);

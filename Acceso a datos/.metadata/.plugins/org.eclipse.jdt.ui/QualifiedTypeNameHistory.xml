@@ -10,4 +10,5 @@
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="javax.imageio.spi.ImageOutputStreamSpi"/>
     <fullyQualifiedTypeName name="java.io.LineNumberInputStream"/>
+    <fullyQualifiedTypeName name="FicherosBinarios.Alumno"/>
 </qualifiedTypeNameHistroy>

@@ -6,6 +6,15 @@ import java.util.Scanner;
 
 public class Main_ejercicio2 {
 
+	/*
+	 * Se quiere guardar todos los datos de los libros de una librería los atributos
+	 * que se almacenan son los siguientes título, autor y precio.Se debe crear una
+	 * clase que se llame libros y que contenga los atributos mencionados. El
+	 * programa debe permitir insertar libros, listar libros, ordenar los libros
+	 * según su precio y filtrar por rango de precio.
+	 * 
+	 */
+
 	static ArrayList<Libros> LIBROS = new ArrayList<>();
 	static Scanner teclado = new Scanner(System.in);
 	static String ruta = "Libros.bin";
