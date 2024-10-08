@@ -1,8 +1,9 @@
 package FicherosBinarios;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Alumno {
+public class Alumno implements Serializable{
 
 	private String nombre;
 	private String apellido;

@@ -1,5 +1,6 @@
 package FicherosBinarios;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,6 +15,7 @@ public class Main_ejercicio3 {
 
 	static Scanner teclado = new Scanner(System.in);
 	static ArrayList<Alumno> ALUMNOS = new ArrayList<>();
+	static String ruta = "Alumnos.bin";
 	final static char SUSPENSOS = '0';
 	final static char APROBADOS = '1';
 
@@ -51,14 +53,47 @@ public class Main_ejercicio3 {
 
 	}
 
-	static void mostrarAlumnos(char BANDERA) {
+	static void escribirArray() {
 
-		if (ALUMNOS.isEmpty()) {
+		try {
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File(ruta)));
+
+			oos.writeObject(ALUMNOS);
+			
+			oos.close();
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	static void mostrarAlumnos(char BANDERA) {
+		
+		escribirArray();
+
+		ArrayList<Alumno> Alumnos = new ArrayList<>();
+
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(ruta)));
+
+			Alumnos = (ArrayList<Alumno>) ois.readObject();
+			
+			ois.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		if (Alumnos.isEmpty()) {
 			System.out.println("No hay alumnos para visualizar notas");
 			return;
 		}
 
-		for (Alumno a : ALUMNOS)
+		for (Alumno a : Alumnos)
 			if (BANDERA == APROBADOS) {
 				if (a.getNota() >= 5)
 					System.out.println(a);
@@ -93,11 +128,12 @@ public class Main_ejercicio3 {
 		String apellido = pedirApellido();
 
 		for (Alumno a : ALUMNOS) {
-			if (a.getNombre().equals(nombre) && a.getApellido().equals(apellido))
+			if (a.getNombre().equals(nombre) && a.getApellido().equals(apellido)) {
 				a.setNota();
-			else
-				System.out.println("Alumno no reconocido");
+				return;
+			}
 		}
+		System.out.println("Alumno no reconocido");
 	}
 
 	static void altaAlumnos() {
