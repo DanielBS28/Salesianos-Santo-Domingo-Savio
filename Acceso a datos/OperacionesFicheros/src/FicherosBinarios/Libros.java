@@ -7,6 +7,7 @@ public class Libros implements Serializable, Comparable<Libros> {
 	private String Titulo;
 	private String Autor;
 	private double Precio;
+	
 	public Libros(String titulo, String autor, double precio) {
 		
 		this.Titulo = titulo;
