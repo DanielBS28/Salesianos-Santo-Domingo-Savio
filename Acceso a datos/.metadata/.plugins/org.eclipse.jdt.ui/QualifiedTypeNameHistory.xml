@@ -12,4 +12,6 @@
     <fullyQualifiedTypeName name="java.io.Serializable"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="java.io.RandomAccessFile"/>
+    <fullyQualifiedTypeName name="EjerciciosBásicos.ListarFicherosRecursivo"/>
+    <fullyQualifiedTypeName name="FicherosAccesoAleatorio.Estudiante"/>
 </qualifiedTypeNameHistroy>
