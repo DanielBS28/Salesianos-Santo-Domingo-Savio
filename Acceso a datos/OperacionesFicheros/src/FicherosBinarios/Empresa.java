@@ -40,7 +40,7 @@ public class Empresa implements Serializable{
 	public void cambiarPuestoEmpleado() {
 
 		if (EMPLEADOS.isEmpty()) {
-			System.out.println("No hay empleado en la empresa");
+			System.out.println("No hay empleados en la empresa");
 			return;
 		}
 

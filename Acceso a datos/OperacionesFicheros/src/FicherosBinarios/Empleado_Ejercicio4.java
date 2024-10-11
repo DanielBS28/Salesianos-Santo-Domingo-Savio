@@ -8,6 +8,8 @@ public class Empleado_Ejercicio4 implements Serializable{
 	private String apellido;
 	private String puesto;
 	private double salario;
+	
+	
 	public String getNombre() {
 		return nombre;
 	}

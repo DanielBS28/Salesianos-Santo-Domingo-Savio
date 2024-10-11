@@ -37,8 +37,8 @@ public class Main_ejercicio4 {
 			System.out.println("0- Salir");
 			System.out.println("1- Dar de alta a empleado");
 			System.out.println("2- Cambiar de puesto a un empleado");
-			System.out.println("3- Listar ");
-			System.out.println("4- Mostrar los alumnos aprobados");
+			System.out.println("3- Listar empleados por puesto introducido");
+			System.out.println("4- Listar los empleados por rango de salario");
 			System.out.println("********************************************");
 
 			opcion = teclado.nextInt();
@@ -47,13 +47,13 @@ public class Main_ejercicio4 {
 			if (opcion == 0)
 				System.out.println("Saliste del programa, ¡Hasta pronto!");
 			else if (opcion == 1)
-				altaAlumnos();
+			
 			else if (opcion == 2)
-				insertarNotaAlumnos();
+				
 			else if (opcion == 3)
-				mostrarAlumnos(SUSPENSOS);
+				
 			else if (opcion == 4)
-				mostrarAlumnos(APROBADOS);
+				
 			else
 				System.out.println("Opción no reconocida, por favor vuelve a intentarlo");
 
