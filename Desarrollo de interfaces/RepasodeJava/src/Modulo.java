@@ -15,11 +15,21 @@ public class Modulo {
 	}
 
 
-	public void informacion() {
+	public String informacion() {
 		
-		System.out.println("Modulo [Nombre=" + Nombre + ", NumeroHoras=" + NumeroHoras + ", convalidable=" + convalidable + "]");
-		profesor.ProfesortoString();
+		return "Modulo [Nombre=" + Nombre + ", NumeroHoras=" + NumeroHoras + ", convalidable=" + convalidable +
+		profesor.toString();
 	}
+
+
+	@Override
+	public String toString() {
+		return "Modulo [Nombre=" + Nombre + ", NumeroHoras=" + NumeroHoras + ", profesor=" + profesor.getNombre()
+				+ ", convalidable=" + convalidable + "]";
+	}
+	
+	
+	
 	
 	
 	

@@ -13,11 +13,12 @@ public class Profesor extends Persona{
 		this.Salario = Salario;
 	}
 
-	public void ProfesortoString() {
-		PersonatoString();
-		System.out.println(", Asignaturas=" + Asignaturas + ", Tutor=" + Tutor + ", Salario= "+ Salario +"]");
-
+	@Override
+	public String toString() {
+		return "Profesor [Asignaturas=" + Asignaturas + ", Tutor=" + Tutor + ", Salario=" + Salario + "]";
 	}
+
+	
 	
 	
 	

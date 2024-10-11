@@ -21,19 +21,20 @@ public class Alumno extends Persona {
 		return modulos;
 	}
 	
-	public void modulos(ArrayList<Modulo> modulosAlumnos) {
+	public String modulos(ArrayList<Modulo> modulosAlumnos) {
 		
-		for(Modulo m : modulosAlumnos)	
-			m.informacion();
+		return modulos.toString();
 	
 	}
 
-	public void informacionAlumno() {
-		PersonatoString();
-		System.out.println(", [fechaNacimiento=" + fechaNacimiento + ", sexo=" + sexo + ", repetidor="
-				+ repetidor + ", Modulos ---------->");
-		modulos(modulos);
+	
+	@Override
+	public String toString() {
+		return super.toString() + "Alumno [fechaNacimiento=" + fechaNacimiento + ", sexo=" + sexo + ", repetidor=" + repetidor+
+				" , Modulos ---------->" + modulos(modulos);
 	}
+	
+	
 	
 
 	/*

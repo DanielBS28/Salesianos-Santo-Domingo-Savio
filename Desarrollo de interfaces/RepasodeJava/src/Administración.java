@@ -15,13 +15,14 @@ public class Administración extends Persona{
 		this.Salario = Salario;
 	}
 
-
-
-
+	@Override
 	public String toString() {
-		return PersonatoString() + ", Estudios=" + Estudios + ", Antiguedad=" + Antiguedad + ", Salario= "+ Salario +"]";
+		return "Administración [Estudios=" + Estudios + ", Antiguedad=" + Antiguedad + ", Salario=" + Salario + "]";
 	}
-	
+
+
+
+
 	
 	
 	

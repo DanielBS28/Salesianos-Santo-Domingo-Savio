@@ -15,9 +15,16 @@ public class Persona {
 	}
 	
 
-	public void PersonatoString() {
-		System.out.print("Datos [DNI=" + DNI + ", Nombre=" + Nombre + ", Apellidos=" + Apellidos); 
+	
+
+
+	@Override
+	public String toString() {
+		return "Persona [DNI=" + DNI + ", Nombre=" + Nombre + ", Apellidos=" + Apellidos + "]";
 	}
+
+
+
 
 
 	public String getDNI() {

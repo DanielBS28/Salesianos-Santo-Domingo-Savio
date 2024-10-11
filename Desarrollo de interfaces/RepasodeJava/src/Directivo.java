@@ -13,12 +13,13 @@ public class Directivo extends Persona{
 		this.Salario = Salario;
 	}
 
-	
+	@Override
 	public String toString() {
-		return PersonatoString() + ", Directivo [Salesiano=" + Salesiano + ", Turno=" + ", Salario= "+ Salario +"]";
+		return "Directivo [Salesiano=" + Salesiano + ", Turno=" + Turno + ", Salario=" + Salario + "]";
 	}
+
 	
-	
+
 	
 	
 	

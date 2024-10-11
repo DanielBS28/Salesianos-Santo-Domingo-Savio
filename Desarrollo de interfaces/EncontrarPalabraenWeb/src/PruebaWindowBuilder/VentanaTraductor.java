@@ -63,6 +63,7 @@ public class VentanaTraductor {
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(0, 128, 255));

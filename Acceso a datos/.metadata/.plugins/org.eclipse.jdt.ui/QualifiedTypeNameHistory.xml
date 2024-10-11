@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.util.Comparator"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.io.FileInputStream"/>
     <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
@@ -9,9 +8,13 @@
     <fullyQualifiedTypeName name="javax.imageio.spi.ImageOutputStreamSpi"/>
     <fullyQualifiedTypeName name="java.io.LineNumberInputStream"/>
     <fullyQualifiedTypeName name="FicherosBinarios.Alumno"/>
-    <fullyQualifiedTypeName name="java.io.Serializable"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="java.io.RandomAccessFile"/>
     <fullyQualifiedTypeName name="EjerciciosBásicos.ListarFicherosRecursivo"/>
     <fullyQualifiedTypeName name="FicherosAccesoAleatorio.Estudiante"/>
+    <fullyQualifiedTypeName name="java.util.Collection"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="FicherosBinarios.Empleado_Ejercicio4"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
 </qualifiedTypeNameHistroy>
