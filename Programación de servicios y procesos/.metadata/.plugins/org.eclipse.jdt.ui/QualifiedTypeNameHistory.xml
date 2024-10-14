@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.lang.Runnable"/>
+    <fullyQualifiedTypeName name="EjerciciosHilos_DanielBaldazoSánchez.CocheRunnable"/>
+    <fullyQualifiedTypeName name="java.lang.Thread"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="EjerciciosHilos_DanielBaldazoSánchez.RobotExplorador"/>
+</qualifiedTypeNameHistroy>

@@ -17,6 +17,8 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
+import java.awt.TextArea;
 
 public class Traductor {
 
@@ -52,14 +54,17 @@ public class Traductor {
 	 */
 	private void initialize() {
 		frmTraductorEspaol = new JFrame();
+		frmTraductorEspaol.setIconImage(Toolkit.getDefaultToolkit().getImage(Traductor.class.getResource("/PruebaWindowBuilder/Google_Translate_logo.svg.png")));
 		frmTraductorEspaol.setTitle("Traductor Español - Inglés");
 		frmTraductorEspaol.setBounds(100, 100, 450, 300);
 		frmTraductorEspaol.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTraductorEspaol.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("TRADUCTOR DAM");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNewLabel.setBounds(157, 22, 110, 30);
+		lblNewLabel.setBackground(new Color(0, 128, 192));
+		lblNewLabel.setForeground(new Color(0, 128, 192));
+		lblNewLabel.setFont(new Font("Arial Unicode MS", Font.BOLD, 13));
+		lblNewLabel.setBounds(155, 24, 118, 30);
 		frmTraductorEspaol.getContentPane().add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("Introduce palabra a traducir");
@@ -100,7 +105,7 @@ public class Traductor {
 		});
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setBackground(new Color(0, 128, 192));
-		btnNewButton.setBounds(48, 188, 89, 23);
+		btnNewButton.setBounds(262, 192, 89, 23);
 		frmTraductorEspaol.getContentPane().add(btnNewButton);
 	}
 
