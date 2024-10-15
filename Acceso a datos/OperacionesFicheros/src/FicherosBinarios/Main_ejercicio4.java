@@ -1,35 +1,57 @@
 package FicherosBinarios;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main_ejercicio4 {
-	
+
 	static String nombreFichero = "ejercicio4.bin";
 	static Scanner teclado = new Scanner(System.in);
+	static ArrayList <Empleado_Ejercicio4> EMPLEADOS = new ArrayList<>();
 
+	public static void escribirFichero(String nombreFichero, ArrayList <Empleado_Ejercicio4> Empleados) {
 
-	public void escribirFichero(String nombreFichero) {
-		
 		try {
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File(nombreFichero)));
-			
-			oos.writeObject(oos);
-			
+
+			oos.writeObject(Empleados);
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
-	public void leerFichero() {
+	public static void leerFichero(String nombreFichero) {
 
+		ArrayList<Empleado_Ejercicio4> Empleados = new ArrayList<>();
+
+		ObjectInputStream ois;
+		try {
+			ois = new ObjectInputStream(new FileInputStream(new File(nombreFichero)));
+
+			Empleados = (ArrayList<Empleado_Ejercicio4>) ois.readObject();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
+		for(Empleado_Ejercicio4 e : Empleados)
+			System.out.println(e);
+
 	}
-	
-	public static void mostrarMenu() {
+
+	public static void mostrarMenu(Empresa empresa) {
 		int opcion = 0;
-		
+
 		do {
 
 			System.out.println("********************************************");
@@ -47,13 +69,19 @@ public class Main_ejercicio4 {
 			if (opcion == 0)
 				System.out.println("Saliste del programa, ¡Hasta pronto!");
 			else if (opcion == 1)
-			
+				empresa.insertarEmpleados();
 			else if (opcion == 2)
-				
-			else if (opcion == 3)
-				
-			else if (opcion == 4)
-				
+				empresa.cambiarPuestoEmpleado();
+			else if (opcion == 3) {
+				EMPLEADOS = empresa.listarEmpleadosPuesto();
+				escribirFichero(nombreFichero, EMPLEADOS);
+				leerFichero(nombreFichero);
+			}
+			else if (opcion == 4) {
+				EMPLEADOS = empresa.listarEmpleadosSalario();
+				escribirFichero(nombreFichero, EMPLEADOS);
+				leerFichero(nombreFichero);
+			}
 			else
 				System.out.println("Opción no reconocida, por favor vuelve a intentarlo");
 
@@ -61,10 +89,9 @@ public class Main_ejercicio4 {
 	}
 
 	public static void main(String[] args) {
-		
+
 		Empresa Daniel = new Empresa();
-		mostrarMenu();
-		
+		mostrarMenu(Daniel);
 
 	}
 

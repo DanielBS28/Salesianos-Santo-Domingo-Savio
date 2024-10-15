@@ -7,11 +7,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 
-public class Empresa implements Serializable{
+public class Empresa implements Serializable {
 
 	static Scanner teclado = new Scanner(System.in);
+
 	private ArrayList<Empleado_Ejercicio4> EMPLEADOS = new ArrayList<>();
-	
+
 	public Empresa() {
 
 	}
@@ -61,24 +62,40 @@ public class Empresa implements Serializable{
 		}
 	}
 
-	public void listarEmpleadosPuesto() {
+	public ArrayList<Empleado_Ejercicio4> listarEmpleadosPuesto() {
 
-		System.out.println("Dime el nombre del puesto");
-		String puesto = teclado.nextLine();
+		ArrayList<Empleado_Ejercicio4> EmpleadosFiltrados = new ArrayList<>();
+		Boolean puestoCorrecto = false;
+		String puesto = "";
 
+		do {
+			System.out.println("Dime el nombre del puesto (Jefe/Trabajador/Becario)");
+			puesto = teclado.nextLine();
+			if (puesto.equalsIgnoreCase("Jefe") || puesto.equalsIgnoreCase("Trabajador")
+					|| puesto.equalsIgnoreCase("Becario"))
+				puestoCorrecto = true;
+			else
+				System.out.println("Has introducido mal los datos");
+		} while (!puestoCorrecto);
 		for (Empleado_Ejercicio4 e : EMPLEADOS) {
 			if (e.getPuesto().equalsIgnoreCase(puesto)) {
-				System.out.println(e);
+				EmpleadosFiltrados.add(e);
 			}
 		}
+		return EmpleadosFiltrados;
+
 	}
 
-	public void listarEmpleadosSalario() {
+	public ArrayList<Empleado_Ejercicio4> listarEmpleadosSalario() {
+
+		ordenarArray();
+		return EMPLEADOS;
+
+	}
+
+	private void ordenarArray() {
 
 		Collections.sort(EMPLEADOS, Comparator.comparingDouble(Empleado_Ejercicio4::getSalario));
-		
-		for (Empleado_Ejercicio4 e : EMPLEADOS)
-			System.out.println(e);
 
 	}
 
