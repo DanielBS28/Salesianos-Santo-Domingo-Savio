@@ -1,4 +1,4 @@
-package EjercicioBeaLibros.OperacionesFicheros.src.EjercicioDos;
+package EjercicioBeaLibros;
 
 import java.io.Serializable;
 

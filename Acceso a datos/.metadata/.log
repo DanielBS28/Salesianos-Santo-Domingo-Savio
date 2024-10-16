@@ -14083,3 +14083,297 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2024-10-16 19:12:48.840 -----------------------------------------------
+eclipse.buildId=4.33.0.20240905-0613
+java.version=22.0.2
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY ch.qos.logback.classic 1 0 2024-10-16 19:12:52.912
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-10-16 19:12:59.192
+!MESSAGE Logback config file: C:\Users\yakit\Desktop\2024-2025\Acceso a datos\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.1.20240411-1122.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-10-16 19:13:09.682
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\yakit'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2024-10-16 19:14:13.434 -----------------------------------------------
+eclipse.buildId=4.33.0.20240905-0613
+java.version=22.0.2
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY ch.qos.logback.classic 1 0 2024-10-16 19:14:17.219
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-10-16 19:14:26.244
+!MESSAGE Logback config file: C:\Users\yakit\Desktop\2024-2025\Acceso a datos\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.1.20240411-1122.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-10-16 19:14:35.903
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\yakit'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.ltk.ui.refactoring 4 10000 2024-10-16 19:14:58.507
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: Core Exception [code 368] File not found: C:\Users\yakit\Desktop\2024-2025\Acceso a datos\OperacionesFicheros\src\EjercicioBeaLibros\OperacionesFicheros\src\EjercicioDos\Libro.java.
+	at org.eclipse.jdt.internal.core.util.Util.getResourceContentsAsCharArray(Util.java:1190)
+	at org.eclipse.jdt.internal.core.CompilationUnit.openBuffer(CompilationUnit.java:1202)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:108)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:245)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:585)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:308)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:294)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildren(JavaElement.java:249)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildrenOfType(JavaElement.java:263)
+	at org.eclipse.jdt.internal.core.CompilationUnit.getTypes(CompilationUnit.java:958)
+	at org.eclipse.jdt.internal.corext.refactoring.Checks.checkForMainAndNativeMethods(Checks.java:288)
+	at org.eclipse.jdt.internal.corext.refactoring.rename.RenamePackageProcessor.checkForMainAndNativeMethods(RenamePackageProcessor.java:470)
+	at org.eclipse.jdt.internal.corext.refactoring.rename.RenamePackageProcessor.doCheckFinalConditions(RenamePackageProcessor.java:410)
+	at org.eclipse.jdt.internal.corext.refactoring.rename.JavaRenameProcessor.checkFinalConditions(JavaRenameProcessor.java:51)
+	at org.eclipse.ltk.core.refactoring.participants.ProcessorBasedRefactoring.checkFinalConditions(ProcessorBasedRefactoring.java:227)
+	at org.eclipse.ltk.core.refactoring.CheckConditionsOperation.run(CheckConditionsOperation.java:86)
+	at org.eclipse.ltk.core.refactoring.CreateChangeOperation.run(CreateChangeOperation.java:116)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:207)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2451)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2476)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:89)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:124)
+Caused by: org.eclipse.core.internal.resources.ResourceException: File not found: C:\Users\yakit\Desktop\2024-2025\Acceso a datos\OperacionesFicheros\src\EjercicioBeaLibros\OperacionesFicheros\src\EjercicioDos\Libro.java.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.readAllBytes(FileSystemResourceManager.java:916)
+	at org.eclipse.core.internal.resources.File.readAllBytes(File.java:355)
+	at org.eclipse.core.internal.utils.FileUtil.readAllChars(FileUtil.java:302)
+	at org.eclipse.core.resources.IFile.readAllChars(IFile.java:1369)
+	at org.eclipse.jdt.internal.core.util.Util.getResourceContentsAsCharArray(Util.java:1188)
+	... 21 more
+Caused by: org.eclipse.core.runtime.CoreException: File not found: C:\Users\yakit\Desktop\2024-2025\Acceso a datos\OperacionesFicheros\src\EjercicioBeaLibros\OperacionesFicheros\src\EjercicioDos\Libro.java.
+	at org.eclipse.core.internal.filesystem.Policy.error(Policy.java:32)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.handleReadIOException(LocalFile.java:498)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.readAllBytes(LocalFile.java:490)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.readAllBytes(FileSystemResourceManager.java:911)
+	... 25 more
+Caused by: java.nio.file.NoSuchFileException: C:\Users\yakit\Desktop\2024-2025\Acceso a datos\OperacionesFicheros\src\EjercicioBeaLibros\OperacionesFicheros\src\EjercicioDos\Libro.java
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:234)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:379)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:431)
+	at java.base/java.nio.file.Files.readAllBytes(Files.java:3273)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.readAllBytes(LocalFile.java:488)
+	... 26 more
+Caused by: org.eclipse.core.internal.resources.ResourceException(/OperacionesFicheros/src/EjercicioBeaLibros/OperacionesFicheros/src/EjercicioDos/Libro.java)[368]: org.eclipse.core.runtime.CoreException: File not found: C:\Users\yakit\Desktop\2024-2025\Acceso a datos\OperacionesFicheros\src\EjercicioBeaLibros\OperacionesFicheros\src\EjercicioDos\Libro.java.
+	at org.eclipse.core.internal.filesystem.Policy.error(Policy.java:32)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.handleReadIOException(LocalFile.java:498)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.readAllBytes(LocalFile.java:490)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.readAllBytes(FileSystemResourceManager.java:911)
+	at org.eclipse.core.internal.resources.File.readAllBytes(File.java:355)
+	at org.eclipse.core.internal.utils.FileUtil.readAllChars(FileUtil.java:302)
+	at org.eclipse.core.resources.IFile.readAllChars(IFile.java:1369)
+	at org.eclipse.jdt.internal.core.util.Util.getResourceContentsAsCharArray(Util.java:1188)
+	at org.eclipse.jdt.internal.core.CompilationUnit.openBuffer(CompilationUnit.java:1202)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:108)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:245)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:585)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:308)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:294)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildren(JavaElement.java:249)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildrenOfType(JavaElement.java:263)
+	at org.eclipse.jdt.internal.core.CompilationUnit.getTypes(CompilationUnit.java:958)
+	at org.eclipse.jdt.internal.corext.refactoring.Checks.checkForMainAndNativeMethods(Checks.java:288)
+	at org.eclipse.jdt.internal.corext.refactoring.rename.RenamePackageProcessor.checkForMainAndNativeMethods(RenamePackageProcessor.java:470)
+	at org.eclipse.jdt.internal.corext.refactoring.rename.RenamePackageProcessor.doCheckFinalConditions(RenamePackageProcessor.java:410)
+	at org.eclipse.jdt.internal.corext.refactoring.rename.JavaRenameProcessor.checkFinalConditions(JavaRenameProcessor.java:51)
+	at org.eclipse.ltk.core.refactoring.participants.ProcessorBasedRefactoring.checkFinalConditions(ProcessorBasedRefactoring.java:227)
+	at org.eclipse.ltk.core.refactoring.CheckConditionsOperation.run(CheckConditionsOperation.java:86)
+	at org.eclipse.ltk.core.refactoring.CreateChangeOperation.run(CreateChangeOperation.java:116)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:207)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2451)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2476)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:89)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:124)
+Caused by: java.nio.file.NoSuchFileException: C:\Users\yakit\Desktop\2024-2025\Acceso a datos\OperacionesFicheros\src\EjercicioBeaLibros\OperacionesFicheros\src\EjercicioDos\Libro.java
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:234)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:379)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:431)
+	at java.base/java.nio.file.Files.readAllBytes(Files.java:3273)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.readAllBytes(LocalFile.java:488)
+	... 26 more
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2024-10-16 19:14:58.514
+!MESSAGE File not found: C:\Users\yakit\Desktop\2024-2025\Acceso a datos\OperacionesFicheros\src\EjercicioBeaLibros\OperacionesFicheros\src\EjercicioDos\Libro.java.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException(/OperacionesFicheros/src/EjercicioBeaLibros/OperacionesFicheros/src/EjercicioDos/Libro.java)[368]: org.eclipse.core.runtime.CoreException: File not found: C:\Users\yakit\Desktop\2024-2025\Acceso a datos\OperacionesFicheros\src\EjercicioBeaLibros\OperacionesFicheros\src\EjercicioDos\Libro.java.
+	at org.eclipse.core.internal.filesystem.Policy.error(Policy.java:32)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.handleReadIOException(LocalFile.java:498)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.readAllBytes(LocalFile.java:490)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.readAllBytes(FileSystemResourceManager.java:911)
+	at org.eclipse.core.internal.resources.File.readAllBytes(File.java:355)
+	at org.eclipse.core.internal.utils.FileUtil.readAllChars(FileUtil.java:302)
+	at org.eclipse.core.resources.IFile.readAllChars(IFile.java:1369)
+	at org.eclipse.jdt.internal.core.util.Util.getResourceContentsAsCharArray(Util.java:1188)
+	at org.eclipse.jdt.internal.core.CompilationUnit.openBuffer(CompilationUnit.java:1202)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:108)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:245)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:585)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:308)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:294)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildren(JavaElement.java:249)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildrenOfType(JavaElement.java:263)
+	at org.eclipse.jdt.internal.core.CompilationUnit.getTypes(CompilationUnit.java:958)
+	at org.eclipse.jdt.internal.corext.refactoring.Checks.checkForMainAndNativeMethods(Checks.java:288)
+	at org.eclipse.jdt.internal.corext.refactoring.rename.RenamePackageProcessor.checkForMainAndNativeMethods(RenamePackageProcessor.java:470)
+	at org.eclipse.jdt.internal.corext.refactoring.rename.RenamePackageProcessor.doCheckFinalConditions(RenamePackageProcessor.java:410)
+	at org.eclipse.jdt.internal.corext.refactoring.rename.JavaRenameProcessor.checkFinalConditions(JavaRenameProcessor.java:51)
+	at org.eclipse.ltk.core.refactoring.participants.ProcessorBasedRefactoring.checkFinalConditions(ProcessorBasedRefactoring.java:227)
+	at org.eclipse.ltk.core.refactoring.CheckConditionsOperation.run(CheckConditionsOperation.java:86)
+	at org.eclipse.ltk.core.refactoring.CreateChangeOperation.run(CreateChangeOperation.java:116)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:207)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2451)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2476)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:89)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:124)
+Caused by: java.nio.file.NoSuchFileException: C:\Users\yakit\Desktop\2024-2025\Acceso a datos\OperacionesFicheros\src\EjercicioBeaLibros\OperacionesFicheros\src\EjercicioDos\Libro.java
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:234)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:379)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:431)
+	at java.base/java.nio.file.Files.readAllBytes(Files.java:3273)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.readAllBytes(LocalFile.java:488)
+	... 26 more
+!SUBENTRY 2 org.eclipse.core.resources 4 368 2024-10-16 19:14:58.514
+!MESSAGE File not found: C:\Users\yakit\Desktop\2024-2025\Acceso a datos\OperacionesFicheros\src\EjercicioBeaLibros\OperacionesFicheros\src\EjercicioDos\Libro.java.
+!STACK 1
+org.eclipse.core.runtime.CoreException: File not found: C:\Users\yakit\Desktop\2024-2025\Acceso a datos\OperacionesFicheros\src\EjercicioBeaLibros\OperacionesFicheros\src\EjercicioDos\Libro.java.
+	at org.eclipse.core.internal.filesystem.Policy.error(Policy.java:32)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.handleReadIOException(LocalFile.java:498)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.readAllBytes(LocalFile.java:490)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.readAllBytes(FileSystemResourceManager.java:911)
+	at org.eclipse.core.internal.resources.File.readAllBytes(File.java:355)
+	at org.eclipse.core.internal.utils.FileUtil.readAllChars(FileUtil.java:302)
+	at org.eclipse.core.resources.IFile.readAllChars(IFile.java:1369)
+	at org.eclipse.jdt.internal.core.util.Util.getResourceContentsAsCharArray(Util.java:1188)
+	at org.eclipse.jdt.internal.core.CompilationUnit.openBuffer(CompilationUnit.java:1202)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:108)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:245)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:585)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:308)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:294)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildren(JavaElement.java:249)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildrenOfType(JavaElement.java:263)
+	at org.eclipse.jdt.internal.core.CompilationUnit.getTypes(CompilationUnit.java:958)
+	at org.eclipse.jdt.internal.corext.refactoring.Checks.checkForMainAndNativeMethods(Checks.java:288)
+	at org.eclipse.jdt.internal.corext.refactoring.rename.RenamePackageProcessor.checkForMainAndNativeMethods(RenamePackageProcessor.java:470)
+	at org.eclipse.jdt.internal.corext.refactoring.rename.RenamePackageProcessor.doCheckFinalConditions(RenamePackageProcessor.java:410)
+	at org.eclipse.jdt.internal.corext.refactoring.rename.JavaRenameProcessor.checkFinalConditions(JavaRenameProcessor.java:51)
+	at org.eclipse.ltk.core.refactoring.participants.ProcessorBasedRefactoring.checkFinalConditions(ProcessorBasedRefactoring.java:227)
+	at org.eclipse.ltk.core.refactoring.CheckConditionsOperation.run(CheckConditionsOperation.java:86)
+	at org.eclipse.ltk.core.refactoring.CreateChangeOperation.run(CreateChangeOperation.java:116)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:207)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2451)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2476)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:89)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:124)
+Caused by: java.nio.file.NoSuchFileException: C:\Users\yakit\Desktop\2024-2025\Acceso a datos\OperacionesFicheros\src\EjercicioBeaLibros\OperacionesFicheros\src\EjercicioDos\Libro.java
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:234)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:379)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:431)
+	at java.base/java.nio.file.Files.readAllBytes(Files.java:3273)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.readAllBytes(LocalFile.java:488)
+	... 26 more
+!SUBENTRY 3 org.eclipse.core.filesystem 4 269 2024-10-16 19:14:58.515
+!MESSAGE File not found: C:\Users\yakit\Desktop\2024-2025\Acceso a datos\OperacionesFicheros\src\EjercicioBeaLibros\OperacionesFicheros\src\EjercicioDos\Libro.java.
+!STACK 0
+java.nio.file.NoSuchFileException: C:\Users\yakit\Desktop\2024-2025\Acceso a datos\OperacionesFicheros\src\EjercicioBeaLibros\OperacionesFicheros\src\EjercicioDos\Libro.java
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:234)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:379)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:431)
+	at java.base/java.nio.file.Files.readAllBytes(Files.java:3273)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.readAllBytes(LocalFile.java:488)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.readAllBytes(FileSystemResourceManager.java:911)
+	at org.eclipse.core.internal.resources.File.readAllBytes(File.java:355)
+	at org.eclipse.core.internal.utils.FileUtil.readAllChars(FileUtil.java:302)
+	at org.eclipse.core.resources.IFile.readAllChars(IFile.java:1369)
+	at org.eclipse.jdt.internal.core.util.Util.getResourceContentsAsCharArray(Util.java:1188)
+	at org.eclipse.jdt.internal.core.CompilationUnit.openBuffer(CompilationUnit.java:1202)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:108)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:245)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:585)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:308)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:294)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildren(JavaElement.java:249)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildrenOfType(JavaElement.java:263)
+	at org.eclipse.jdt.internal.core.CompilationUnit.getTypes(CompilationUnit.java:958)
+	at org.eclipse.jdt.internal.corext.refactoring.Checks.checkForMainAndNativeMethods(Checks.java:288)
+	at org.eclipse.jdt.internal.corext.refactoring.rename.RenamePackageProcessor.checkForMainAndNativeMethods(RenamePackageProcessor.java:470)
+	at org.eclipse.jdt.internal.corext.refactoring.rename.RenamePackageProcessor.doCheckFinalConditions(RenamePackageProcessor.java:410)
+	at org.eclipse.jdt.internal.corext.refactoring.rename.JavaRenameProcessor.checkFinalConditions(JavaRenameProcessor.java:51)
+	at org.eclipse.ltk.core.refactoring.participants.ProcessorBasedRefactoring.checkFinalConditions(ProcessorBasedRefactoring.java:227)
+	at org.eclipse.ltk.core.refactoring.CheckConditionsOperation.run(CheckConditionsOperation.java:86)
+	at org.eclipse.ltk.core.refactoring.CreateChangeOperation.run(CreateChangeOperation.java:116)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:207)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2451)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2476)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:89)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:124)
+!SESSION 2024-10-16 19:15:32.097 -----------------------------------------------
+eclipse.buildId=4.33.0.20240905-0613
+java.version=22.0.2
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY ch.qos.logback.classic 1 0 2024-10-16 19:15:35.161
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-10-16 19:15:39.389
+!MESSAGE Logback config file: C:\Users\yakit\Desktop\2024-2025\Acceso a datos\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.1.20240411-1122.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-10-16 19:15:47.942
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\yakit'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2024-10-16 19:19:29.522 -----------------------------------------------
+eclipse.buildId=4.33.0.20240905-0613
+java.version=22.0.2
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY ch.qos.logback.classic 1 0 2024-10-16 19:19:33.461
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-10-16 19:20:35.194
+!MESSAGE Logback config file: C:\Users\yakit\Desktop\2024-2025\Acceso a datos\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.1.20240411-1122.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-10-16 19:20:44.368
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\yakit'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
