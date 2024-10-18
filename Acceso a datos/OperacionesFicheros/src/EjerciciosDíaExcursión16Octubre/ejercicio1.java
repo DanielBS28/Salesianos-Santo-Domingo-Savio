@@ -30,7 +30,7 @@ public class ejercicio1 {
 
 				if (Integer.parseInt(max[1]) < Integer.parseInt(Array[1]))
 					max = Array;
-
+				
 				productos++;
 
 			}
@@ -57,7 +57,7 @@ public class ejercicio1 {
 
 	public static void main(String[] args) {
 
-		String ruta = "src/Ejercicio1/ejercicio1.txt";
+		String ruta = "src/EjerciciosDíaExcursión16Octubre/ejercicio1.txt";
 		lecturaFichero(ruta);
 
 	}
