@@ -10,4 +10,8 @@
     <fullyQualifiedTypeName name="javax.swing.UIManager.LookAndFeelInfo"/>
     <fullyQualifiedTypeName name="javax.swing.UIManager"/>
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="java.awt.Image"/>
+    <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
 </qualifiedTypeNameHistroy>
