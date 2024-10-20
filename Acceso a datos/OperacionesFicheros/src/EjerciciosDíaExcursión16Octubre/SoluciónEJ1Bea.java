@@ -19,7 +19,7 @@ public class SoluciónEJ1Bea {
 				int indice = 0;
 				boolean Encontrado = false;
 
-				// while(datos[indice] != null || !Encontrado)
+				// while(datos[indice] != null && !Encontrado)
 				while (indice < datos.length && !Encontrado) {
 
 					if (datos[indice][0].equals(partesLinea[0]))

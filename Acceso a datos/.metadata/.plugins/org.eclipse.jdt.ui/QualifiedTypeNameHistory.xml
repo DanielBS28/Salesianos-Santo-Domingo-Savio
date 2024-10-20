@@ -10,7 +10,6 @@
     <fullyQualifiedTypeName name="java.io.RandomAccessFile"/>
     <fullyQualifiedTypeName name="EjerciciosBásicos.ListarFicherosRecursivo"/>
     <fullyQualifiedTypeName name="FicherosAccesoAleatorio.Estudiante"/>
-    <fullyQualifiedTypeName name="java.util.Collection"/>
     <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="java.util.Comparator"/>
     <fullyQualifiedTypeName name="java.io.Serializable"/>
@@ -20,4 +19,6 @@
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.lang.ArrayStoreException"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.util.Collection"/>
+    <fullyQualifiedTypeName name="EjerciciosDíaExcursión16Octubre.Producto"/>
 </qualifiedTypeNameHistroy>
