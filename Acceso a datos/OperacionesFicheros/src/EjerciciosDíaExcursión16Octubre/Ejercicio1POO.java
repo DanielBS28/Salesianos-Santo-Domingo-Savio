@@ -30,7 +30,8 @@ public class Ejercicio1POO {
 			String linea = "";
 
 			while ((linea = bf.readLine()) != null) {
-				String[] campos = linea.split(",");
+				
+				String [] campos = linea.split(",");
 
 				Encontrado = false;
 
@@ -44,6 +45,8 @@ public class Ejercicio1POO {
 
 				if (!Encontrado)
 					PRODUCTOS.add(new Producto(campos[0], Integer.parseInt(campos[1])));
+
+				bf.close();
 			}
 
 			exportarDatos();
@@ -57,29 +60,27 @@ public class Ejercicio1POO {
 		}
 
 	}
-	
 
 	static void exportarDatos() {
 		int cantidad = 0;
 		int productos = PRODUCTOS.size();
-		
+
 		Collections.sort(PRODUCTOS, Comparator.comparingInt(Producto::getCantidad));
-		
+
 		for (Producto p : PRODUCTOS) {
 			cantidad += p.getCantidad();
 		}
-		
-		imprimirDatos(cantidad,productos);
+
+		imprimirDatos(cantidad, productos);
 	}
 
 	private static void imprimirDatos(int cantidad, int productos) {
 
 		System.out.println("Se han vendido un total de " + cantidad + (cantidad == 1 ? " producto" : " productos"));
 		System.out.println("El producto que mas se ha vendido a sido: " + PRODUCTOS.getLast().toString());
-		System.out.println("Hay un promedio de ventas de: " + cantidad + "/"+productos+" = " + cantidad/productos);
-		
-	}
+		System.out.println("Hay un promedio de ventas de: " + cantidad + "/" + productos + " = " + cantidad / productos);
 
+	}
 
 	public static void main(String[] args) {
 

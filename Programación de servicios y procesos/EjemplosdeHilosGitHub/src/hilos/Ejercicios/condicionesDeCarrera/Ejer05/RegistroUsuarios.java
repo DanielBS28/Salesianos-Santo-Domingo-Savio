@@ -24,12 +24,15 @@ public class RegistroUsuarios {
     private Set<String> usuarios = new HashSet<>();
 
     public void registrarUsuario(String nombreUsuario) {
+    	synchronized(this) {
         if (!usuarios.contains(nombreUsuario)) {
             usuarios.add(nombreUsuario);
             System.out.println("Usuario registrado: " + nombreUsuario);
-        } else {
-            System.out.println("El usuario " + nombreUsuario + " ya existe.");
+            return;
         }
+        } 
+            System.out.println("El usuario " + nombreUsuario + " ya existe.");
+        
     }
     
 

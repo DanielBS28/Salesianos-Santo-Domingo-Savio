@@ -45,18 +45,29 @@ class ProcesarPedido implements Runnable {
 
 
 public class ProcesadorDePedidos {
-    private List<String> pedidos = new ArrayList<>();
+    private List<String> pedidos = new ArrayList<>(); // No es segura para concurrecia 
+    // 
 
-    public void agregarPedido(String pedido) {
+    //Como esta clase no tiene absolutamente nada mas que la variable pedido 
+    // y metodos que la utilizan y la seccion critica de cada metodo es el metodo
+    // entero synchcronized al método es una solución valida.
+    
+    // Lo unico que seguirá pasando que se quedan pedidos sin procesar Esto no es un problema de 
+    // concurrencia. Si fuera secuencial podria pasarnos también dependiendo de los tiempos,
+    //`podrian quedarse pedidos sin procesar.
+    
+    public synchronized void agregarPedido(String pedido) {
         pedidos.add(pedido);
         System.out.println("Pedido agregado: " + pedido);
     }
 
-    public void procesarPedido() {
+    public synchronized void procesarPedido() {
         if (!pedidos.isEmpty()) {
             String pedido = pedidos.remove(0);
             System.out.println("Pedido procesado: " + pedido);
         } else {
+        	
+        	// Tendría que esperar a que lleguen los siguientes pedidos.
             System.out.println("No hay pedidos para procesar.");
         }
     }

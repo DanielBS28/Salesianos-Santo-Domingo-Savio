@@ -36,7 +36,10 @@ class Reabastecimiento implements Runnable {
 }
 
 public class Inventario {
-	private int stock;
+	volatile private int stock; // Se evitan copias locales en caché de los hilos, se utiliza para que todos los cambios
+	// sobre esta variable son visibles para todos los hilos que la utilicen.
+    final private Object stockLock = new Object(); // Rotu rojo
+
 
     public Inventario(int stockInicial) {
         this.stock = stockInicial;
@@ -45,7 +48,7 @@ public class Inventario {
     // Si pongo Synchronized al método bloquea el metodo completo
     public void agregarProducto(int cantidad) {
     	
-    	synchronized (this) {
+    	synchronized (stockLock) {
 			
         stock += cantidad;
         System.out.println("Se agregaron " + cantidad + " productos. Stock actual: " + stock);
@@ -57,8 +60,9 @@ public class Inventario {
     	// En stock puedo tener condiciones de carrera, en cantidad no ya que es un parametro y no cambia pero
     	// stock si por que es una varible compartida entre hilos.
     	// This bloquea el objeto
-    	synchronized (this) {
-
+    	synchronized (stockLock) {
+    		
+    		// Se puede sincronizar un atributo del metodo en vez del objeto entero para no perder concurrencia.
         if (stock >= cantidad) {
             stock -= cantidad;
             System.out.println("Se vendieron " + cantidad + " productos. Stock actual: " + stock);
@@ -69,7 +73,9 @@ public class Inventario {
     }
 
     public int getStock() {
-        return stock;
+    	
+    		  return stock;
+      
     }
     
     

@@ -1,84 +1,91 @@
 package hilos.Ejercicios.condicionesDeCarrera.Ejer03;
+
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * EJEMPLO DE PRODUCTOR CONSUMIDOR.
  */
-class AgregarPedido implements Runnable {
-    private ProcesadorDePedidosBlockingQueue procesador;
+class BQAgregarPedido implements Runnable {
+	private ProcesadorDePedidosBlockingQueue procesador;
 
-    public AgregarPedido(ProcesadorDePedidosBlockingQueue procesador) {
-        this.procesador = procesador;
-    }
+	public BQAgregarPedido(ProcesadorDePedidosBlockingQueue procesador) {
+		this.procesador = procesador;
+	}
 
-    @Override
-    public void run() {
-        for (int i = 1; i <= 20; i++) {
-            procesador.agregarPedido("Pedido " + i);
-            try {
-                Thread.sleep(50);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+	@Override
+	public void run() {
+		for (int i = 1; i <= 20; i++) {
+			procesador.agregarPedido("Pedido " + i);
+			try {
+				Thread.sleep(50);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }
 
+class BQProcesarPedido implements Runnable {
+	private ProcesadorDePedidosBlockingQueue procesador;
 
-class ProcesarPedido implements Runnable {
-    private ProcesadorDePedidosBlockingQueue procesador;
+	public BQProcesarPedido(ProcesadorDePedidosBlockingQueue procesador) {
+		this.procesador = procesador;
+	}
 
-    public ProcesarPedido(ProcesadorDePedidosBlockingQueue procesador) {
-        this.procesador = procesador;
-    }
-
-    @Override
-    public void run() {
-        for (int i = 1; i <= 20; i++) {
-            procesador.procesarPedido();
-            try {
-                Thread.sleep(70);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+	@Override
+	public void run() {
+		for (int i = 1; i <= 20; i++) {
+			procesador.procesarPedido();
+			try {
+				Thread.sleep(70);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }
-
 
 public class ProcesadorDePedidosBlockingQueue {
-    private List<String> pedidos = new ArrayList<>();
+	// private List<String> pedidos = new ArrayList<>();
 
-    public void agregarPedido(String pedido) {
-        pedidos.add(pedido);
-        System.out.println("Pedido agregado: " + pedido);
-    }
+	private LinkedBlockingQueue<String> pedidos = new LinkedBlockingQueue<String>();
+	// Permite a un hilo esperar (Bloquear un hilo)
 
-    public void procesarPedido() {
-        if (!pedidos.isEmpty()) {
-            String pedido = pedidos.remove(0);
-            System.out.println("Pedido procesado: " + pedido);
-        } else {
-            System.out.println("No hay pedidos para procesar.");
-        }
-    }
-    
-    public static void main(String[] args) {
-        ProcesadorDePedidosBlockingQueue procesador = new ProcesadorDePedidosBlockingQueue();
+	public void agregarPedido(String pedido) {
+		pedidos.add(pedido);
+		System.out.println("Pedido agregado: " + pedido);
+	}
 
-        Thread hiloAgregar = new Thread(new AgregarPedido(procesador));
-        Thread hiloProcesar = new Thread(new ProcesarPedido(procesador));
+	public void procesarPedido() {
 
-        hiloAgregar.start();
-        hiloProcesar.start();
+		String pedido;
+		try {
+			pedido = pedidos.take();
+			System.out.println("Pedido procesado: " + pedido);
 
-        try {
-            hiloAgregar.join();
-            hiloProcesar.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+		} catch (InterruptedException e) {
+			System.out.println("No hay pedidos para procesar");
+			e.printStackTrace();
+		}
+
+	}
+
+	public static void main(String[] args) {
+		ProcesadorDePedidosBlockingQueue procesador = new ProcesadorDePedidosBlockingQueue();
+
+		Thread hiloAgregar = new Thread(new BQAgregarPedido(procesador));
+		Thread hiloProcesar = new Thread(new BQProcesarPedido(procesador));
+
+		hiloAgregar.start();
+		hiloProcesar.start();
+
+		try {
+			hiloAgregar.join();
+			hiloProcesar.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 }
