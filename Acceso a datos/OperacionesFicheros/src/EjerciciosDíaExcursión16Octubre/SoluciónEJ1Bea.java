@@ -61,7 +61,7 @@ public class SoluciónEJ1Bea {
 		String[][] datos = new String[100][2]; // Max 100 productos
 
 		String ruta = "src/EjerciciosDíaExcursión16Octubre/ejercicio1.txt";
-		String [][] datos2 = leerVentas(ruta, datos);
+		String[][] datos2 = leerVentas(ruta, datos);
 		visualizarDatos(datos2);
 		/*
 		 * for(String [] d : datos) for(String columna : d)
