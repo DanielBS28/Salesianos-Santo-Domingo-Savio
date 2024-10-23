@@ -2,7 +2,7 @@ package EjerciciosDíaExcursión16Octubre;
 
 import java.time.LocalDate;
 
-public class Habitación {
+public class Habitación{
 	
 	private int numero;
 	private boolean libre = true;

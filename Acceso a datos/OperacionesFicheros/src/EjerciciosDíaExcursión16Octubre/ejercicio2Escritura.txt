@@ -1,0 +1,11 @@
+************************************************************
+El salario total a pagar es: 16000.0€
+La media de los salarios de los empleados es: 3200.0€
+************************************************************
+DATOS DE LOS EMPLEADOS
+------------------------
+El empleado Juan con sueldo: 3000.0€ y con horas trabajadas: 40, tiene un salario MENOR a la media
+El empleado María con sueldo: 2500.0€ y con horas trabajadas: 35, tiene un salario MENOR a la media
+El empleado Pedro con sueldo: 4500.0€ y con horas trabajadas: 50, tiene un salario SUPERIOR a la media
+El empleado Lucía con sueldo: 3200.0€ y con horas trabajadas: 45, tiene un salario MENOR a la media
+El empleado Antonio con sueldo: 2800.0€ y con horas trabajadas: 38, tiene un salario MENOR a la media

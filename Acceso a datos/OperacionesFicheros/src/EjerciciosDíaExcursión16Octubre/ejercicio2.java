@@ -14,7 +14,7 @@ public class ejercicio2 {
 	 * Pedro,4500,50 Lucía,3200,45 Antonio,2800,38
 	 */
 
-	private static void leerFichero(String ruta) {
+	private static ArrayList<Empleado> leerFichero(String ruta) {
 
 		ArrayList<Empleado> EMPLEADOS = new ArrayList<>();
 		String linea = "";
@@ -29,9 +29,11 @@ public class ejercicio2 {
 				EMPLEADOS.add(new Empleado(campos[0], Double.parseDouble(campos[1]), Integer.parseInt(campos[2])));
 
 			}
+			
 			br.close();
 
 			extraerDatos(EMPLEADOS);
+			
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -40,6 +42,8 @@ public class ejercicio2 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		return EMPLEADOS;
 
 	}
 
@@ -49,19 +53,16 @@ public class ejercicio2 {
 		double mediaSalarios = salarioTotal / EMPLEADOS.size();
 
 		System.out.println("************************************************************");
-		System.out.println("El salario total a pagar es: " + salarioTotal+"€");
-		System.out.println("La media de los salarios de los empleados es: " + mediaSalarios+"€");
+		System.out.println("El salario total a pagar es: " + salarioTotal + "€");
+		System.out.println("La media de los salarios de los empleados es: " + mediaSalarios + "€");
 		System.out.println("************************************************************");
 		System.out.println("DATOS DE LOS EMPLEADOS");
 		System.out.println("------------------------");
 
-		
-
 		for (Empleado e : EMPLEADOS) {
 
 			if (e.getSueldo() > mediaSalarios)
-				System.out
-						.println("El empleado " + e + " tiene un salario SUPERIOR a la media");
+				System.out.println("El empleado " + e + " tiene un salario SUPERIOR a la media");
 			else
 				System.out.println("El empleado " + e + " tiene un salario MENOR a la media");
 		}
@@ -77,10 +78,48 @@ public class ejercicio2 {
 		return salarioTotal;
 	}
 
+	public static void escribirFichero(String rutaEscritura, ArrayList<Empleado> EMPLEADOS) {
+		
+		try {
+			BufferedWriter bf = new BufferedWriter(new FileWriter(rutaEscritura));
+			
+			double salarioTotal = obtenerSalarios(EMPLEADOS);
+			double mediaSalarios = salarioTotal / EMPLEADOS.size();
+
+			bf.write("************************************************************\n");
+			bf.write("El salario total a pagar es: " + salarioTotal + "€\n");
+			bf.write("La media de los salarios de los empleados es: " + mediaSalarios + "€\n");
+			bf.write("************************************************************\n");
+			bf.write("DATOS DE LOS EMPLEADOS\n");
+			bf.write("------------------------\n");
+
+			for (Empleado e : EMPLEADOS) {
+
+				if (e.getSueldo() > mediaSalarios)
+					bf.write("El empleado " + e + " tiene un salario SUPERIOR a la media\n");
+				else
+					bf.write("El empleado " + e + " tiene un salario MENOR a la media\n");
+			}
+			
+			bf.close();
+			
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
 	public static void main(String[] args) {
+		
+		ArrayList<Empleado> EMPLEADOS = new ArrayList<>();
 
 		String ruta = "src/EjerciciosDíaExcursión16Octubre/ejercicio2.txt";
-		leerFichero(ruta);
+		String rutaEscritura = "src/EjerciciosDíaExcursión16Octubre/ejercicio2Escritura.txt";
+
+		EMPLEADOS = leerFichero(ruta);
+		escribirFichero(rutaEscritura, EMPLEADOS);
 
 	}
 

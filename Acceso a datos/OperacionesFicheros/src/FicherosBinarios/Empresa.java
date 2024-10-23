@@ -98,5 +98,6 @@ public class Empresa implements Serializable {
 		Collections.sort(EMPLEADOS, Comparator.comparingDouble(Empleado_Ejercicio4::getSalario));
 
 	}
+	
 
 }

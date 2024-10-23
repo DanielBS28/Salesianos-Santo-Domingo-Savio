@@ -12,7 +12,6 @@
     <fullyQualifiedTypeName name="FicherosAccesoAleatorio.Estudiante"/>
     <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="java.util.Comparator"/>
-    <fullyQualifiedTypeName name="java.io.Serializable"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="FicherosBinarios.Empleado_Ejercicio4"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
@@ -23,4 +22,7 @@
     <fullyQualifiedTypeName name="EjerciciosDíaExcursión16Octubre.Producto"/>
     <fullyQualifiedTypeName name="EjerciciosDíaExcursión16Octubre.Hotel"/>
     <fullyQualifiedTypeName name="EjerciciosDíaExcursión16Octubre.Habitación"/>
+    <fullyQualifiedTypeName name="java.lang.StringTemplate"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="RepasoExamen.Persona"/>
 </qualifiedTypeNameHistroy>
