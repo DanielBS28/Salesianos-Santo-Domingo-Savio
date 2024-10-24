@@ -14,10 +14,10 @@ public class Ejercicio2Main {
 	final static char COLOR = '4';
 
 	static Scanner teclado = new Scanner(System.in);
+
 	static String rutaCoches = "src/RepasoExamen/Coches.bin";
 	static String rutaVentas = "src/RepasoExamen/Ventas.bin";
 	static ArrayList<Coche> COCHES = new ArrayList<>();
-	static ArrayList<Coche> CochesAux = new ArrayList<>();
 	static ArrayList<Venta> VENTAS = new ArrayList<>();
 
 	private static void rellenarCochesIniciales() {
@@ -80,9 +80,20 @@ public class Ejercicio2Main {
 
 	private static void AgregarCoche() {
 
+		boolean CocheExistente = false;
+		String ID;
+
 		System.out.println("Vamos a agregar un coche");
-		System.out.println("Dime el ID del coche");
-		String ID = teclado.nextLine();
+		do {
+			System.out.println("Dime el ID del coche");
+			ID = teclado.nextLine();
+			CocheExistente = buscarCocheDuplicado(ID);
+
+			if (CocheExistente)
+				System.out.println("El coche con ID " + ID + " ya existe, por favor vuelve a intentarlo");
+
+		} while (CocheExistente);
+
 		System.out.println("Dime la marca del coche");
 		String marcaCoche = teclado.nextLine();
 		System.out.println("Dime el modelo del coche");
@@ -94,6 +105,15 @@ public class Ejercicio2Main {
 		escribirCoches();
 	}
 
+	private static boolean buscarCocheDuplicado(String iD) {
+
+		for (Coche c : COCHES) {
+			if (c.getID().equals(iD))
+				return true;
+		}
+		return false;
+	}
+
 	private static void venderCoche() {
 
 		System.out.println("Vamos a vender un coche");
@@ -103,9 +123,14 @@ public class Ejercicio2Main {
 		String comprador = teclado.nextLine();
 		Coche CocheVendido = buscarCoche(ID);
 
+		if (CocheVendido.isVendido()) {
+			System.out.println("El coche ya ha sido vendido");
+			return;
+		} else
+			CocheVendido.setVendido(true);
 		VENTAS.add(new Venta(CocheVendido.getID(), comprador));
-		CocheVendido.setVendido(true);
 
+		escribirCoches();
 		escribirVentas();
 
 	}
@@ -136,6 +161,11 @@ public class Ejercicio2Main {
 	}
 
 	private static void visualizarVentas() {
+
+		if (VENTAS.isEmpty()) {
+			System.out.println("No hay ninguna venta");
+			return;
+		}
 
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(rutaVentas));
@@ -192,7 +222,6 @@ public class Ejercicio2Main {
 				lecturaCoches(COLOR);
 			else if (opcion == 5) {
 				AgregarCoche();
-				escribirCoches();
 			} else if (opcion == 6)
 				venderCoche();
 			else if (opcion == 7)
@@ -227,6 +256,55 @@ public class Ejercicio2Main {
 			else if (Flag == COLOR)
 				filtrarColor(cochesSeleccionados);
 
+			ois.close();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	private static void lecturaCochesInicial() {
+
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(rutaCoches));
+
+			ArrayList<Coche> CochesIniciales = new ArrayList<>();
+			CochesIniciales = (ArrayList<Coche>) ois.readObject();
+
+			for (Coche c : CochesIniciales)
+				COCHES.add(c);
+
+			ois.close();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private static void lecturaVentasInicial() {
+
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(rutaVentas));
+
+			ArrayList<Venta> VentasIniciales = new ArrayList<>();
+			VentasIniciales = (ArrayList<Venta>) ois.readObject();
+
+			for (Venta v : VentasIniciales)
+				VENTAS.add(v);
+
+			ois.close();
+
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -239,8 +317,13 @@ public class Ejercicio2Main {
 	}
 
 	public static void main(String[] args) {
+		// Solo realizar la primera vez para rellenar los ficheros binarios
+		// rellenarCochesIniciales();
+		// escribirVentas();
 
-		rellenarCochesIniciales();
+		lecturaCochesInicial();
+		lecturaVentasInicial();
+
 		mostrarMenuPrincipal();
 
 	}

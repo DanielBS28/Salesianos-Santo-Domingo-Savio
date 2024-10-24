@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Venta implements Serializable{
 	
-	static int contador;
+	static int contador = 0;
 	
 	private int IDVenta;
 	private String IDcoche;
