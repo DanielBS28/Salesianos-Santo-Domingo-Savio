@@ -50,10 +50,10 @@ public class Ejercicio1 {
 			System.out.println("Introduce la contraseña del usuario");
 			contrasena = teclado.nextLine();
 			contrasenaCorrecta = comprobarContrasena(nombre, contrasena);
-			
+
 			if (!contrasenaCorrecta || !nombreCorrecto)
 				System.out.println("El usuario y/o la contraseña no son válidos");
-			
+
 		} while (!contrasenaCorrecta || !nombreCorrecto);
 
 		Persona elegida = obtenerPersona(nombre, contrasena);
@@ -177,12 +177,12 @@ public class Ejercicio1 {
 
 	private static void escribirEnFichero(String nombre, String contrasena, String cargo) {
 
-		String nuevoUsuario = nombre+";"+contrasena+";"+cargo+"\n";
+		String nuevoUsuario = nombre + ";" + contrasena + ";" + cargo + "\n";
 		try {
-			BufferedWriter bf = new BufferedWriter(new FileWriter(ruta,true));
-			
+			BufferedWriter bf = new BufferedWriter(new FileWriter(ruta, true));
+
 			bf.write(nuevoUsuario);
-			
+
 			bf.close();
 		} catch (IOException e) {
 			e.printStackTrace();

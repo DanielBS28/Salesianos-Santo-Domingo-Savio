@@ -5,3 +5,4 @@ Pepe;123abd;lector
 Daniel;12345;administrador
 Javier;12;lector
 Francisco;4;usuario
+Mauri;1234;usuario
