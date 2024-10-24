@@ -46,18 +46,15 @@ public class Ejercicio1 {
 			System.out.println("Introduce el nombre del usuario");
 			nombre = teclado.nextLine();
 			nombreCorrecto = comprobarNombre(nombre);
-			if (!nombreCorrecto)
-				System.out.println("Nombre incorrecto");
 
-		} while (!nombreCorrecto);
-
-		do {
 			System.out.println("Introduce la contraseña del usuario");
 			contrasena = teclado.nextLine();
 			contrasenaCorrecta = comprobarContrasena(nombre, contrasena);
-			if (!contrasenaCorrecta)
-				System.out.println("Contraseña incorrecta");
-		} while (!contrasenaCorrecta);
+			
+			if (!contrasenaCorrecta || !nombreCorrecto)
+				System.out.println("El usuario y/o la contraseña no son válidos");
+			
+		} while (!contrasenaCorrecta || !nombreCorrecto);
 
 		Persona elegida = obtenerPersona(nombre, contrasena);
 
