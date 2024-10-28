@@ -44,6 +44,16 @@ public class RegistroUsuarios {
 
         hilo1.start();
         hilo2.start();
+        
+        try {
+        	
+        	hilo1.join();
+        	hilo2.join();
+
+        	
+        }catch(InterruptedException e) {
+        	e.getStackTrace();
+        }
     }
 
 }

@@ -29,12 +29,13 @@ class RecepcionMensajes implements Runnable {
     public void run() {
         for (int i = 1; i <= 10; i++) {
             buzon.recibirMensaje();
-        }
+        } 
     }
 }
 
 
 public class BuzonMensajes {
+	// -------------------------->LinkedBlockingQueue
     private Queue<String> mensajes = new LinkedList<>();
 
     public void enviarMensaje(String mensaje) {

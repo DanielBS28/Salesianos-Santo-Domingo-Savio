@@ -17,6 +17,7 @@ public class Ejercicio2Main {
 
 	static String rutaCoches = "src/RepasoExamen/Coches.bin";
 	static String rutaVentas = "src/RepasoExamen/Ventas.bin";
+	
 	static ArrayList<Coche> COCHES = new ArrayList<>();
 	static ArrayList<Venta> VENTAS = new ArrayList<>();
 

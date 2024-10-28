@@ -28,11 +28,11 @@ public class CuentaBancaria {
         this.balance = balanceInicial;
     }
 
-    public void depositar(int cantidad) {
+    public synchronized void depositar(int cantidad) {
         balance += cantidad;
     }
 
-    public void retirar(int cantidad) {
+    public synchronized void retirar(int cantidad) {
         balance -= cantidad;
     }
 
@@ -41,7 +41,7 @@ public class CuentaBancaria {
         destino.depositar(cantidad);
     }
 
-    public int getBalance() {
+    public synchronized int getBalance() {
         return balance;
     }
     
@@ -49,7 +49,7 @@ public class CuentaBancaria {
         CuentaBancaria cuenta1 = new CuentaBancaria(1000);
         CuentaBancaria cuenta2 = new CuentaBancaria(1000);
 
-        Thread hilo1 = new Thread(new Transferencia(cuenta1, cuenta2, 12));
+        Thread hilo1 = new Thread(new Transferencia(cuenta1, cuenta2, 10));
         Thread hilo2 = new Thread(new Transferencia(cuenta2, cuenta1, 10));
 
         hilo1.start();
