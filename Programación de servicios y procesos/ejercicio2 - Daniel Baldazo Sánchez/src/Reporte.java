@@ -13,7 +13,14 @@ public class Reporte implements Imprimible{
 	@Override
 	public void imprimir() {
 		
-		System.out.println(mensaje);		
+		System.out.println("Imprimiendo reporte: " + mensaje);
+	}
+
+
+	@Override
+	public void imprimir(String mensaje) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

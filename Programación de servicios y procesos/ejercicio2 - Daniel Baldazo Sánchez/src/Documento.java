@@ -12,7 +12,14 @@ public class Documento implements Imprimible{
 		@Override
 		public void imprimir() {
 			
-		System.out.println(contenido);
+		System.out.println("Imprimiendo documento: " + contenido);
+			
+		}
+
+
+		@Override
+		public void imprimir(String mensaje) {
+			// TODO Auto-generated method stub
 			
 		}
 
