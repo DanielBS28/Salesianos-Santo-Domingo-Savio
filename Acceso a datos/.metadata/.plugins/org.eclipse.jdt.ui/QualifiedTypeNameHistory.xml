@@ -28,6 +28,6 @@
     <fullyQualifiedTypeName name="java.nio.file.Paths"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="java.nio.file.Path"/>
-    <fullyQualifiedTypeName name="java.nio.file.StandardOpenOption"/>
     <fullyQualifiedTypeName name="java.nio.file.Files"/>
+    <fullyQualifiedTypeName name="java.nio.file.StandardOpenOption"/>
 </qualifiedTypeNameHistroy>

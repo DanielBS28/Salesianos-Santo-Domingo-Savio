@@ -1,0 +1,6 @@
+Numero de cliente: 12345
+Nombre: Luis García
+Calle : Calle de la Princesa
+Ciudad:  Madrid
+Código Postal: 28020
+Pais:  España

@@ -10,4 +10,14 @@
 			<Pais>España</Pais>
 		</Direccion>
 	</cliente>
+	<cliente>
+		<numerodecliente>456789</numerodecliente> 
+		<Nombre>Daniel</Nombre>
+		<Direccion>
+			<Calle>Colegio Santo Domingo Savio</Calle>
+			<Ciudad>Madrid</Ciudad>
+			<Codigo Postal>28037</Codigo Postal>
+			<Pais>España</Pais>
+		</Direccion>
+	</cliente>
 </listadeclientes>
