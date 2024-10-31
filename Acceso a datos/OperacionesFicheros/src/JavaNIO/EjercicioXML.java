@@ -8,6 +8,10 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
 public class EjercicioXML {
+	
+	
+	//iniciar sesion, --> seleccionar gasolinera pero filtrada filtrar por ubicacion o todas las gasolineras
+	// xml actualizado por cada nuevo cliente
 
 	static ArrayList<Cliente> CLIENTES = new ArrayList<>();
 
@@ -92,12 +96,12 @@ public class EjercicioXML {
 		}
 	}
 
-	public static String guardarDatos(String linea, int campolenght) {
+	public static String guardarDatos(String linea, int campolength) {
 
 		String campo = "";
 		char Bandera = '<';
 		boolean caracterBandera = false;
-		int ComienzoPalabra = campolenght;
+		int ComienzoPalabra = campolength;
 
 		while (!caracterBandera) {
 
