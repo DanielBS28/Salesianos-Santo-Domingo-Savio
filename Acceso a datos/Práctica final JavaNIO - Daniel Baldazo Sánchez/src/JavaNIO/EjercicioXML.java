@@ -13,7 +13,6 @@ public class EjercicioXML {
 
 	// iniciar sesion, --> seleccionar gasolinera pero filtrada filtrar por
 	// ubicacion o todas las gasolineras
-	// xml actualizado por cada nuevo cliente
 
 	static ArrayList<Cliente> CLIENTES = new ArrayList<>();
 	static ArrayList<Gasolinera> GASOLINERAS = new ArrayList<>();
@@ -22,7 +21,7 @@ public class EjercicioXML {
 	final static Path directorioClientes = Paths.get("src/JavaNIO/Clientes");
 	final static Path directorioClientesAntiguos = Paths.get("src/JavaNIO/ClientesAntiguos");
 	final static Path directorioTickets = Paths.get("src/JavaNIO/Tickets");
-	final static Path ficheroXML = Paths.get("src/JavaNIO/XML.txt");
+	final static Path ficheroXML = Paths.get("src/JavaNIO/XML.xml");
 	final static Path ficheroGasolineras = Paths.get("src/JavaNIO/gasolineras.bin");
 	final static Path ficheroTickets = Paths.get("src/JavaNIO/tickets.bin");
 
@@ -30,7 +29,7 @@ public class EjercicioXML {
 	final static String NOMBRE = "<Nombre>";
 	final static String CALLE = "<Calle>";
 	final static String CIUDAD = "<Ciudad>";
-	final static String CODIGOPOSTAL = "<Codigo Postal>";
+	final static String CODIGOPOSTAL = "<CodigoPostal>";
 	final static String PAIS = "<Pais>";
 	final static String ROL = "<Rol>";
 
@@ -314,7 +313,7 @@ public class EjercicioXML {
 					+ (clienteOnLine.getRol().equals("Administrador") ? "Administrador)"
 							: "Sin privilegios de administrador)");
 		} else
-			return "Cerrando sesión... ¡Hasta pronto" + clienteOnLine.getNombre() + "!";
+			return "Cerrando sesión... ¡Hasta pronto " + clienteOnLine.getNombre() + "!";
 	}
 
 	public static String mostrarMensajeErrorInt() {
@@ -324,7 +323,6 @@ public class EjercicioXML {
 
 	private static void mostrarMenuNormal(Cliente clienteOnLine) {
 
-		System.out.println(mostrarMensajeBienvenidaODespedida(clienteOnLine, BIENVENIDA));
 
 	}
 
@@ -333,7 +331,6 @@ public class EjercicioXML {
 		System.out.println(mostrarMensajeBienvenidaODespedida(clienteOnLine, BIENVENIDA));
 
 		int opcion = 0;
-		Cliente clienteBuscado = null;
 
 		do {
 
@@ -341,10 +338,9 @@ public class EjercicioXML {
 			System.out.println("0- Cerrar sesión");
 			System.out.println("1- Visualizar los datos de todos los clientes");
 			System.out.println("2- Visualizar los datos de un cliente");
-
 			System.out.println("3- Añadir un nuevo cliente");
-
-			System.out.println("3- Eliminar a un cliente");
+			System.out.println("4- Eliminar a un cliente");
+			
 			System.out.println("5- Visualizar todas las gasolineras");
 			System.out.println("6- Visualizar todas las gasolineras por ubicación");
 			System.out.println("7- Mostrar las gasolineras según los precios de las gasolinas");
@@ -363,12 +359,14 @@ public class EjercicioXML {
 			else if (opcion == 1)
 				mostrarDatosClientes(null, TODOS_LOS_CLIENTES);
 			else if (opcion == 2) {
-				System.out.println("Dime el número del cliente para ver sus datos");
-				clienteBuscado = busquedaCliente();
-				if (clienteBuscado != null)
-					mostrarDatosClientes(clienteBuscado, UN_CLIENTE);
+				System.out.println("Introduce el número del cliente para ver sus datos");
+				visualizarDatosCliente();
 			} else if (opcion == 3)
 				añadirCliente();
+			else if (opcion == 4) {
+				System.out.println("Introduce el número del cliente para eliminarlo");
+				eliminarCliente();
+			}
 			else
 				System.out.println("Opción no reconocida");
 
@@ -376,20 +374,50 @@ public class EjercicioXML {
 
 	}
 
+	private static void visualizarDatosCliente() {
+		
+		Cliente clienteBuscado = busquedaCliente();
+		if (clienteBuscado != null)
+			mostrarDatosClientes(clienteBuscado, UN_CLIENTE);		
+	}
+
+	private static void eliminarCliente() {
+
+		Cliente clienteBuscado = busquedaCliente();
+		if (clienteBuscado != null) {
+			
+			Path ficheroParaMover = directorioClientes.resolve(clienteBuscado.getNumeroCliente()+".txt");
+			Path ficheroNuevaUbicacion = directorioClientesAntiguos.resolve(clienteBuscado.getNumeroCliente()+".txt");
+			
+			try {
+				Files.move(ficheroParaMover, ficheroNuevaUbicacion);
+				System.out.println("Se ha movido el archivo: " + ficheroNuevaUbicacion.getFileName()+ " a: " + ficheroNuevaUbicacion.toAbsolutePath());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			clienteBuscado.setRol("Cliente antiguo");
+			sobrescribirXML();
+		}
+	}
+
 	private static void añadirCliente() {
 
 		int campoNumeroCliente = 0;
-		int campoCodigoPostal = 0; 
-		
+		int campoCodigoPostal = 0;
+		int eleccionRol = 0;
+
 		String campoNombre = "";
 		String campoCalle = "";
 		String campoCiudad = "";
 		String campoPais = "";
 		String campoRol = "";
-		
+
 		boolean usuarioCorrecto = false;
 		boolean codigoPostalCorrecto = false;
-		
+		boolean campoRolCorrecto = false;
+
 		do {
 			System.out.println("Dime el número del cliente");
 			campoNumeroCliente = tryCatchInt();
@@ -403,32 +431,105 @@ public class EjercicioXML {
 				System.out.println("El cliente ya existe, debes de introducir otro número");
 
 		} while (!usuarioCorrecto);
+		do {
+			System.out.println("Introduce el nombre del cliente");
+			campoNombre = teclado.nextLine();
 
-		System.out.println("Introduce el nombre del cliente");
-		campoNombre = teclado.nextLine();
-		System.out.println("Introduce la calle del cliente");
-		campoCalle = teclado.nextLine();
-		System.out.println("Introduce la ciudad del cliente");
-		campoCiudad = teclado.nextLine();
+		} while (!cadenaVacia(campoNombre));
+		do {
+			System.out.println("Introduce la calle del cliente");
+			campoCalle = teclado.nextLine();
+		} while (!cadenaVacia(campoCalle));
+		do {
+			System.out.println("Introduce la ciudad del cliente");
+			campoCiudad = teclado.nextLine();
+		} while (!cadenaVacia(campoCiudad));
 
 		do {
 			System.out.println("Introduce el código postal");
 			campoCodigoPostal = tryCatchInt();
-			
+
 			if (campoCodigoPostal == NUMERO_NEGATIVO || campoCodigoPostal == 0) {
-				System.out.println("Debes de introducir un Codigo Póstal mayor que 0");
-			} else if (campoNumeroCliente == ERROR_INT)
+				System.out.println("Debes de introducir un Codigo Postal mayor que 0");
+			} else if (campoCodigoPostal == ERROR_INT)
 				System.out.println(mostrarMensajeErrorInt());
 			else
 				codigoPostalCorrecto = true;
 
 		} while (!codigoPostalCorrecto);
-		
-		do {
-		System.out.println("Introduce el país del cliente");
-		campoPais = teclado.nextLine();
-		}while(campoPais == "");
 
+		do {
+			System.out.println("Introduce el país del cliente");
+			campoPais = teclado.nextLine();
+		} while (!cadenaVacia(campoPais));
+
+		do {
+			System.out.println("¿El usuario va a ser administrador, introduce un 1 o un 2?");
+			System.out.println("1- Sí");
+			System.out.println("2- No");
+
+			eleccionRol = tryCatchInt();
+
+			if (eleccionRol == ERROR_INT)
+				System.out.println(mostrarMensajeErrorInt());
+			else if (eleccionRol != 1 && eleccionRol != 2)
+				System.out.println("Debes de introducir un 1 o un 2, opción no reconocida");
+			else
+				campoRolCorrecto = true;
+
+		} while (!campoRolCorrecto);
+
+		campoRol = eleccionRol == 1 ? "Administrador" : "Usuario";
+
+		CLIENTES.add(new Cliente(campoNumeroCliente, campoNombre, campoCalle, campoCiudad, campoCodigoPostal, campoPais,
+				campoRol));
+		crearYEscribirFichasClientes();
+		sobrescribirXML();
+
+	}
+
+	private static void sobrescribirXML() {
+
+		Path fichero = ficheroXML;
+
+		try {
+			
+			Files.writeString(fichero, "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+			Files.writeString(fichero, "<listadeclientes>\n", StandardOpenOption.APPEND);
+
+			for (int i = 0; i < CLIENTES.size(); i++) {
+
+				Files.writeString(fichero, "\t<cliente>\n", StandardOpenOption.APPEND);
+				Files.writeString(fichero, "\t\t" + NUMEROCLIENTE + CLIENTES.get(i).getNumeroCliente() + "</numerodecliente>\n", StandardOpenOption.APPEND);
+				Files.writeString(fichero, "\t\t" + NOMBRE + CLIENTES.get(i).getNombre() + "</Nombre>\n", StandardOpenOption.APPEND);
+				Files.writeString(fichero, "\t\t<Direccion>\n", StandardOpenOption.APPEND);
+				Files.writeString(fichero, "\t\t\t" + CALLE + CLIENTES.get(i).getCalle() + "</Calle>\n", StandardOpenOption.APPEND);
+				Files.writeString(fichero, "\t\t\t" + CIUDAD + CLIENTES.get(i).getCiudad() + "</Ciudad>\n", StandardOpenOption.APPEND);
+				Files.writeString(fichero, "\t\t\t" + CODIGOPOSTAL + CLIENTES.get(i).getCodigopostal() + "</CodigoPostal>\n", StandardOpenOption.APPEND);
+				Files.writeString(fichero, "\t\t\t" + PAIS + CLIENTES.get(i).getPais() + "</Pais>\n", StandardOpenOption.APPEND);
+				Files.writeString(fichero, "\t\t</Direccion>\n", StandardOpenOption.APPEND);
+				Files.writeString(fichero, "\t\t" + ROL + CLIENTES.get(i).getRol() + "</Rol>\n", StandardOpenOption.APPEND);
+				Files.writeString(fichero, "\t</cliente>\n", StandardOpenOption.APPEND);
+
+			}
+			Files.writeString(fichero, "</listadeclientes>\n", StandardOpenOption.APPEND);
+
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Se produjo un error al sobrescribir el archivo");
+		}
+
+	}
+
+	private static boolean cadenaVacia(String palabra) {
+
+		if (palabra.equals("")) {
+			System.out.println("La palabra que has introducido no puede estar en blanco, por favor repítelo de nuevo");
+			return false;
+		} else
+			return true;
 	}
 
 	public static void mostrarDatosClientes(Cliente cliente, char Bandera) {
