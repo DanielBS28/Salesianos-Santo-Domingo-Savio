@@ -6,6 +6,13 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Color;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MiPanel extends JPanel{
 	
@@ -43,5 +50,45 @@ public class MiPanel extends JPanel{
 		btnNewButton.addActionListener(new EventoTraducir(textField,textField_1));
 		btnNewButton.setBounds(174, 244, 89, 23);
 		add(btnNewButton);
+		
+		
+		// JMENU sin organizar en clases a diferentes
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, 0, 450, 22);
+		add(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("Archivo");
+		menuBar.add(mnNewMenu);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("Abrir");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				JOptionPane.showMessageDialog(null, "DAM 24_25", "INFO", 1);
+			}
+		});
+		mnNewMenu.add(mntmNewMenuItem);
+		
+		JMenu mnNewMenu_1 = new JMenu("Guardar");
+		mnNewMenu.add(mnNewMenu_1);
+		
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Desplegable");
+		mnNewMenu_1.add(mntmNewMenuItem_1);
+		
+		JMenu mnNewMenu_3 = new JMenu("Salir");
+		mnNewMenu.add(mnNewMenu_3);
+		
+		JMenu mnNewMenu_2 = new JMenu("Fondo");
+		mnNewMenu_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+			}
+		});
+		menuBar.add(mnNewMenu_2);
+		
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Cambiar Fondo");
+		mnNewMenu_2.add(mntmNewMenuItem_2);
 	}
 }

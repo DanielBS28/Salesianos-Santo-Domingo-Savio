@@ -1,11 +1,11 @@
 package EjerciciosHilos_DanielBaldazoSánchez;
 
-public class RobotExplorador extends Thread{
+public class RobotExploradorEJ2 extends Thread{
 	
 	private String nombre;
 	private int tiempoExploracion;
 	
-	public RobotExplorador(String nombre, int tiempoExploracion) {
+	public RobotExploradorEJ2(String nombre, int tiempoExploracion) {
 		super();
 		this.nombre = nombre;
 		this.tiempoExploracion = tiempoExploracion;
