@@ -282,7 +282,7 @@ public class EjercicioXML {
 				mostrarMenuAdministrador(ClienteOnLine);
 			else
 				mostrarMenuNormal(ClienteOnLine);
-		} else if (numeroUsuario == -1)
+		} else if (numeroUsuario == ERROR_INT)
 			System.out.println(mostrarMensajeErrorInt());
 		else
 			System.out.println("El usuario no existe, por favor comienza de nuevo.");
@@ -318,7 +318,7 @@ public class EjercicioXML {
 
 	public static String mostrarMensajeErrorInt() {
 
-		return "El dato que has introducido no es una entrada válida para un Int, inténtalo de nuevo.";
+		return "El dato que has introducido no es una entrada válida para un Int, comienza de nuevo.";
 	}
 
 	private static void mostrarMenuNormal(Cliente clienteOnLine) {
@@ -340,7 +340,6 @@ public class EjercicioXML {
 			System.out.println("2- Visualizar los datos de un cliente");
 			System.out.println("3- Añadir un nuevo cliente");
 			System.out.println("4- Eliminar a un cliente");
-			
 			System.out.println("5- Visualizar todas las gasolineras");
 			System.out.println("6- Visualizar todas las gasolineras por ubicación");
 			System.out.println("7- Mostrar las gasolineras según los precios de las gasolinas");
@@ -546,7 +545,7 @@ public class EjercicioXML {
 		int numero = 0;
 		boolean entradaValida = false;
 
-		while (!entradaValida) {
+		//while (!entradaValida) {
 			try {
 				numero = teclado.nextInt();
 				teclado.nextLine();
@@ -562,7 +561,7 @@ public class EjercicioXML {
 				// ya que si no se provocaría aquí un bucle que quiero evitar ya que si no el
 				// menú quedaría arriba en el consola
 			}
-		}
+		//}
 		return numero; // Si todo fue bien devuelvo el número introducido
 
 	}
