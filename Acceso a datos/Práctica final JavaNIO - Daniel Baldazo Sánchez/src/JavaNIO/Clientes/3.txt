@@ -1,0 +1,3 @@
+Numero de cliente: 3
+Nombre: Javier
+Dirección: Plaza de España, Madrid, 28022, España

@@ -1,8 +1,9 @@
 package JavaNIO;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Cliente {
+public class Cliente implements Serializable{
 	
 	private int numeroCliente;
 	private String nombre;
@@ -99,8 +100,8 @@ public class Cliente {
 
 	@Override
 	public String toString() {
-		return "Cliente [numeroCliente=" + numeroCliente + ", nombre=" + nombre + ", calle=" + calle + ", ciudad="
-				+ ciudad + ", codigopostal=" + codigopostal + ", pais=" + pais + "]";
+		return "Número de Cliente: " + numeroCliente + ", nombre: " + nombre + ", calle: " + calle + ", ciudad: "
+				+ ciudad + ", código postal: " + codigopostal + ", pais: " + pais + ", rol: " + rol;
 	}
 	
 	

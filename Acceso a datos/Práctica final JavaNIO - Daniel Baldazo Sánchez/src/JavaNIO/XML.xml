@@ -9,7 +9,7 @@
 			<CodigoPostal>28020</CodigoPostal>
 			<Pais>España</Pais>
 		</Direccion>
-		<Rol>Usuario</Rol>
+		<Rol>Cliente antiguo</Rol>
 	</cliente>
 	<cliente>
 		<numerodecliente>456789</numerodecliente>
@@ -54,5 +54,16 @@
 			<Pais>España</Pais>
 		</Direccion>
 		<Rol>Cliente antiguo</Rol>
+	</cliente>
+	<cliente>
+		<numerodecliente>3</numerodecliente>
+		<Nombre>Javier</Nombre>
+		<Direccion>
+			<Calle>Plaza de España</Calle>
+			<Ciudad>Madrid</Ciudad>
+			<CodigoPostal>28022</CodigoPostal>
+			<Pais>España</Pais>
+		</Direccion>
+		<Rol>Usuario</Rol>
 	</cliente>
 </listadeclientes>

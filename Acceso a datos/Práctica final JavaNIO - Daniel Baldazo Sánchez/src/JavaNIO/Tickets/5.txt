@@ -1,0 +1,8 @@
+Numero de ticket: 5
+3
+Javier
+Daniel OIL
+Toledo
+
+Gasolina 95 (1.36)-------45L
+total: 61.2 Euros
