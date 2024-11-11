@@ -1,3 +1,0 @@
-Numero de cliente: 77
-Nombre: Ricardo
-Dirección: Calle de los Hermanos García Noblejas, Madrid, 28037, España

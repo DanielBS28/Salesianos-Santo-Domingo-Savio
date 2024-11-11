@@ -1,3 +1,0 @@
-Numero de cliente: 28577
-Nombre: Juan
-Dirección: Plaza de España, Ávila, 5230, España

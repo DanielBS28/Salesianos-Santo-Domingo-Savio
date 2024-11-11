@@ -1,3 +1,0 @@
-Numero de cliente: 456789
-Nombre: Daniel
-Dirección: Colegio Santo Domingo Savio, Madrid, 28037, España

@@ -1,8 +1,0 @@
-Numero de ticket: 2
-456789
-Daniel
-Galp
-Guadalajara
-
-Diesel (1.8)-------50L
-total: 90.0 Euros
