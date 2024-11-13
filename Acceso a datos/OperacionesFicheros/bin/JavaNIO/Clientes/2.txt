@@ -1,0 +1,6 @@
+Numero de cliente: 456789
+Nombre: Daniel
+Calle : Colegio Santo Domingo Savio
+Ciudad:  Madrid
+Código Postal: 28037
+Pais:  España
