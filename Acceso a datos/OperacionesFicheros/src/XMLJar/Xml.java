@@ -21,6 +21,7 @@ public class Xml {
 		Document documento = null;
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
+			
 			documento = builder.parse(new File("src/XMLJar/Book.xml"));
 			NodeList listaLibros = documento.getElementsByTagName("book");
 
@@ -43,5 +44,4 @@ public class Xml {
 		}
 	}
 	
-
 }
