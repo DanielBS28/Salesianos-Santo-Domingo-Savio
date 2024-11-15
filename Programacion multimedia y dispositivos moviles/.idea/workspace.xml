@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f661ee0a-5502-4470-bac3-73d7970dc881" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Acceso a datos/.metadata/.log" beforeDir="false" afterPath="$PROJECT_DIR$/../Acceso a datos/.metadata/.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.location" beforeDir="false" afterPath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.location" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.core.resources/.projects/OperacionesFicheros/.markers" beforeDir="false" afterPath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.core.resources/.projects/OperacionesFicheros/.markers" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.core.resources/.projects/OperacionesFicheros/org.eclipse.jdt.core/state.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.core.resources/.projects/OperacionesFicheros/org.eclipse.jdt.core/state.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" beforeDir="false" afterPath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" beforeDir="false" afterPath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.launching.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.launching.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.ui.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.ui.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" beforeDir="false" afterPath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.jdt.core/1865797976.index" beforeDir="false" afterPath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.jdt.core/1865797976.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.jdt.core/externalFilesCache" beforeDir="false" afterPath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.jdt.core/externalFilesCache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps" beforeDir="false" afterPath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.jdt.core/savedIndexNames.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.jdt.core/savedIndexNames.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.m2e.logback/0.log" beforeDir="false" afterPath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.m2e.logback/0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Acceso a datos/.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Acceso a datos/.metadata/version.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../Acceso a datos/.metadata/version.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Acceso a datos/OperacionesFicheros/bin/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../Acceso a datos/OperacionesFicheros/bin/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.log" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.location" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.location" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.resources/.projects/Examen - Daniel Baldazo Sánchez/.markers" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.resources/.projects/Examen - Daniel Baldazo Sánchez/.markers" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.resources/.projects/Examen - Daniel Baldazo Sánchez/org.eclipse.jdt.core/state.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.resources/.projects/Examen - Daniel Baldazo Sánchez/org.eclipse.jdt.core/state.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.resources/.projects/ejercicio0 - Daniel Baldazo Sánchez/.markers" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.resources/.projects/ejercicio0 - Daniel Baldazo Sánchez/.markers" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.resources/.projects/ejercicio0 - Daniel Baldazo Sánchez/org.eclipse.jdt.core/state.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.resources/.projects/ejercicio0 - Daniel Baldazo Sánchez/org.eclipse.jdt.core/state.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.resources/.projects/ejercicio1 - Daniel Baldazo Sánchez/org.eclipse.jdt.core/state.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.resources/.projects/ejercicio1 - Daniel Baldazo Sánchez/org.eclipse.jdt.core/state.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.resources/.projects/ejercicio2 - Daniel Baldazo Sánchez/.markers" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.resources/.projects/ejercicio2 - Daniel Baldazo Sánchez/.markers" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.resources/.projects/ejercicio2 - Daniel Baldazo Sánchez/org.eclipse.jdt.core/state.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.resources/.projects/ejercicio2 - Daniel Baldazo Sánchez/org.eclipse.jdt.core/state.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.debug.ui.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.debug.ui.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.launching.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.launching.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.ui.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.ui.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.jdt.core/1865797976.index" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.jdt.core/1865797976.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.jdt.core/externalFilesCache" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.jdt.core/externalFilesCache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.jdt.core/savedIndexNames.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.jdt.core/savedIndexNames.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.m2e.logback/0.log" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.m2e.logback/0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/version.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../Programación de servicios y procesos/.metadata/version.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.mylyn/.taskListIndex/segments_1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.mylyn/.taskListIndex/write.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.mylyn/repositories.xml.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.location" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/history.version" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.version" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.core.resources/.root/3.tree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.launching.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.ui.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jsch.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.m2e.discovery.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.context.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.monitor.ui.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.tasks.ui.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.workbench.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.egit.core/.org.eclipse.egit.core.cmp/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.egit.core/.org.eclipse.egit.core.cmp/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.jdt.core/assumedExternalFilesCache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.jdt.core/externalFilesCache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.jdt.core/javaLikeNames.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.jdt.core/nonChainingJarsCache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.jdt.launching/.install.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.jdt.launching/libraryInfos.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.jdt.ui/OpenTypeHistory.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.jdt.ui/QualifiedTypeNameHistory.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.jdt.ui/dialog_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.m2e.core/workspaceState.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.m2e.logback/0.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.m2e.logback/logback.2.6.1.20240411-1122.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.mylyn.github.ui/avatars.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.oomph.setup/workspace.setup" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.pde.core/.cache/clean-cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.tips.ide/dialog_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.ui.intro/introstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/.metadata/version.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/MileStone 3/1.NotificacionesMoviles.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/MileStone 3/2.EntradasCine.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/MileStone 3/3.CoversorTemperatura.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/MileStone 3/4.CatálogoDeCacniones.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/MileStone 3/5.PerfilDeInternet.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/MileStone 3/6.TelefonosPlegables.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Programación multimedia y dispositivos móviles/MileStone 3/7.SubastaEspecial.kt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2oqsLW8ey9FqfbdmeBnFV1jtfcL" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "android.gradle.sync.needed": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f661ee0a-5502-4470-bac3-73d7970dc881" name="Changes" comment="" />
+      <created>1731608388104</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731608388104</updated>
+    </task>
+    <servers />
+  </component>
+</project>
