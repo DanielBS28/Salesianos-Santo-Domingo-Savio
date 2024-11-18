@@ -27,8 +27,9 @@
 		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
 		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
 		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
-			<item value="C:\Users\CFGS\Desktop\Ejercicio1Palabra.zip"/>
+			<item value="C:\Users\CFGS\Desktop\Procesos.zip"/>
 			<item value="C:\Users\CFGS\Desktop\Práctica 3 - Hilos en Java I - Daniel Baldazo Sánchez.zip"/>
+			<item value="C:\Users\CFGS\Desktop\Ejercicio1Palabra.zip"/>
 			<item value="Práctica 3 - Hilos en Java I - Daniel Baldazo Sánchez.zip"/>
 		</list>
 		<section name="ZipFileExportWizard.dialogBounds">

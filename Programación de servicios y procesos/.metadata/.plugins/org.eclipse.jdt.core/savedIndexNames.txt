@@ -1,23 +1,13 @@
-INDEX VERSION 1.134+C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\.metadata\.plugins\org.eclipse.jdt.core
+INDEX VERSION 1.134+C:\Users\CFGS\Desktop\2024-2025\Programación de servicios y procesos\.metadata\.plugins\org.eclipse.jdt.core
+4201534582.index
+2821281853.index
+1629593110.index
+2505898244.index
+3325022186.index
 3743299163.index
 1151564319.index
 1926773774.index
-3325022186.index
-1629593110.index
-<<<<<<< HEAD
-1865797976.index
-509981138.index
 33947865.index
+3803894794.index
 1820990360.index
-1285851014.index
-2821281853.index
-=======
-3505288724.index
-3196006271.index
-2968456638.index
-3743299163.index
-3333434252.index
-33947865.index
-2505898244.index
-1151564319.index
->>>>>>> 66d8c94726c587d71e02098186fc084b955c8f49
+1865797976.index
