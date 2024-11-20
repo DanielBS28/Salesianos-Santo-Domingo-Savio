@@ -9,10 +9,13 @@
     <fullyQualifiedTypeName name="java.lang.Runnable"/>
     <fullyQualifiedTypeName name="java.lang.Thread"/>
     <fullyQualifiedTypeName name="java.time.Duration"/>
-    <fullyQualifiedTypeName name="ejercicio1.DescifradorSecuecial"/>
     <fullyQualifiedTypeName name="java.util.concurrent.ExecutorService"/>
     <fullyQualifiedTypeName name="java.util.concurrent.Executor"/>
     <fullyQualifiedTypeName name="java.util.concurrent.Executors"/>
     <fullyQualifiedTypeName name="ejercicio1.DescifradorParalelo"/>
     <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
+    <fullyQualifiedTypeName name="ejercicio1.DescifradorSecuecial"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

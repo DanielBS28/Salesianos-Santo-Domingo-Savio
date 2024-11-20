@@ -46,9 +46,6 @@ public class Descifrador {
 
 		Instant ahora = Instant.now();
 
-		// DescifradorSecuecial.generarPalabras();
-		// descifradorParalelo();
-
 		AtomicBoolean encontrado = new AtomicBoolean(false);
 
 		ExecutorService Executor = Executors.newFixedThreadPool(26);
@@ -59,11 +56,7 @@ public class Descifrador {
 			Executor.submit(p);
 		}
 
-		/*
-		 * try { Executor.wait(); } catch (InterruptedException e) {
-		 * e.printStackTrace(); }
-		 */
-
+	
 		try {
 			// Esperar hasta que todas las tareas finalicen o se agote el tiempo (timeout)
 			if (!Executor.awaitTermination(60, TimeUnit.SECONDS)) { // Asegúrate de que TimeUnit no es null
@@ -75,16 +68,11 @@ public class Descifrador {
 		}
 
 		Instant fin = Instant.now();
-
-		Duration duracion = Duration.between(ahora, fin);
-		/*
-		 * double tiempo =Math.floor(duracion.toMillis()*1)/1000;
-		 * System.out.printf("%.2f", tiempo );
-		 */
 		
-		double i = 1436.4366;
-		System.out.println(Math.floor(i*100)/100);
-		System.out.println(Math.floor(duracion.toMillis()));
+		Duration duracion = Duration.between(ahora, fin);
+		
+		System.out.println("El programa ha encontrado la palabra en: " + duracion.toMillis() 
+				+ " milisegundos");
 	}
 
 }
