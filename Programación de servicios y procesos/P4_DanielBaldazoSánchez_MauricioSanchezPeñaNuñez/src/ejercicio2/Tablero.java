@@ -2,11 +2,13 @@ package ejercicio2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class Tablero {
 
 	private String[][] tableroPartida = new String[15][15];
+	public static HashMap<Coordenadas, Tipo> map = new HashMap<>();
 
 	public Tablero() {
 
@@ -17,10 +19,18 @@ public class Tablero {
 
 		for (int i = 0; i < tableroPartida.length; i++) {
 			for (int j = 0; j < tableroPartida[i].length; j++) {
-				tableroPartida[i][j] = "*";
+				//
+				if (map.get(new Coordenadas(i,j)) == Tipo.MINA) {
+					tableroPartida[i][j] = "M";
+				} else if (map.get(new Coordenadas(i,j)) == Tipo.PEPITA) {
+					tableroPartida[i][j] = "p";
+				} else if (map.get(new Coordenadas(i,j)) == Tipo.JUGADOR) {
+					tableroPartida[i][j] = "T";
+				}else
+					tableroPartida[i][j] = "*";
 			}
-		}
 
+		}
 	}
 
 	public void imprimirTablero() {
@@ -39,30 +49,6 @@ public class Tablero {
 
 	public void setTablero(String[][] tablero) {
 		this.tableroPartida = tablero;
-	}
-
-	public void insertarDatosTableroPepitas(ArrayList<Pepita> Pepitas) {
-
-		for (int i = 0; i < Pepitas.size(); i++) {
-
-			int CoorX = Pepitas.get(i).getX();
-			int CoorY = Pepitas.get(i).getY();
-
-			tableroPartida[CoorX][CoorY] = Pepita.getSimbolo();
-
-		}
-	}
-
-	public void insertarDatosTableroMinas(ArrayList<Minas> MINAS) {
-
-		for (int i = 0; i < MINAS.size(); i++) {
-
-			int CoorX = MINAS.get(i).getX();
-			int CoorY = MINAS.get(i).getY();
-
-			tableroPartida[CoorX][CoorY] = Minas.getCaracter();
-
-		}
 	}
 
 }

@@ -1,6 +1,13 @@
 package ejercicio2;
 
+import java.util.Random;
+
 public class Jugador {
+	
+	static Random r = new Random();
+	private static String caracter = "T";
+	private int x = -1;
+	private int y = -1;
 	
 	static int IDJugador = 1;
 	private String nombre;

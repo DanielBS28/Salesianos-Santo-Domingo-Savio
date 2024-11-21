@@ -18,4 +18,6 @@
     <fullyQualifiedTypeName name="ejercicio1.DescifradorSecuecial"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="ejercicio2.Tipo"/>
+    <fullyQualifiedTypeName name="ejercicio2.Tablero"/>
 </qualifiedTypeNameHistroy>
