@@ -8,13 +8,15 @@ import javax.swing.Timer;
 import javax.swing.JProgressBar;
 
 public class Main {
+	
+	public static FrameMecanografía mecanografía = null;
 
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FrameMecanografía mecanografía = new FrameMecanografía();	
+					 mecanografía = new FrameMecanografía();	
 					mecanografía.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

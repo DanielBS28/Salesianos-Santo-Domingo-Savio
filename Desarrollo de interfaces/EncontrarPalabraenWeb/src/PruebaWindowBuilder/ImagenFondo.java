@@ -93,17 +93,7 @@ public class ImagenFondo{
 		return miPanel;
 	}
 
-	private Image requestImage(String ruta) {
-
-		BufferedImage imagenFondo = null;
-		try {
-			imagenFondo = ImageIO.read(new File(ruta));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return imagenFondo;
-	}
+	
 	
 	class FondoPanel extends JPanel {
 	    private Image imagenFondo;
@@ -120,6 +110,17 @@ public class ImagenFondo{
 	            g.drawImage(imagenFondo, 0, 0, getWidth(), getHeight(), null);
 	        }
 	    }
+	}
+	private Image requestImage(String ruta) {
+
+		BufferedImage imagenFondo = null;
+		try {
+			imagenFondo = ImageIO.read(new File(ruta));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("No se ha podido encontrar la imagen");
+		}
+		return imagenFondo;
 	}
 
 }
