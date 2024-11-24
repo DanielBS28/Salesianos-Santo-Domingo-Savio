@@ -5,6 +5,13 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class DescifradorSecuecial {
+	
+	/**
+     * Obtiene el hash SHA-256 de un texto dado.
+     *
+     * @param text Texto del cual se calculará el hash.
+     * @return Array de bytes que representa el hash calculado.
+     */
 
 public static byte[] getHash(String text) {
 		
@@ -20,6 +27,13 @@ public static byte[] getHash(String text) {
 		return encodedhash;
 	}
 
+/**
+ * Comprueba si un hash dado coincide con el hash a descifrar.
+ *
+ * @param hashPasado Hash que será comparado.
+ * @return true si el hash pasado coincide con el hash a descifrar, false en caso contrario.
+ */
+
 	public static boolean comprobarHash(byte[] hashPasado) {
 
 		String HashPalabraPasada = ArrayDeBytesHexadecimal(hashPasado);
@@ -29,6 +43,13 @@ public static byte[] getHash(String text) {
 
 		return HashPalabraPasada.equals(hashInicial);
 	}
+	
+	/**
+     * Convierte un array de bytes a una String de números hexadecimales.
+     *
+     * @param bytes array de bytes a convertir.
+     * @return String en formato hexadecimal.
+     */
 
 	public static String ArrayDeBytesHexadecimal(byte[] bytes) {
 		String palabra = "";
@@ -39,6 +60,15 @@ public static byte[] getHash(String text) {
 
 		return palabra;
 	}
+	
+	  /**
+     * Generamos combinaciones de caracteres recursivamente para verificar si alguna coincide con un hash dado.
+     *
+     * @param prefijo Prefijo inicial utilizado para generar combinaciones.
+     * @param longitud Longitud máxima de las combinaciones (palabra a obtener).
+     * @param hashADescifrar Hash que queremos descifrar.
+     * @return true si se encuentra una coincidencia, false en caso contrario.
+     */
 
 	public static boolean recursiva(String prefijo, int longitud, String hashADescifrar) {
 
@@ -57,6 +87,15 @@ public static byte[] getHash(String text) {
 		}
 		return false;
 	}
+	
+    /**
+     * Generador de palabras de longitud 4 utilizando combinaciones de letras minúsculas de la a hasta la z,
+     * y comprueba si alguna de ellas coincide con el hash a descifrar.
+     *
+     * @return La palabra que coincide con el hash a descifrar en caso de que se encuentre
+     *  o una String vacía si no se encuentra.
+     */
+
 
 	public static String generarPalabras() {
 
@@ -75,8 +114,5 @@ public static byte[] getHash(String text) {
 		return palabra;
 	}
 	
-		//Aquí iba el main 
-		//System.out.println(generarPalabras());
-		//recursiva("", 4, "b221d9dbb083a7f33428d7c2a3c3198ae925614d70210e28716ccaa7cd4ddb79");
 
 }

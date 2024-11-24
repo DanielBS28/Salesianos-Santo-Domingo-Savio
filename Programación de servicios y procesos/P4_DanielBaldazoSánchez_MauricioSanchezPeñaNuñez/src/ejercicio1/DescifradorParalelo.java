@@ -8,88 +8,114 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class DescifradorParalelo implements Runnable {
 
-	private String palabra;
-	private int longitud;
-	private String hash;
-	AtomicBoolean encontrado;
-	ExecutorService executor;
+    private String palabra;
+    private int longitud;
+    private String hash;
+    AtomicBoolean encontrado;
+    ExecutorService executor;
 
-	
+    /**
+     * Constructor DescifradorParalelo.
+     *
+     * @param palabra  Palabra inicial desde donde comenzará el descifrado.
+     * @param longitud  Longitud máxima de la palabra generada.
+     * @param hash   Hash a descifrar que se quiere descifrar.
+     * @param encontrado  Referencia a un AtomicBoolean que indica si el hash ya ha sido descifrado.
+     * @param executor  ExecutorService para gestionar los hilos de ejecución.
+     */
+    public DescifradorParalelo(String palabra, int longitud, String hash, AtomicBoolean encontrado,
+                               ExecutorService executor) {
+        super();
+        this.palabra = palabra;
+        this.longitud = longitud;
+        this.hash = hash;
+        this.encontrado = encontrado;
+        this.executor = executor;
+    }
 
-	public DescifradorParalelo(String palabra, int longitud, String hash, AtomicBoolean encontrado,
-			ExecutorService executor) {
-		super();
-		this.palabra = palabra;
-		this.longitud = longitud;
-		this.hash = hash;
-		this.encontrado = encontrado;
-		this.executor = executor;
-	}
+    /**
+     * Obtiene el hash SHA-256 de un texto dado.
+     *
+     * @param text Texto del cual se calculará el hash.
+     * @return Array de bytes que representa el hash calculado.
+     */
+    public static byte[] getHash(String text) {
+        byte[] encodedhash = null;
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            encodedhash = digest.digest(text.getBytes(StandardCharsets.UTF_8));
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return encodedhash;
+    }
 
-	public static byte[] getHash(String text) {
+    /**
+     * Comprueba si un hash dado coincide con el hash a descifrar.
+     *
+     * @param hashPasado Hash que será comparado.
+     * @return true si el hash pasado coincide con el hash a descifrar, false en caso contrario.
+     */
+    public static boolean comprobarHash(byte[] hashPasado) {
+        String HashPalabraPasada = ArrayDeBytesHexadecimal(hashPasado);
+        String hashInicial = "b221d9dbb083a7f33428d7c2a3c3198ae925614d70210e28716ccaa7cd4ddb79";
+        return HashPalabraPasada.equals(hashInicial);
+    }
 
-		byte[] encodedhash = null;
-		MessageDigest digest;
-		try {
-			digest = MessageDigest.getInstance("SHA-256");
-			encodedhash = digest.digest(text.getBytes(StandardCharsets.UTF_8));
-		} catch (NoSuchAlgorithmException e) {
-			//
-			e.printStackTrace();
-		}
-		return encodedhash;
-	}
+    /**
+     * Convierte un array de bytes a una String de números hexadecimales.
+     *
+     * @param bytes array de bytes a convertir.
+     * @return String en formato hexadecimal.
+     */
+    public static String ArrayDeBytesHexadecimal(byte[] bytes) {
+        String palabra = "";
+        for (byte b : bytes)
+            palabra += String.format("%02x", b);
+        return palabra;
+    }
 
-	public static boolean comprobarHash(byte[] hashPasado) {
-
-		String HashPalabraPasada = ArrayDeBytesHexadecimal(hashPasado);
-		//System.out.println(HashPalabraPasada);
-
-		String hashInicial = "b221d9dbb083a7f33428d7c2a3c3198ae925614d70210e28716ccaa7cd4ddb79";
-
-		return HashPalabraPasada.equals(hashInicial);
-	}
-
-	public static String ArrayDeBytesHexadecimal(byte[] bytes) {
-		String palabra = "";
-
-		for (byte b : bytes)
-
-			palabra += String.format("%02x", b);
-
-		return palabra;
-	}
-
-	public boolean recursiva(String prefijo, int longitud, String hashADescifrar) {
-		
-		if (encontrado.get()) 
+    /**
+     * Función recursiva que genera combinaciones de palabras y verifica si alguna
+     * coincide con el hash objetivo.
+     *
+     * @param prefijo Prefijo inicial para generar combinaciones.
+     * @param longitud Es la longitud de la palabra a descrifrar.
+     * @param hashADescifrar Hash que se desea descifrar.
+     * @return true si se encuentra una coincidencia, false en caso contrario.
+     */
+    public boolean recursiva(String prefijo, int longitud, String hashADescifrar) {
+        if (encontrado.get())
             return false;
 
-		if (prefijo.length() == longitud) {
-			if (comprobarHash(getHash(prefijo))) {
-				System.out.println(prefijo);
-				encontrado.set(true);
-				if(encontrado.get())
-					executor.shutdownNow();
-				return true;
-			}
-			return false;
-		} else {
-			for (char letra = 'a'; letra <= 'z'; letra++) {
-				if (encontrado.get()) 
-                    return false; 
-				String nuevaPalabra = prefijo + letra;
-				if (recursiva(nuevaPalabra, longitud, hashADescifrar))
-					return true;
-			}
-		}
-		return false;
-	}
-
-	@Override
-	public void run() {
-
-		recursiva(palabra, longitud, hash);
-	}
-
+        if (prefijo.length() == longitud) {
+            if (comprobarHash(getHash(prefijo))) {
+                System.out.println(prefijo);
+                encontrado.set(true);
+                if (encontrado.get())
+                    executor.shutdownNow();
+                return true;
+            }
+            return false;
+        } else {
+            for (char letra = 'a'; letra <= 'z'; letra++) {
+                if (encontrado.get())
+                    return false;
+                String nuevaPalabra = prefijo + letra;
+                if (recursiva(nuevaPalabra, longitud, hashADescifrar))
+                    return true;
+            }
+        }
+        return false;
+    }
+    
+    /**
+     * Función que ejecuta el descifrado de manera recursiva.
+     * Le pertenece a los hilos.
+     */
+ 
+    @Override
+    public void run() {
+        recursiva(palabra, longitud, hash);
+    }
 }
