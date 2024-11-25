@@ -13,8 +13,7 @@ public class FrameMecanografía extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// Para cerrar la aplicación con la X
 		getContentPane().setLayout(null);
 		setTitle("Aplicación de mecanografía de Daniel"); //Agrego el titulo a mi aplicación
-		PanelCargaInicial cargaInicial = new PanelCargaInicial();
-		cargaInicial.setBounds(0, 0, 450, 300);
+		PanelCargaInicial cargaInicial = new PanelCargaInicial(this);
 		getContentPane().add(cargaInicial);
 	}
 }

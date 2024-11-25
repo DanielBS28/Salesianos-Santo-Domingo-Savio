@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 public class Imágenes{
 	
-	public static Component ponerFondo(String ruta) {
+	public static Component ponerFondo(String ruta, FrameMecanografía frameMecanografía) {
 
 		final Image imagenFondo = requestImage(ruta);
 
@@ -23,16 +23,15 @@ public class Imágenes{
 				// TODO Auto-generated method stub
 				super.paintComponent(g);
 
-				int W = Main.mecanografía.getWidth();
-				int H = Main.mecanografía.getHeight();
+				int W = frameMecanografía.getWidth();
+				int H = frameMecanografía.getHeight();
 
 				g.drawImage(imagenFondo, 0, 0, W, H, null);
-
 			}
 
 		};
 
-		miPanel.setSize(500, 333);
+		miPanel.setSize(frameMecanografía.getWidth(), frameMecanografía.getHeight());
 
 		return miPanel;
 	}

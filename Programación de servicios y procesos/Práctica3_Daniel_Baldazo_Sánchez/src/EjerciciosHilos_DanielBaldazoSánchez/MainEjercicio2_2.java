@@ -30,7 +30,6 @@ public class MainEjercicio2_2 {
 		new Thread(rc3).start();
 
 		for (int i = 0; i < ROBOTSCONSTRUCTORES.size(); i++) {
-			for (int j = 0; j < 10; j++)
 				new Thread(ROBOTSCONSTRUCTORES.get(i)).start();
 		}
 		
