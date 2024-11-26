@@ -6,11 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/CFGS/Desktop/2024-2025/Programación de servicios y procesos/P4_DanielBaldazoSánchez_MauricioSanchezPeñaNuñez/src/ejercicio3/JSON/json-lib-2.4-jdk15.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/CFGS/Desktop/gson-2.8.2.jar"/>
+	<classpathentry kind="lib" path="src/ejercicio3/JSON/gson-2.8.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

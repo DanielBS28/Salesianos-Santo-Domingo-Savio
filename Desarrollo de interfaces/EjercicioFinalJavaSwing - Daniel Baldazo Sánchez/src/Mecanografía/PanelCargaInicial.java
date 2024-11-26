@@ -49,7 +49,7 @@ public class PanelCargaInicial extends JPanel {
 					// cuando voy a cambiar propiedades el frame, luego al final lo vuelvo a poner
 					// en visible.
 					frameMecanografía.setUndecorated(false);
-					frameMecanografía.setBounds(100, 100, 500, 700);
+					frameMecanografía.setBounds(100, 100, 500, 570);
 					frameMecanografía.setLocationRelativeTo(null);
 					frameMecanografía.setVisible(true);
 					PanelLogin login = new PanelLogin(frameMecanografía);

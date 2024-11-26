@@ -4,7 +4,7 @@
 	<item key="org.eclipse.jdt.ui.last.selected.execution.enviroment" value="JavaSE-22"/>
 	<item key="org.eclipse.jdt.ui.last.selected.create.moduleinfo.comments" value="false"/>
 	<item key="org.eclipse.jdt.ui.last.selected.create.moduleinfo" value="false"/>
-	<item key="org.eclipse.jdt.ui.lastextjar" value="C:\Users\CFGS\Desktop"/>
+	<item key="org.eclipse.jdt.ui.lastextjar" value="C:\Users\yakit\Downloads"/>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item key="group_libraries" value="true"/>
 		<item key="layout" value="2"/>
@@ -133,10 +133,55 @@
 		<item key="antpath" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\P4_DanielBaldazoSánchez_MauricioSanchezPeñaNuñez\javadoc.xml"/>
 		<item key="destdir" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\P4_DanielBaldazoSánchez_MauricioSanchezPeñaNuñez\doc"/>
 		<section name="projects">
+			<section name="HilosEnJava_DíaExcursion">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\HilosEnJava_DíaExcursion\doc"/>
+				<item key="antpath" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\HilosEnJava_DíaExcursion\javadoc.xml"/>
+			</section>
+			<section name="EjemplosdeHilosGitHub">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\EjemplosdeHilosGitHub\doc"/>
+				<item key="antpath" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\EjemplosdeHilosGitHub\javadoc.xml"/>
+			</section>
+			<section name="ejercicio0 - Daniel Baldazo Sánchez">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\ejercicio0 - Daniel Baldazo Sánchez\doc"/>
+				<item key="antpath" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\ejercicio0 - Daniel Baldazo Sánchez\javadoc.xml"/>
+			</section>
+			<section name="Práctica3_Daniel_Baldazo_Sánchez">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\Práctica3_Daniel_Baldazo_Sánchez\doc"/>
+				<item key="antpath" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\Práctica3_Daniel_Baldazo_Sánchez\javadoc.xml"/>
+			</section>
+			<section name="ejercicio2 - Daniel Baldazo Sánchez">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\ejercicio2 - Daniel Baldazo Sánchez\doc"/>
+				<item key="antpath" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\ejercicio2 - Daniel Baldazo Sánchez\javadoc.xml"/>
+			</section>
+			<section name="Examen - Daniel Baldazo Sánchez">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\Examen - Daniel Baldazo Sánchez\doc"/>
+				<item key="antpath" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\Examen - Daniel Baldazo Sánchez\javadoc.xml"/>
+			</section>
+			<section name="ejerciciodiscord">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\ejerciciodiscord\doc"/>
+				<item key="antpath" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\ejerciciodiscord\javadoc.xml"/>
+			</section>
 			<section name="P4_DanielBaldazoSánchez_MauricioSanchezPeñaNuñez">
 				<item key="href" value=""/>
 				<item key="destdir" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\P4_DanielBaldazoSánchez_MauricioSanchezPeñaNuñez\doc"/>
 				<item key="antpath" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\P4_DanielBaldazoSánchez_MauricioSanchezPeñaNuñez\javadoc.xml"/>
+			</section>
+			<section name="ejercicio1 - Daniel Baldazo Sánchez">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\ejercicio1 - Daniel Baldazo Sánchez\doc"/>
+				<item key="antpath" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\ejercicio1 - Daniel Baldazo Sánchez\javadoc.xml"/>
+			</section>
+			<section name="EjercicioPalabraHackeada">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\EjercicioPalabraHackeada\doc"/>
+				<item key="antpath" value="C:\Users\yakit\Desktop\2024-2025\Programación de servicios y procesos\EjercicioPalabraHackeada\javadoc.xml"/>
 			</section>
 		</section>
 	</section>
