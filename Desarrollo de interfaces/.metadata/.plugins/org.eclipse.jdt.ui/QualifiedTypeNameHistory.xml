@@ -26,6 +26,7 @@
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="javax.swing.JFrame"/>
     <fullyQualifiedTypeName name="Mecanografía.ImagenDeFondo"/>
-    <fullyQualifiedTypeName name="Mecanografía.Imágenes"/>
     <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+    <fullyQualifiedTypeName name="Mecanografía.Usuario"/>
+    <fullyQualifiedTypeName name="Mecanografía.Imágenes"/>
 </qualifiedTypeNameHistroy>
