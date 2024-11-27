@@ -20,13 +20,14 @@
     <fullyQualifiedTypeName name="javax.mail.Transport"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
-    <fullyQualifiedTypeName name="Mecanografía.FrameMecanografía"/>
     <fullyQualifiedTypeName name="Mecanografía.PanelCargaInicial"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="javax.swing.JFrame"/>
     <fullyQualifiedTypeName name="Mecanografía.ImagenDeFondo"/>
     <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
     <fullyQualifiedTypeName name="Mecanografía.Usuario"/>
-    <fullyQualifiedTypeName name="Mecanografía.Imágenes"/>
     <fullyQualifiedTypeName name="javax.swing.JPanel"/>
+    <fullyQualifiedTypeName name="Mecanografía.PanelLogin"/>
+    <fullyQualifiedTypeName name="Mecanografía.FrameMecanografía"/>
+    <fullyQualifiedTypeName name="Mecanografía.Imágenes"/>
 </qualifiedTypeNameHistroy>
