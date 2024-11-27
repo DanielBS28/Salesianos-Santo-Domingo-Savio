@@ -1,0 +1,3 @@
+Numero de cliente: 52
+Nombre: Pepa
+Dirección: Paseo de Extremadura, Bajadoz, 45036, España

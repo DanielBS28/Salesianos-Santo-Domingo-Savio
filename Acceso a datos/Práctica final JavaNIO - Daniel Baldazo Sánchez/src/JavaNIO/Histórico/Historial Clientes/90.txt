@@ -1,0 +1,3 @@
+Numero de cliente: 90
+Nombre: Manuel
+Dirección: Serrano, Madrid, 28016, España

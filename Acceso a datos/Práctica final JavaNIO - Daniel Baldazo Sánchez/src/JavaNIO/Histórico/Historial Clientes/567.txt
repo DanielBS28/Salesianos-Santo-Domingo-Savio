@@ -1,0 +1,3 @@
+Numero de cliente: 567
+Nombre: Santiago
+Dirección: Castillo de Uclés, Madrid, 28037, España

@@ -1,0 +1,3 @@
+Numero de cliente: 2
+Nombre: Juan
+Dirección: Bailén, Madrid, 28023, España

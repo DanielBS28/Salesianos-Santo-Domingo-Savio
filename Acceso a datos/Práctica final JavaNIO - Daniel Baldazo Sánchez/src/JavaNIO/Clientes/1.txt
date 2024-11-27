@@ -1,0 +1,3 @@
+Numero de cliente: 1
+Nombre: Super Administrador
+Dirección: -, -, 1, -

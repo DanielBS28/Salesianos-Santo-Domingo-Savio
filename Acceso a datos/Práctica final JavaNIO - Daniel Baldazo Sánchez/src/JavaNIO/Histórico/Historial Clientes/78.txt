@@ -1,0 +1,3 @@
+Numero de cliente: 78
+Nombre: María Juana
+Dirección: Plaza del Rollo, Toledo, 45063, España

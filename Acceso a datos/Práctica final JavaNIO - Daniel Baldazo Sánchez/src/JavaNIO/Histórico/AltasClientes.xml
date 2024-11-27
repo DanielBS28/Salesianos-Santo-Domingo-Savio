@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listadeclientes>
+	<cliente>
+		<numerodecliente>12345</numerodecliente>
+		<Nombre>Luis García</Nombre>
+		<Direccion>
+			<Calle>Calle de la Princesa</Calle>
+			<Ciudad>Madrid</Ciudad>
+			<CodigoPostal>28020</CodigoPostal>
+			<Pais>España</Pais>
+		</Direccion>
+		<Rol>Cliente antiguo</Rol>
+	</cliente>
+	<cliente>
+		<numerodecliente>456789</numerodecliente>
+		<Nombre>Daniel</Nombre>
+		<Direccion>
+			<Calle>Colegio Santo Domingo Savio</Calle>
+			<Ciudad>Madrid</Ciudad>
+			<CodigoPostal>28037</CodigoPostal>
+			<Pais>España</Pais>
+		</Direccion>
+		<Rol>Administrador</Rol>
+	</cliente>
+	<cliente>
+		<numerodecliente>77</numerodecliente>
+		<Nombre>Ricardo</Nombre>
+		<Direccion>
+			<Calle>Calle de los Hermanos García Noblejas</Calle>
+			<Ciudad>Madrid</Ciudad>
+			<CodigoPostal>28037</CodigoPostal>
+			<Pais>España</Pais>
+		</Direccion>
+		<Rol>Administrador</Rol>
+	</cliente>
+	<cliente>
+		<numerodecliente>28577</numerodecliente>
+		<Nombre>Juan</Nombre>
+		<Direccion>
+			<Calle>Plaza de España</Calle>
+			<Ciudad>Ávila</Ciudad>
+			<CodigoPostal>5230</CodigoPostal>
+			<Pais>España</Pais>
+		</Direccion>
+		<Rol>Administrador</Rol>
+	</cliente>
+	<cliente>
+		<numerodecliente>567</numerodecliente>
+		<Nombre>Santiago</Nombre>
+		<Direccion>
+			<Calle>Castillo de Uclés</Calle>
+			<Ciudad>Madrid</Ciudad>
+			<CodigoPostal>28037</CodigoPostal>
+			<Pais>España</Pais>
+		</Direccion>
+		<Rol>Cliente antiguo</Rol>
+	</cliente>
+	<cliente>
+		<numerodecliente>3</numerodecliente>
+		<Nombre>Javier</Nombre>
+		<Direccion>
+			<Calle>Plaza de España</Calle>
+			<Ciudad>Madrid</Ciudad>
+			<CodigoPostal>28022</CodigoPostal>
+			<Pais>España</Pais>
+		</Direccion>
+		<Rol>Cliente antiguo</Rol>
+	</cliente>
+	<cliente>
+		<numerodecliente>2</numerodecliente>
+		<Nombre>Juan</Nombre>
+		<Direccion>
+			<Calle>Bailén</Calle>
+			<Ciudad>Madrid</Ciudad>
+			<CodigoPostal>28023</CodigoPostal>
+			<Pais>España</Pais>
+		</Direccion>
+		<Rol>Cliente antiguo</Rol>
+	</cliente>
+	<cliente>
+		<numerodecliente>90</numerodecliente>
+		<Nombre>Manuel</Nombre>
+		<Direccion>
+			<Calle>Serrano</Calle>
+			<Ciudad>Madrid</Ciudad>
+			<CodigoPostal>28016</CodigoPostal>
+			<Pais>España</Pais>
+		</Direccion>
+		<Rol>Usuario</Rol>
+	</cliente>
+	<cliente>
+		<numerodecliente>54</numerodecliente>
+		<Nombre>David</Nombre>
+		<Direccion>
+			<Calle>Calle Estocolmo</Calle>
+			<Ciudad>Madrid</Ciudad>
+			<CodigoPostal>28022</CodigoPostal>
+			<Pais>España</Pais>
+		</Direccion>
+		<Rol>Usuario</Rol>
+	</cliente>
+	<cliente>
+		<numerodecliente>53</numerodecliente>
+		<Nombre>Trini</Nombre>
+		<Direccion>
+			<Calle>Paseo de Extremadura</Calle>
+			<Ciudad>Bajadoz</Ciudad>
+			<CodigoPostal>45036</CodigoPostal>
+			<Pais>España</Pais>
+		</Direccion>
+		<Rol>Administrador</Rol>
+	</cliente>
+	<cliente>
+		<numerodecliente>52</numerodecliente>
+		<Nombre>Pepa</Nombre>
+		<Direccion>
+			<Calle>Paseo de Extremadura</Calle>
+			<Ciudad>Bajadoz</Ciudad>
+			<CodigoPostal>45036</CodigoPostal>
+			<Pais>España</Pais>
+		</Direccion>
+		<Rol>Administrador</Rol>
+	</cliente>
+	<cliente>
+		<numerodecliente>57</numerodecliente>
+		<Nombre>Juanjo</Nombre>
+		<Direccion>
+			<Calle>Calle Preciados</Calle>
+			<Ciudad>Madrid</Ciudad>
+			<CodigoPostal>28013</CodigoPostal>
+			<Pais>España</Pais>
+		</Direccion>
+		<Rol>Cliente antiguo</Rol>
+	</cliente>
+	<cliente>
+		<numerodecliente>1</numerodecliente>
+		<Nombre>Super Administrador</Nombre>
+		<Direccion>
+			<Calle>-</Calle>
+			<Ciudad>-</Ciudad>
+			<CodigoPostal>1</CodigoPostal>
+			<Pais>-</Pais>
+		</Direccion>
+		<Rol>Administrador</Rol>
+	</cliente>
+	<cliente>
+		<numerodecliente>78</numerodecliente>
+		<Nombre>María Juana</Nombre>
+		<Direccion>
+			<Calle>Plaza del Rollo</Calle>
+			<Ciudad>Toledo</Ciudad>
+			<CodigoPostal>45063</CodigoPostal>
+			<Pais>España</Pais>
+		</Direccion>
+		<Rol>Usuario</Rol>
+	</cliente>
+</listadeclientes>

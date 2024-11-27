@@ -45,4 +45,6 @@
     <fullyQualifiedTypeName name="java.sql.DriverManager"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="ConexiónBBDD"/>
+    <fullyQualifiedTypeName name="ConsultasSQL"/>
+    <fullyQualifiedTypeName name="Utilidades"/>
 </qualifiedTypeNameHistroy>

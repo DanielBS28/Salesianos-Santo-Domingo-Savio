@@ -1,0 +1,3 @@
+Numero de cliente: 57
+Nombre: Juanjo
+Dirección: Calle Preciados, Madrid, 28013, España

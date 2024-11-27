@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listadeclientes>
+	<cliente>
+		<numerodecliente>12345</numerodecliente>
+		<Nombre>Luis García</Nombre>
+		<Direccion>
+			<Calle>Calle de la Princesa</Calle>
+			<Ciudad>Madrid</Ciudad>
+			<Codigo Postal>28020</Codigo Postal>
+			<Pais>España</Pais>
+		</direccion>
+	</cliente>
+	<cliente>
+		<numerodecliente>57</numerodecliente>
+		<Nombre>Juanjo</Nombre>
+		<Direccion>
+			<Calle>Calle Preciados</Calle>
+			<Ciudad>Madrid</Ciudad>
+			<Codigo Postal>28013</Codigo Postal>
+			<Pais>España</Pais>
+		</direccion>
+	</cliente>
+	<cliente>
+		<numerodecliente>1</numerodecliente>
+		<Nombre>Super Administrador</Nombre>
+		<Direccion>
+			<Calle>-</Calle>
+			<Ciudad>-</Ciudad>
+			<Codigo Postal>1</Codigo Postal>
+			<Pais>-</Pais>
+		</direccion>
+	</cliente>
+	<cliente>
+		<numerodecliente>78</numerodecliente>
+		<Nombre>María Juana</Nombre>
+		<Direccion>
+			<Calle>Plaza del Rollo</Calle>
+			<Ciudad>Toledo</Ciudad>
+			<Codigo Postal>45063</Codigo Postal>
+			<Pais>España</Pais>
+		</direccion>
+	</cliente>
+</listadeclientes>

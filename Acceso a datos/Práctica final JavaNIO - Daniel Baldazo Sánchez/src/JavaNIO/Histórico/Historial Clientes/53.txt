@@ -1,0 +1,3 @@
+Numero de cliente: 53
+Nombre: Trini
+Dirección: Paseo de Extremadura, Bajadoz, 45036, España
