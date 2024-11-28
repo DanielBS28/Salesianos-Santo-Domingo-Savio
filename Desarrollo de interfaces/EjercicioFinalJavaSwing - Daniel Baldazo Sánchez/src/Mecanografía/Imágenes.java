@@ -43,7 +43,6 @@ public class Imágenes{
 			imagenFondo = ImageIO.read(new File(ruta));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			System.out.println("No se ha podido encontrar la imagen");
 		}
 		return imagenFondo;
 	}

@@ -18,7 +18,6 @@ public class PanelLeccion extends JPanel{
 	private Usuario user;
 	private static String fondoPanelLogin = "src/Mecanografía/ImágenesAPP/FondoAzulado.jpg";
 
-
 	public PanelLeccion(FrameMecanografía frameMecanografía, Usuario user) {
 		
 		this.frameMecanografía = frameMecanografía;
@@ -34,7 +33,6 @@ public class PanelLeccion extends JPanel{
 		Bienvenida.setBounds(103, 51, 269, 39);
 		add(Bienvenida);
 		
-	
 		JLabel Nombre = new JLabel(user.getNombre().toUpperCase());
 		Nombre.setHorizontalAlignment(SwingConstants.CENTER);
 		Nombre.setForeground(new Color(255, 153, 102));
@@ -93,9 +91,6 @@ public class PanelLeccion extends JPanel{
 		
 		add(Imágenes.ponerFondo(fondoPanelLogin, frameMecanografía));
 		
-		
-
-
 
 	}
 }
