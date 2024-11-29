@@ -1,66 +1,111 @@
 package Mecanografía;
 
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.HashMap;
+import javax.swing.*;
 
 public class Teclado extends JPanel {
 
+    private HashMap<String, JButton> botonesMapa; 
+    private JTextArea textAreaEscribir; 
+    private JTextArea textAreaObjetivo; 
+
     public Teclado() {
         setLayout(null); 
-        setBounds(0, 0, 500, 500); 
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int panelWidth = (int) screenSize.getWidth();
+        int panelHeight = (int) screenSize.getHeight();
+        setBounds(0, 0, panelWidth, panelHeight);
 
-        JTextArea textArea = new JTextArea();
-        textArea.setFont(new Font("Arial", Font.PLAIN, 20));
-        textArea.setLineWrap(true);
-        textArea.setWrapStyleWord(true);
-        textArea.setEditable(false);
-        textArea.setBounds(20, 20, 560, 200); 
-        add(textArea);
+        textAreaObjetivo = new JTextArea("Esto es un texto de prueba");
+        textAreaObjetivo.setFont(new Font("Arial", Font.PLAIN, 20));
+        textAreaObjetivo.setLineWrap(true);
+        textAreaObjetivo.setWrapStyleWord(true);
+        textAreaObjetivo.setEditable(false);
+        textAreaObjetivo.setBounds(20, 20, panelWidth - 40, panelHeight / 12); // Ocupa la parte superior
+        textAreaObjetivo.setBackground(new Color(240, 240, 240));
+        textAreaObjetivo.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
+        add(textAreaObjetivo);
 
-        // Crear las teclas (Botones)
-        String[] teclas = { "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K",
-                "L", "Z", "X", "C", "V", "B", "N", "M", "Espacio", "Enter", "Backspace" };
+        textAreaEscribir = new JTextArea();
+        textAreaEscribir.setFont(new Font("Arial", Font.PLAIN, 20));
+        textAreaEscribir.setLineWrap(true);
+        textAreaEscribir.setWrapStyleWord(true);
+        textAreaEscribir.setEditable(false);
+        textAreaEscribir.setBounds(20, panelHeight / 12 + 30, panelWidth - 40, panelHeight / 12); // Debajo del objetivo
+        textAreaEscribir.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        add(textAreaEscribir);
 
-        int xPos = 20, yPos = 250; 
-        int buttonWidth = 50, buttonHeight = 40;
+        botonesMapa = new HashMap<>();
 
-        for (int i = 0; i < teclas.length; i++) {
-            String tecla = teclas[i];
+        // Crear las teclas virtuales
+        String[] teclas = {
+                "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
+                "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
+                "A", "S", "D", "F", "G", "H", "J", "K", "L",
+                "Z", "X", "C", "V", "B", "N", "M", ",", ".", "Espacio"
+        };
+
+        int rows = 4; 
+        int buttonHeight = panelHeight / (rows + 4); 
+        int buttonWidth = panelWidth / 12; 
+
+        int xPos = 20, yPos = panelHeight / 4;
+        for (String tecla : teclas) {
             JButton boton = new JButton(tecla);
             boton.setBounds(xPos, yPos, buttonWidth, buttonHeight);
-            boton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    String texto = textArea.getText();
-                    if (tecla.equals("Espacio")) {
-                        textArea.setText(texto + " ");
-                    } else if (tecla.equals("Enter")) {
-                        textArea.setText(texto + "\n");
-                    } else if (tecla.equals("Backspace")) {
-                        if (texto.length() > 0) {
-                            textArea.setText(texto.substring(0, texto.length() - 1));
-                        }
-                    } else {
-                        textArea.setText(texto + tecla);
-                    }
-                }
-            });
+            boton.setEnabled(false); 
+            botonesMapa.put(tecla.toUpperCase(), boton); 
             add(boton);
 
-  
             xPos += buttonWidth + 5; 
-            if ((i + 1) % 10 == 0) { 
+            if (xPos + buttonWidth > panelWidth) { 
                 xPos = 20;
                 yPos += buttonHeight + 5;
             }
         }
 
+        textAreaEscribir.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (e.getKeyChar() != '\b') {
+                    textAreaEscribir.append(String.valueOf(c));
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() != KeyEvent.VK_BACK_SPACE) {
+                    actualizarColorBoton(e.getKeyCode(), true);
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                actualizarColorBoton(e.getKeyCode(), false);
+            }
+        });
+
+        textAreaEscribir.requestFocusInWindow();
+
         setVisible(true);
+    }
+
+    private void actualizarColorBoton(int keyCode, boolean presionado) {
+        String tecla = KeyEvent.getKeyText(keyCode).toUpperCase();
+
+        if (keyCode == KeyEvent.VK_SPACE) tecla = "ESPACIO";
+
+        JButton boton = botonesMapa.get(tecla);
+        if (boton != null) {
+            if (presionado) {
+                boton.setBackground(Color.BLUE);
+            } else {
+                boton.setBackground(null);
+            }
+        }
     }
 }

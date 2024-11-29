@@ -29,5 +29,6 @@
     <fullyQualifiedTypeName name="javax.swing.JPanel"/>
     <fullyQualifiedTypeName name="Mecanografía.PanelLogin"/>
     <fullyQualifiedTypeName name="Mecanografía.FrameMecanografía"/>
+    <fullyQualifiedTypeName name="Mecanografía.Teclado"/>
     <fullyQualifiedTypeName name="Mecanografía.Imágenes"/>
 </qualifiedTypeNameHistroy>

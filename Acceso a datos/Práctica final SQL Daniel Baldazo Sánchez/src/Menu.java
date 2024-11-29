@@ -18,7 +18,7 @@ public class Menu {
 					╔══════════════════════════════════════════════════════╗
 					║  BIENVENIDA A LA PRÁCTICA DE CONSULTAS SQL DE DANIEL ║
 					╠══════════════════════════════════════════════════════╣
-					║  Seleccione una opción:                              ║
+					║  Selecciona una opción:                              ║
 					║  0- Finalizar el programa                            ║
 					║  1- Iniciar sesión (alias y contraseña)              ║
 					║  2- Mostrar todos los usuarios y contraseñas (Ayuda) ║
@@ -53,8 +53,7 @@ public class Menu {
 	}
 
 	private static void mostrarMenuAdmin(String alias, String rol) {
-		
-		
+
 		int opcion = 0;
 
 		System.out.println("Sesión iniciada correctamente");
@@ -65,7 +64,7 @@ public class Menu {
 			System.out.println(Utilidades.mostrarMensajeBienvenidaODespedida(alias, rol, Utilidades.BIENVENIDA));
 
 			System.out.println("""
-					║  Seleccione una opción:                                   ║
+					║  Selecciona una opción:                                   ║
 					║  0- Cerrar sesión                                         ║
 					║  1- Insertar a un nuevo cliente                           ║
 					║  2- Modificar los datos de un cliente                     ║
@@ -84,23 +83,16 @@ public class Menu {
 				System.out.println(Errores.mostrarMensajeErrorInt());
 			else if (opcion == 0)
 				System.out.println(Utilidades.mostrarMensajeBienvenidaODespedida(alias, rol, Utilidades.DESPEDIDA));
-		/*	else if (opcion == 1)
-			else if (opcion == 2)
-			else if (opcion == 3)
-			else if (opcion == 4)
-			else if (opcion == 5)
-			else if (opcion == 6)
-			else if (opcion == 7)
-			else if (opcion == 8)
-			else if (opcion == 9)
-			else
-				System.out.println("Opción no reconocida");
-*/
+			/*
+			 * else if (opcion == 1) else if (opcion == 2) else if (opcion == 3) else if
+			 * (opcion == 4) else if (opcion == 5) else if (opcion == 6) else if (opcion ==
+			 * 7) else if (opcion == 8) else if (opcion == 9) else
+			 * System.out.println("Opción no reconocida");
+			 */
 		} while (opcion != 0);
 		Utilidades.generarPausa();
-		
+
 	}
-	
 
 	private static void mostrarMenuEmpleado(String alias, String rol) {
 		int opcion = 0;
@@ -113,7 +105,7 @@ public class Menu {
 			System.out.println(Utilidades.mostrarMensajeBienvenidaODespedida(alias, rol, Utilidades.BIENVENIDA));
 
 			System.out.println("""
-					║  Seleccione una opción:                                   ║
+					║  Selecciona una opción:                                   ║
 					║  0- Cerrar sesión                                         ║
 					║  1- Visualizar los productos por una letra inicial        ║
 					║  2- Visualizar los productos por precio                   ║
@@ -129,11 +121,14 @@ public class Menu {
 				System.out.println(Errores.mostrarMensajeErrorInt());
 			else if (opcion == 0)
 				System.out.println(Utilidades.mostrarMensajeBienvenidaODespedida(alias, rol, Utilidades.DESPEDIDA));
-			/*else if (opcion == 1)
+			//else if (opcion == 1)
 			else if (opcion == 2)
+				mostrarMenuPrecios();
 			else if (opcion == 3)
+				mostrarMenuStock();
 			else if (opcion == 4)
-			else if (opcion == 5)*/
+				mostrarMenuVentaClientesNumero();
+			//else if (opcion == 5)
 			else if (opcion == 6)
 				ConsultasSQL.visualizarTickets(alias, Utilidades.EMPLEADO);
 			else
@@ -141,6 +136,63 @@ public class Menu {
 
 		} while (opcion != 0);
 		Utilidades.generarPausa();
+
+	}
+
+	private static void mostrarMenuVentaClientesNumero() {
+
+		int numerodecliente = 0;
+
+		do {
+			System.out.println("Introduce el número de cliente para realizar una venta");
+			numerodecliente = Utilidades.tryCatchInt();
+
+			if (numerodecliente == Errores.ERROR_INT)
+				System.out.println(Errores.mostrarMensajeErrorInt());
+			else if (numerodecliente == Errores.NUMERO_NEGATIVO)
+				System.out.println("No puedes introducir un número de cliente negativo");
+
+		} while (numerodecliente == Errores.ERROR_INT || numerodecliente == Errores.NUMERO_NEGATIVO);
+
+		String cliente = ConsultasSQL.obtenerCliente(numerodecliente);
+
+		if (!cliente.equals("")) {
+			//Aquí va la función de generar compras.
+		}
+
+	}
+
+	private static void mostrarMenuStock() {
+
+		int eleccion = 0;
+		do {
+			System.out.println("¿De que forma te gustaría los productos");
+			System.out.println("1- De mayor a menor stock");
+			System.out.println("2- De menor a mayor stock");
+			eleccion = Utilidades.tryCatchInt();
+		} while (!Utilidades.confirmarDatos1_2(eleccion));
+
+		if (eleccion == 1)
+			ConsultasSQL.visualizarProductos(Utilidades.MAYOR_MENOR_STOCK);
+		else
+			ConsultasSQL.visualizarProductos(Utilidades.MENOR_MAYOR_STOCK);
+
+	}
+
+	private static void mostrarMenuPrecios() {
+
+		int eleccion = 0;
+		do {
+			System.out.println("¿De que forma te gustaría ver los productos");
+			System.out.println("1- De mayor a menor precio");
+			System.out.println("2- De menor a mayor precio");
+			eleccion = Utilidades.tryCatchInt();
+		} while (!Utilidades.confirmarDatos1_2(eleccion));
+
+		if (eleccion == 1)
+			ConsultasSQL.visualizarProductos(Utilidades.MAYOR_MENOR_PRECIO);
+		else
+			ConsultasSQL.visualizarProductos(Utilidades.MENOR_MAYOR_PRECIO);
 
 	}
 
@@ -170,14 +222,16 @@ public class Menu {
 				System.out.println(Errores.mostrarMensajeErrorInt());
 			else if (opcion == 0)
 				System.out.println(Utilidades.mostrarMensajeBienvenidaODespedida(alias, rol, Utilidades.DESPEDIDA));
-		/*	else if (opcion == 1)
+			//else if (opcion == 1)
 			else if (opcion == 2)
+				mostrarMenuPrecios();
 			else if (opcion == 3)
-			else if (opcion == 4)
-			else if (opcion == 5)
+				mostrarMenuStock();
+			//else if (opcion == 4)
+			//else if (opcion == 5)
 			else
 				System.out.println("Opción no reconocida");
-*/
+
 		} while (opcion != 0);
 		Utilidades.generarPausa();
 

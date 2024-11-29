@@ -47,4 +47,5 @@
     <fullyQualifiedTypeName name="ConexiónBBDD"/>
     <fullyQualifiedTypeName name="ConsultasSQL"/>
     <fullyQualifiedTypeName name="Utilidades"/>
+    <fullyQualifiedTypeName name="Errores"/>
 </qualifiedTypeNameHistroy>

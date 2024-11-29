@@ -9,9 +9,10 @@ public class Utilidades {
 	final static char CLIENTE = '3';
 	
 	final static int INICIAL = 0;
-	final static int MAYOR_MENOR = 1;
-	final static int MENOR_MAYOR = 2;
-	final static int STOCK = 3;
+	final static int MAYOR_MENOR_PRECIO = 1;
+	final static int MENOR_MAYOR_PRECIO = 2;
+	final static int MENOR_MAYOR_STOCK = 3;
+	final static int MAYOR_MENOR_STOCK = 4;
 
 	static Scanner teclado = new Scanner(System.in);
 
@@ -55,5 +56,19 @@ public class Utilidades {
 			return "Cerrando sesión... ¡Hasta pronto " + alias + "!";
 
 	}
+	
+	public static boolean confirmarDatos1_2(int confirmacion) {
+
+		if (confirmacion == Errores.ERROR_INT) {
+			System.out.println(Errores.mostrarMensajeErrorInt());
+			return false;
+		} else if (confirmacion != 1 && confirmacion != 2) {
+			System.out.println("Debes de introducir un 1 o un 2, opción no reconocida");
+			return false;
+		} else
+			return true;
+
+	}
+	
 	
 }
