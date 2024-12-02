@@ -15,7 +15,6 @@ public class Archivos {
 		File ArchivoEstadísticas = new File(Estadísticas);
 		File ArchivoTextos = new File(Textos);
 		
-		
 
 		if (ArchivoUsuarios.exists() && ArchivoEstadísticas.exists() && ArchivoTextos.exists()) {
 			DatosTXT.cargarUsuarios();

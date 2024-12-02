@@ -10,5 +10,10 @@ public class Errores {
 		return "El dato que has introducido no es una entrada válida para un Int.";
 	}
 	
+	public static String mostrarMensajeErrorDouble() {
+
+		return "El dato que has introducido no es una entrada válida para un Double.";
+	}
+	
 
 }

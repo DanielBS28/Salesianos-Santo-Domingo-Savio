@@ -46,7 +46,6 @@ public class EventoIniciarSesión implements ActionListener {
 					frameMecanografía.getContentPane().add(panelLeccion);
 				}
 				return;
-
 			}
 		}
 		JOptionPane.showInternalMessageDialog(null, "No se han encontrado usuarios o la contraseña es incorrecta",

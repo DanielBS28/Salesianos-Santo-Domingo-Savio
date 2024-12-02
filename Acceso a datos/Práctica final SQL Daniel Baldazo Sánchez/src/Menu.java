@@ -83,12 +83,28 @@ public class Menu {
 				System.out.println(Errores.mostrarMensajeErrorInt());
 			else if (opcion == 0)
 				System.out.println(Utilidades.mostrarMensajeBienvenidaODespedida(alias, rol, Utilidades.DESPEDIDA));
-			/*
-			 * else if (opcion == 1) else if (opcion == 2) else if (opcion == 3) else if
-			 * (opcion == 4) else if (opcion == 5) else if (opcion == 6) else if (opcion ==
-			 * 7) else if (opcion == 8) else if (opcion == 9) else
-			 * System.out.println("Opción no reconocida");
-			 */
+
+			else if (opcion == 1)
+				Utilidades.insertarNuevoCliente();
+			else if (opcion == 2)
+				Utilidades.modificarCliente();
+			else if (opcion == 3)
+				Utilidades.eliminarCliente();
+			else if (opcion == 4)
+				Utilidades.insertarNuevoEmpleado();
+			else if (opcion == 5)
+				Utilidades.modificarEmpleado();
+			else if (opcion == 6)
+				Utilidades.eliminarEmpleado();
+			else if (opcion == 7)
+				Utilidades.insertarNuevoProducto();
+			else if (opcion == 8)
+				Utilidades.modificarProducto();
+			else if (opcion == 9)
+				Utilidades.eliminarProducto();
+			else
+				System.out.println("Opción no reconocida");
+
 		} while (opcion != 0);
 		Utilidades.generarPausa();
 
@@ -121,16 +137,18 @@ public class Menu {
 				System.out.println(Errores.mostrarMensajeErrorInt());
 			else if (opcion == 0)
 				System.out.println(Utilidades.mostrarMensajeBienvenidaODespedida(alias, rol, Utilidades.DESPEDIDA));
-			//else if (opcion == 1)
+			else if (opcion == 1)
+				mostrarMenuLetraInicial();
 			else if (opcion == 2)
 				mostrarMenuPrecios();
 			else if (opcion == 3)
 				mostrarMenuStock();
 			else if (opcion == 4)
-				mostrarMenuVentaClientesNumero();
-			//else if (opcion == 5)
+				mostrarMenuVentaClientesNumero(alias);
+			else if (opcion == 5)
+				mostrarMenuVentaClientesLetras(alias);
 			else if (opcion == 6)
-				ConsultasSQL.visualizarTickets(alias, Utilidades.EMPLEADO);
+			ConsultasSQL.visualizarTickets(alias, Utilidades.EMPLEADO);
 			else
 				System.out.println("Opción no reconocida");
 
@@ -139,7 +157,39 @@ public class Menu {
 
 	}
 
-	private static void mostrarMenuVentaClientesNumero() {
+	private static void mostrarMenuVentaClientesLetras(String alias) {
+		
+		String nombre = "";
+		do {
+			System.out.println("Introduce un nombre para ver los usuarios con ese nombre");
+			nombre = teclado.nextLine();
+		}while(!Utilidades.cadenaVacia(nombre));
+		
+		if(ConsultasSQL.obtenerNombreCompra(nombre)) {
+			int numerodecliente = Utilidades.escogerNúmero();
+			int numeroempleado = ConsultasSQL.obtenerCodigo_porAlias(alias, Utilidades.EMPLEADO);
+			Utilidades.iniciarCompra(numerodecliente, numeroempleado);
+		}
+	}
+
+	private static void mostrarMenuLetraInicial() {
+
+		String linea = "";
+
+		do {
+			System.out.println("Introduce una letra para filtrar los productos por esa letra inicial");
+			linea = teclado.nextLine();
+			if (linea.length() > 1)
+				System.out.println("Debes de introducir solo una letra, vuelve a intentarlo por favor.");
+			else if (linea.length() == 0)
+				System.out.println("No puedes introducir una letra vacía, vuelve a intentarlo por favor.");
+		} while (linea.length() != 1);
+
+		ConsultasSQL.visualizarProductos(Utilidades.INICIAL, linea.charAt(0));
+
+	}
+
+	private static void mostrarMenuVentaClientesNumero(String aliasEmpleado) {
 
 		int numerodecliente = 0;
 
@@ -154,10 +204,11 @@ public class Menu {
 
 		} while (numerodecliente == Errores.ERROR_INT || numerodecliente == Errores.NUMERO_NEGATIVO);
 
-		String cliente = ConsultasSQL.obtenerCliente(numerodecliente);
+		String ClienteEncontrado = ConsultasSQL.obtenerCliente(numerodecliente);
 
-		if (!cliente.equals("")) {
-			//Aquí va la función de generar compras.
+		if (!ClienteEncontrado.equals("")) {
+			int numeroDeEmpleado = ConsultasSQL.obtenerCodigo_porAlias(aliasEmpleado, Utilidades.EMPLEADO);
+			Utilidades.iniciarCompra(numerodecliente, numeroDeEmpleado);
 		}
 
 	}
@@ -173,9 +224,9 @@ public class Menu {
 		} while (!Utilidades.confirmarDatos1_2(eleccion));
 
 		if (eleccion == 1)
-			ConsultasSQL.visualizarProductos(Utilidades.MAYOR_MENOR_STOCK);
+			ConsultasSQL.visualizarProductos(Utilidades.MAYOR_MENOR_STOCK, '0');
 		else
-			ConsultasSQL.visualizarProductos(Utilidades.MENOR_MAYOR_STOCK);
+			ConsultasSQL.visualizarProductos(Utilidades.MENOR_MAYOR_STOCK, '0');
 
 	}
 
@@ -190,9 +241,9 @@ public class Menu {
 		} while (!Utilidades.confirmarDatos1_2(eleccion));
 
 		if (eleccion == 1)
-			ConsultasSQL.visualizarProductos(Utilidades.MAYOR_MENOR_PRECIO);
+			ConsultasSQL.visualizarProductos(Utilidades.MAYOR_MENOR_PRECIO, '0');
 		else
-			ConsultasSQL.visualizarProductos(Utilidades.MENOR_MAYOR_PRECIO);
+			ConsultasSQL.visualizarProductos(Utilidades.MENOR_MAYOR_PRECIO, '0');
 
 	}
 
@@ -200,6 +251,8 @@ public class Menu {
 		int opcion = 0;
 
 		System.out.println("Sesión iniciada correctamente");
+		int numerocliente = ConsultasSQL.obtenerCodigo_porAlias(alias, Utilidades.CLIENTE);
+
 
 		do {
 
@@ -207,7 +260,7 @@ public class Menu {
 			System.out.println(Utilidades.mostrarMensajeBienvenidaODespedida(alias, rol, Utilidades.BIENVENIDA));
 
 			System.out.println("""
-					║  Seleccione una opción:                                   ║
+					║  Selecciona una opción:                                   ║
 					║  0- Cerrar sesión                                         ║
 					║  1- Visualizar los productos por una letra inicial        ║
 					║  2- Visualizar los productos por precio                   ║
@@ -222,13 +275,16 @@ public class Menu {
 				System.out.println(Errores.mostrarMensajeErrorInt());
 			else if (opcion == 0)
 				System.out.println(Utilidades.mostrarMensajeBienvenidaODespedida(alias, rol, Utilidades.DESPEDIDA));
-			//else if (opcion == 1)
+			else if (opcion == 1)
+				mostrarMenuLetraInicial();
 			else if (opcion == 2)
 				mostrarMenuPrecios();
 			else if (opcion == 3)
 				mostrarMenuStock();
-			//else if (opcion == 4)
-			//else if (opcion == 5)
+			else if (opcion == 4) 
+			Utilidades.iniciarCompra(numerocliente, 1);
+			else if (opcion == 5)
+				ConsultasSQL.visualizarTickets(alias, Utilidades.CLIENTE);
 			else
 				System.out.println("Opción no reconocida");
 
