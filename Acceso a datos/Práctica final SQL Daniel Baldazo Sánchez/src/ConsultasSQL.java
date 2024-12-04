@@ -734,5 +734,30 @@ public class ConsultasSQL {
 			return false;
 		}
 	}
+	
+	public static boolean estaEnVenta(String id) {
+		String consulta = "select * from producto where idProducto =?";
+		boolean encontrado = false;
 
-}
+		try {
+			Class.forName(controlador);
+			Connection conexion = DriverManager.getConnection(URL, usuario, password);
+
+			if (conexion != null) {
+				PreparedStatement sentencia = conexion.prepareStatement(consulta);
+
+				sentencia.setString(1, id);
+				ResultSet rs = sentencia.executeQuery();
+
+				while (rs.next()) {
+					encontrado = true;
+				}
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+
+		return encontrado;
+		}
+	}
+

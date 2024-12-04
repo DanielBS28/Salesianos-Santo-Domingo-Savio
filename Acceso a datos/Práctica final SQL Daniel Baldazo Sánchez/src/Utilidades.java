@@ -88,7 +88,7 @@ public class Utilidades {
 
 		ArrayList<Producto> TODOSLOSPRODUCTOS = ConsultasSQL.obtenerProductos();
 		ArrayList<Producto> CESTA = new ArrayList<>();
-		int opcion = 0;
+		String id = "";
 
 		do {
 			double precioTotal = 0;
@@ -111,18 +111,16 @@ public class Utilidades {
 			System.out.println(
 					"Introduce el ID del producto que quieras\no pulsa 0 terminar el proceso de compra (confirmar o cancelar compra)");
 
-			opcion = tryCatchInt();
+			id = teclado.nextLine();
 
-			if (opcion >= 1 && opcion <= TODOSLOSPRODUCTOS.size())
-				pedirCantidad(TODOSLOSPRODUCTOS, CESTA, opcion);
-			else if (opcion == Errores.ERROR_INT)
-				System.out.println(Errores.mostrarMensajeErrorInt());
-			else if (opcion == 0)
+			if (ConsultasSQL.estaEnVenta(id))
+				pedirCantidad(TODOSLOSPRODUCTOS, CESTA, id);
+			else if (id.equals("0"))
 				mostrarPasarelaDePago(numeroDeCliente, numeroDeEmpleado, CESTA, precioTotal);
 			else
-				System.out.println("El número de ID que has introducido no se encuentra en la lista de productos.");
+				System.out.println("El ID que has introducido no se encuentra en la lista de productos.");
 
-		} while (opcion != 0);
+		} while (!id.equals("0"));
 	}
 
 	private static void mostrarPasarelaDePago(int numeroDeCliente, int numeroDeEmpleado, ArrayList<Producto> CESTA,
@@ -241,30 +239,32 @@ public class Utilidades {
 
 	}
 
-	private static void pedirCantidad(ArrayList<Producto> TODOSLOSPRODUCTOS, ArrayList<Producto> CESTA, int id) {
+	private static void pedirCantidad(ArrayList<Producto> TODOSLOSPRODUCTOS, ArrayList<Producto> CESTA, String id) {
 
 		int cantidad = 0;
+		
+		do {
 
-		Producto productoSeleccionado = TODOSLOSPRODUCTOS.get(id - 1);
-		System.out.println("El producto que has seleccionado es: " + TODOSLOSPRODUCTOS.get(id - 1).getNombre()
-				+ " y su stock disponible es: " + TODOSLOSPRODUCTOS.get(id - 1).getStock());
+		Producto productoSeleccionado = obtenerProductoPorID(id, TODOSLOSPRODUCTOS);
+		System.out.println("El producto que has seleccionado es: " + productoSeleccionado.getNombre()
+				+ " y su stock disponible es: " + productoSeleccionado.getStock());
 		System.out.println("¿Cuántas unidades te gustaría comprar? Su precio unitario es de: "
-				+ TODOSLOSPRODUCTOS.get(id - 1).getPrecioUnitario() + "€");
+				+ productoSeleccionado.getPrecioUnitario() + "€");
 
 		cantidad = tryCatchInt();
-
+		
 		if (cantidad == Errores.ERROR_INT)
-			System.out.println(Errores.mostrarMensajeErrorInt() + ", repite el proceso de nuevo.");
+			System.out.println(Errores.mostrarMensajeErrorInt() + " Repite el proceso de nuevo.");
 		else if (cantidad == Errores.NUMERO_NEGATIVO || cantidad == 0)
 			System.out.println("Debes de introducir una cantidad superior a 0, vuelve a repetir el proceso");
-		else if (cantidad > TODOSLOSPRODUCTOS.get(id - 1).getStock())
+		else if (cantidad > productoSeleccionado.getStock())
 			System.out.println(
 					"La cantidad que has introducido es mayor al stock disponible del producto\nvuelve a repetir el proceso.");
 		else {
 			boolean encontrado = false;
 
 			for (int i = 0; i < CESTA.size(); i++) {
-				if (CESTA.get(i).getIdProducto() == id) {
+				if (CESTA.get(i).getIdProducto() == Integer.valueOf(id)) {
 					CESTA.get(i).setStock(CESTA.get(i).getStock() + cantidad);
 					productoSeleccionado.setStock(productoSeleccionado.getStock() - cantidad);
 					encontrado = true;
@@ -280,10 +280,21 @@ public class Utilidades {
 			System.out.println(
 					"El producto " + productoSeleccionado.getNombre() + " se ha agregado correctamente al carrito.");
 		}
+		
+		}while(cantidad == Errores.NUMERO_NEGATIVO || cantidad == 0 || cantidad == Errores.ERROR_INT);
 
 		generarPausa();
 		generarPausa();
 
+	}
+
+	private static Producto obtenerProductoPorID(String id, ArrayList<Producto> TODOSLOSPRODUCTOS) {
+		
+		for(Producto p : TODOSLOSPRODUCTOS) {
+			if(p.getIdProducto() == Integer.parseInt(id))
+				return p;
+		}
+		return null;
 	}
 
 	public static void insertarNuevoCliente() {
