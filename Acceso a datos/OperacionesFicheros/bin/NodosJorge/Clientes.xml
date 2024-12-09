@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listadeclientes>
+	<cliente>
+		<numerodecliente>78</numerodecliente>
+		<Nombre>Javier</Nombre>
+		<Direccion>
+			<Calle>5</Calle>
+			<Ciudad>43</Ciudad>
+			<CodigoPostal>3445</CodigoPostal>
+			<Pais>España</Pais>
+		</Direccion>
+	</cliente>
+	<cliente>
+		<numerodecliente>89952</numerodecliente>
+		<Nombre>David</Nombre>
+		<Direccion>
+			<Calle>Plaza de los Sagrados Corazones</Calle>
+			<Ciudad>Madrid</Ciudad>
+			<CodigoPostal>28010</CodigoPostal>
+			<Pais>Esspaña</Pais>
+		</Direccion>
+	</cliente>
+	<cliente>
+		<numerodecliente>822</numerodecliente>
+		<Nombre>Juan</Nombre>
+		<Direccion>
+			<Calle>Paseo de Extremadura</Calle>
+			<Ciudad>Madrid</Ciudad>
+			<CodigoPostal>852</CodigoPostal>
+			<Pais>España</Pais>
+		</Direccion>
+	</cliente>
+</listadeclientes>

@@ -69,5 +69,48 @@ public class Xml {
         
     }
     
+    /* FORMA RECURSIVA PARA SUBNODOS
+     * 
+     * public class Xml {
+
+    public static void main(String[] args) {
+
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        Document documento = null;
+        try {
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            documento = builder.parse(new File("src/XMLJar/Book.xml"));
+            NodeList listaLibros = documento.getElementsByTagName("book");
+
+            for (int i = 0; i < listaLibros.getLength(); i++) {
+                Node nodo = listaLibros.item(i);
+                if (nodo.getNodeType() == Node.ELEMENT_NODE) {
+                    Element e = (Element) nodo;
+                    // Llamada recursiva para procesar todos los nodos, incluyendo anidados
+                    procesarNodo(e);
+                }
+            }
+        } catch (ParserConfigurationException | SAXException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Función recursiva para procesar nodos y sus hijos
+    private static void procesarNodo(Node nodo) {
+        // Si el nodo es de tipo elemento, procesamos su nombre y contenido
+        if (nodo.getNodeType() == Node.ELEMENT_NODE) {
+            System.out.println("Etiqueta: " + nodo.getNodeName() + " ---> " + nodo.getTextContent());
+        }
+
+        // Procesar los hijos del nodo actual
+        NodeList hijos = nodo.getChildNodes();
+        for (int i = 0; i < hijos.getLength(); i++) {
+            Node hijo = hijos.item(i);
+            procesarNodo(hijo); // Llamada recursiva para procesar cada hijo
+        }
+    }
+}
+     */
+    
     
 }
