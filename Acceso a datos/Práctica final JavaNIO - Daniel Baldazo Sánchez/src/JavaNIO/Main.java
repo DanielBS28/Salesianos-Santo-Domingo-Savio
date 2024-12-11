@@ -535,7 +535,7 @@ public class Main {
 		} while (opcion != 0);
 		generarPausa();
 
-	}
+	} 
 
 	private static void mostrarDatosDinero(Cliente cliente, char Bandera) {
 
