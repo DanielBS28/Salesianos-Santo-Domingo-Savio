@@ -13,15 +13,14 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.lemonade.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +33,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LemonadeApp() {
@@ -106,7 +106,7 @@ fun LemonadeApp() {
                     modifier = Modifier.fillMaxWidth()
                 )
 
-                // Espacio aumentado entre la imagen y el campo de texto
+                // Espaciado entre los botones
                 Spacer(modifier = Modifier.height(24.dp)) // Más espacio entre la imagen y el campo de texto
 
                 // Imagen y descripción dinámica
@@ -212,7 +212,7 @@ fun LemonadeApp() {
                             feedback = "La solución es: ${personas[currentStep - 1]}"
                         },
                         shape = RoundedCornerShape(12.dp),
-                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF19478C)),
+                        colors = ButtonDefaults.buttonColors(containerColor = Color.Gray),
                         modifier = Modifier
                             .width(200.dp) // Tamaño fijo para que no ocupe todo el ancho
                     ) {
@@ -248,6 +248,70 @@ fun LemonTextAndImage(
         Spacer(modifier = Modifier.height(8.dp))
     }
 }
+
+// Definición del tema en el mismo archivo
+@Composable
+fun AppTheme(
+    darkTheme: Boolean = false,
+    content: @Composable () -> Unit
+) {
+    val colors = if (darkTheme) DarkColorPalette else LightColorPalette
+
+    MaterialTheme(
+        colorScheme = colors,
+        typography = Typography,
+        content = content
+    )
+}
+
+// Definición de colores
+val md_theme_light_primary = Color(0xFF6200EE)
+val md_theme_light_onPrimary = Color.White
+val md_theme_light_surface = Color.White
+val md_theme_light_onSurface = Color.Black
+
+val md_theme_dark_primary = Color(0xFFBB86FC)
+val md_theme_dark_onPrimary = Color.Black
+val md_theme_dark_surface = Color.Black
+val md_theme_dark_onSurface = Color.White
+
+val LightColorPalette = lightColorScheme(
+    primary = md_theme_light_primary,
+    onPrimary = md_theme_light_onPrimary,
+    surface = md_theme_light_surface,
+    onSurface = md_theme_light_onSurface
+)
+
+val DarkColorPalette = darkColorScheme(
+    primary = md_theme_dark_primary,
+    onPrimary = md_theme_dark_onPrimary,
+    surface = md_theme_dark_surface,
+    onSurface = md_theme_dark_onSurface
+)
+
+// Definición de tipografía
+val Typography = Typography(
+    bodyLarge = TextStyle(
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp
+    ),
+    bodyMedium = TextStyle(
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp
+    ),
+    bodySmall = TextStyle(
+        fontWeight = FontWeight.Normal,
+        fontSize = 12.sp
+    ),
+    titleMedium = TextStyle(
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp
+    ),
+    titleLarge = TextStyle(
+        fontWeight = FontWeight.Bold,
+        fontSize = 24.sp
+    ),
+)
 
 @Preview
 @Composable
