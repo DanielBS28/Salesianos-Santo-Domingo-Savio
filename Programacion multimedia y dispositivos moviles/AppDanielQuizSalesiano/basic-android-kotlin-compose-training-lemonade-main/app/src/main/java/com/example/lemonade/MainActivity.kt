@@ -15,17 +15,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.lemonade.ui.LemonadeViewModel
+import com.example.lemonade.ui.LemonadeUiState
+import com.example.lemonade.ui.theme.AppTheme
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.compose.runtime.collectAsState
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContent {
             AppTheme {
                 LemonadeApp()
@@ -37,16 +40,8 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LemonadeApp() {
-    // Estados
-    var currentStep by remember { mutableStateOf(1) }
-    var userInput by remember { mutableStateOf("") }
-    var feedback by remember { mutableStateOf("") }
-    val personas = listOf(
-        "Domingo Savio",
-        "Don Bosco",
-        "Mama Margarita",
-        "Maria Auxiliadora"
-    )
+    val lemonadeViewModel: LemonadeViewModel = viewModel()  // Aquí lo inicializamos de manera correcta
+    val uiState by lemonadeViewModel.uiState.collectAsState()
 
     Scaffold(
         topBar = {
@@ -89,7 +84,7 @@ fun LemonadeApp() {
 
                 // La pregunta: ¿Quién es la persona en la imagen? - Arriba del campo de texto
                 Text(
-                    text = "¿Quién es la persona que está en esta imagen?",
+                    text = "¿Quién aparece en la siguiente fotografía?",
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(top = 16.dp) // Más espacio entre pregunta y campo
@@ -100,36 +95,28 @@ fun LemonadeApp() {
 
                 // Campo de texto editable
                 OutlinedTextField(
-                    value = userInput,
-                    onValueChange = { userInput = it },
-                    label = { Text("Escribe el nombre de la persona") },
+                    value = uiState.userInput,
+                    onValueChange = { lemonadeViewModel.updateUserInput(it) },
+                    label = { Text("Escribe su nombre") },
                     modifier = Modifier.fillMaxWidth()
                 )
 
-                // Espaciado entre los botones
+                // Espaciado aumentado entre la imagen y el campo de texto
                 Spacer(modifier = Modifier.height(24.dp)) // Más espacio entre la imagen y el campo de texto
 
                 // Imagen y descripción dinámica
-                val drawableRes = when (currentStep) {
-                    1 -> R.drawable.domingo_savio
-                    2 -> R.drawable.don_bosco
-                    3 -> R.drawable.mama_margarita
-                    4 -> R.drawable.maria_auxiliadora
-                    else -> R.drawable.domingo_savio
-                }
-
                 LemonTextAndImage(
-                    drawableResourceId = drawableRes,
+                    drawableResourceId = uiState.drawableResourceId,
                     contentDescriptionResourceId = R.string.persona
                 )
 
                 // Texto de retroalimentación (correcto o incorrecto) debajo de la imagen
-                if (feedback.isNotEmpty()) {
+                if (uiState.feedback.isNotEmpty()) {
                     Text(
-                        text = feedback,
+                        text = uiState.feedback,
                         color = when {
-                            feedback == "Correcto" -> Color.Green
-                            feedback.startsWith("La solución es") -> Color.Black
+                            uiState.feedback == "Correcto" -> Color.Green
+                            uiState.feedback.startsWith("La solución es") -> Color.Black
                             else -> Color.Red
                         },
                         style = MaterialTheme.typography.bodyLarge,
@@ -148,8 +135,7 @@ fun LemonadeApp() {
                 ) {
                     Button(
                         onClick = {
-                            feedback = ""
-                            currentStep = if (currentStep > 1) currentStep - 1 else 4
+                            lemonadeViewModel.navigatePrevious()
                         },
                         shape = RoundedCornerShape(12.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = Color.Gray),
@@ -165,8 +151,7 @@ fun LemonadeApp() {
 
                     Button(
                         onClick = {
-                            feedback = ""
-                            currentStep = if (currentStep < 4) currentStep + 1 else 1
+                            lemonadeViewModel.navigateNext()
                         },
                         shape = RoundedCornerShape(12.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = Color.Gray),
@@ -193,7 +178,7 @@ fun LemonadeApp() {
                     // Botón "Comprobar"
                     Button(
                         onClick = {
-                            feedback = if (userInput == personas[currentStep - 1]) "Correcto" else "Incorrecto"
+                            lemonadeViewModel.checkAnswer()
                         },
                         shape = RoundedCornerShape(12.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFDC0814)), // Rojo #dc0814
@@ -209,10 +194,10 @@ fun LemonadeApp() {
                     // Botón "Mostrar Solución"
                     Button(
                         onClick = {
-                            feedback = "La solución es: ${personas[currentStep - 1]}"
+                            lemonadeViewModel.showSolution()
                         },
                         shape = RoundedCornerShape(12.dp),
-                        colors = ButtonDefaults.buttonColors(containerColor = Color.Gray),
+                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF19478C)),
                         modifier = Modifier
                             .width(200.dp) // Tamaño fijo para que no ocupe todo el ancho
                     ) {
@@ -224,99 +209,5 @@ fun LemonadeApp() {
                 }
             }
         }
-    }
-}
-
-@Composable
-fun LemonTextAndImage(
-    drawableResourceId: Int,
-    contentDescriptionResourceId: Int,
-    modifier: Modifier = Modifier
-) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-        modifier = modifier
-    ) {
-        Image(
-            painter = painterResource(drawableResourceId),
-            contentDescription = stringResource(contentDescriptionResourceId),
-            modifier = Modifier
-                .width(320.dp)
-                .height(340.dp)
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-    }
-}
-
-// Definición del tema en el mismo archivo
-@Composable
-fun AppTheme(
-    darkTheme: Boolean = false,
-    content: @Composable () -> Unit
-) {
-    val colors = if (darkTheme) DarkColorPalette else LightColorPalette
-
-    MaterialTheme(
-        colorScheme = colors,
-        typography = Typography,
-        content = content
-    )
-}
-
-// Definición de colores
-val md_theme_light_primary = Color(0xFF6200EE)
-val md_theme_light_onPrimary = Color.White
-val md_theme_light_surface = Color.White
-val md_theme_light_onSurface = Color.Black
-
-val md_theme_dark_primary = Color(0xFFBB86FC)
-val md_theme_dark_onPrimary = Color.Black
-val md_theme_dark_surface = Color.Black
-val md_theme_dark_onSurface = Color.White
-
-val LightColorPalette = lightColorScheme(
-    primary = md_theme_light_primary,
-    onPrimary = md_theme_light_onPrimary,
-    surface = md_theme_light_surface,
-    onSurface = md_theme_light_onSurface
-)
-
-val DarkColorPalette = darkColorScheme(
-    primary = md_theme_dark_primary,
-    onPrimary = md_theme_dark_onPrimary,
-    surface = md_theme_dark_surface,
-    onSurface = md_theme_dark_onSurface
-)
-
-// Definición de tipografía
-val Typography = Typography(
-    bodyLarge = TextStyle(
-        fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
-    ),
-    bodyMedium = TextStyle(
-        fontWeight = FontWeight.Normal,
-        fontSize = 14.sp
-    ),
-    bodySmall = TextStyle(
-        fontWeight = FontWeight.Normal,
-        fontSize = 12.sp
-    ),
-    titleMedium = TextStyle(
-        fontWeight = FontWeight.Bold,
-        fontSize = 20.sp
-    ),
-    titleLarge = TextStyle(
-        fontWeight = FontWeight.Bold,
-        fontSize = 24.sp
-    ),
-)
-
-@Preview
-@Composable
-fun LemonPreview() {
-    AppTheme {
-        LemonadeApp()
     }
 }

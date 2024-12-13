@@ -5,12 +5,15 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.HashMap;
 import javax.swing.*;
+import javax.swing.text.*;
 
 public class Teclado extends JPanel {
 
     private HashMap<String, JButton> botonesMapa;
-    private JTextArea textAreaEscribir;
-    private JTextArea textAreaObjetivo;
+    private JTextPane textPaneEscribir;
+    private JTextPane textPaneObjetivo;
+    private String textoObjetivo; // Almacena el texto objetivo para comparación
+    private int posicionActual; // Controla la posición actual del texto escrito
 
     public Teclado(char dificultad) {
         setLayout(null);
@@ -19,46 +22,45 @@ public class Teclado extends JPanel {
         int panelHeight = (int) screenSize.getHeight();
         setBounds(0, 0, panelWidth, panelHeight);
 
-        // Configurar el área de texto objetivo
+        // Configurar el área de texto objetivo como JTextPane
         if (dificultad == PanelLeccion.FÁCIL) {
-            textAreaObjetivo = new JTextArea(DatosTXT.TEXTOS.get(0));
+            textoObjetivo = DatosTXT.TEXTOS.get(0);
         } else {
-            textAreaObjetivo = new JTextArea(DatosTXT.TEXTOS.get(1));
+            textoObjetivo = DatosTXT.TEXTOS.get(1);
         }
 
-        textAreaObjetivo.setFont(new Font("Arial", Font.PLAIN, 20));
-        textAreaObjetivo.setLineWrap(true);
-        textAreaObjetivo.setWrapStyleWord(true);
-        textAreaObjetivo.setEditable(false);
-        textAreaObjetivo.setBackground(new Color(240, 240, 240));
-        textAreaObjetivo.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
+        textPaneObjetivo = new JTextPane();
+        textPaneObjetivo.setText(textoObjetivo);
+        textPaneObjetivo.setFont(new Font("Arial", Font.PLAIN, 20));
+        textPaneObjetivo.setEditable(false);
+        textPaneObjetivo.setBackground(new Color(240, 240, 240));
+        textPaneObjetivo.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
 
-        // Crear JScrollPane para textAreaObjetivo
-        JScrollPane scrollObjetivo = new JScrollPane(textAreaObjetivo);
-        scrollObjetivo.setBounds(20, 20, panelWidth - 40, panelHeight / 4); // Altura ajustada
+        // Crear JScrollPane para textPaneObjetivo
+        JScrollPane scrollObjetivo = new JScrollPane(textPaneObjetivo);
+        scrollObjetivo.setBounds(20, 20, panelWidth - 40, panelHeight / 4);
         scrollObjetivo.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
         add(scrollObjetivo);
 
         // Configurar el área de texto para escribir
-        textAreaEscribir = new JTextArea();
-        textAreaEscribir.setFont(new Font("Arial", Font.PLAIN, 20));
-        textAreaEscribir.setLineWrap(true);
-        textAreaEscribir.setWrapStyleWord(true);
-        textAreaEscribir.setEditable(true);
-        textAreaEscribir.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        textPaneEscribir = new JTextPane();
+        textPaneEscribir.setFont(new Font("Arial", Font.PLAIN, 20));
+        textPaneEscribir.setEditable(false);
+        textPaneEscribir.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
-        // Crear JScrollPane para textAreaEscribir
-        JScrollPane scrollEscribir = new JScrollPane(textAreaEscribir);
+        // Crear JScrollPane para textPaneEscribir
+        JScrollPane scrollEscribir = new JScrollPane(textPaneEscribir);
         scrollEscribir.setBounds(
                 20,
                 scrollObjetivo.getY() + scrollObjetivo.getHeight() + 20,
                 panelWidth - 40,
-                panelHeight / 4 // Altura ajustada igual que textAreaObjetivo
+                panelHeight / 4
         );
         scrollEscribir.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         add(scrollEscribir);
 
         botonesMapa = new HashMap<>();
+        posicionActual = 0; // Inicializar posición
 
         // Crear las teclas virtuales
         String[] teclas = {
@@ -87,13 +89,13 @@ public class Teclado extends JPanel {
             }
         }
 
-        textAreaEscribir.addKeyListener(new KeyListener() {
+        textPaneEscribir.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
                 e.consume(); // Evita el manejo automático
                 char c = e.getKeyChar();
-                if (c != '\b') { // Bloquea la tecla de retroceso
-                    textAreaEscribir.append(String.valueOf(c));
+                if (posicionActual < textoObjetivo.length()) {
+                    manejarEntrada(c);
                 }
             }
 
@@ -108,15 +110,49 @@ public class Teclado extends JPanel {
 
             @Override
             public void keyReleased(KeyEvent e) {
-                if (e.getKeyCode() != KeyEvent.VK_BACK_SPACE) { // Bloquea Backspace
+                if (e.getKeyCode() != KeyEvent.VK_BACK_SPACE) {
                     actualizarColorBoton(e.getKeyCode(), false);
                 }
             }
         });
 
-        textAreaEscribir.requestFocusInWindow();
+        textPaneEscribir.requestFocusInWindow();
 
         setVisible(true);
+    }
+
+    private void manejarEntrada(char c) {
+        StyledDocument docObjetivo = textPaneObjetivo.getStyledDocument();
+        StyledDocument docEscribir = textPaneEscribir.getStyledDocument();
+
+        // Crear estilos
+        Style estiloCorrecto = textPaneObjetivo.addStyle("Correcto", null);
+        StyleConstants.setForeground(estiloCorrecto, Color.GREEN);
+
+        Style estiloIncorrecto = textPaneObjetivo.addStyle("Incorrecto", null);
+        StyleConstants.setForeground(estiloIncorrecto, Color.RED);
+
+        Style estiloNormal = textPaneObjetivo.addStyle("Normal", null);
+        StyleConstants.setForeground(estiloNormal, Color.BLACK);
+
+        try {
+            // Restaurar el texto restante a negro en el área objetivo
+            docObjetivo.setCharacterAttributes(posicionActual, textoObjetivo.length() - posicionActual, estiloNormal, true);
+
+            // Actualizar colores en el área objetivo
+            if (c == textoObjetivo.charAt(posicionActual)) {
+                docObjetivo.setCharacterAttributes(posicionActual, 1, estiloCorrecto, true);
+            } else {
+                docObjetivo.setCharacterAttributes(posicionActual, 1, estiloIncorrecto, true);
+            }
+
+            // Actualizar el área de escritura con el carácter ingresado
+            docEscribir.insertString(docEscribir.getLength(), String.valueOf(c), null);
+
+            posicionActual++; // Avanzar posición
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void actualizarColorBoton(int keyCode, boolean presionado) {
@@ -134,5 +170,6 @@ public class Teclado extends JPanel {
         }
     }
 }
+
 
 

@@ -89,7 +89,7 @@ fun LemonadeApp() {
 
                 // La pregunta: ¿Quién es la persona en la imagen? - Arriba del campo de texto
                 Text(
-                    text = "¿Quién es la persona que está en esta imagen?",
+                    text = "¿Quién aparece en la siguiente fotografía?",
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(top = 16.dp) // Más espacio entre pregunta y campo
@@ -102,7 +102,7 @@ fun LemonadeApp() {
                 OutlinedTextField(
                     value = userInput,
                     onValueChange = { userInput = it },
-                    label = { Text("Escribe el nombre de la persona") },
+                    label = { Text("Escribe su nombre") },
                     modifier = Modifier.fillMaxWidth()
                 )
 
