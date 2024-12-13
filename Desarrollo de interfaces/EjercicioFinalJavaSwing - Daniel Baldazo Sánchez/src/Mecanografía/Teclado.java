@@ -8,35 +8,55 @@ import javax.swing.*;
 
 public class Teclado extends JPanel {
 
-    private HashMap<String, JButton> botonesMapa; 
-    private JTextArea textAreaEscribir; 
-    private JTextArea textAreaObjetivo; 
+    private HashMap<String, JButton> botonesMapa;
+    private JTextArea textAreaEscribir;
+    private JTextArea textAreaObjetivo;
 
-    public Teclado() {
-        setLayout(null); 
+    public Teclado(char dificultad) {
+        setLayout(null);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int panelWidth = (int) screenSize.getWidth();
         int panelHeight = (int) screenSize.getHeight();
         setBounds(0, 0, panelWidth, panelHeight);
 
-        textAreaObjetivo = new JTextArea("Esto es un texto de prueba");
+        // Configurar el área de texto objetivo
+        if (dificultad == PanelLeccion.FÁCIL) {
+            textAreaObjetivo = new JTextArea(DatosTXT.TEXTOS.get(0));
+        } else {
+            textAreaObjetivo = new JTextArea(DatosTXT.TEXTOS.get(1));
+        }
+
         textAreaObjetivo.setFont(new Font("Arial", Font.PLAIN, 20));
         textAreaObjetivo.setLineWrap(true);
         textAreaObjetivo.setWrapStyleWord(true);
         textAreaObjetivo.setEditable(false);
-        textAreaObjetivo.setBounds(20, 20, panelWidth - 40, panelHeight / 12); // Ocupa la parte superior
         textAreaObjetivo.setBackground(new Color(240, 240, 240));
         textAreaObjetivo.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
-        add(textAreaObjetivo);
 
+        // Crear JScrollPane para textAreaObjetivo
+        JScrollPane scrollObjetivo = new JScrollPane(textAreaObjetivo);
+        scrollObjetivo.setBounds(20, 20, panelWidth - 40, panelHeight / 4); // Altura ajustada
+        scrollObjetivo.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
+        add(scrollObjetivo);
+
+        // Configurar el área de texto para escribir
         textAreaEscribir = new JTextArea();
         textAreaEscribir.setFont(new Font("Arial", Font.PLAIN, 20));
         textAreaEscribir.setLineWrap(true);
         textAreaEscribir.setWrapStyleWord(true);
-        textAreaEscribir.setEditable(false);
-        textAreaEscribir.setBounds(20, panelHeight / 12 + 30, panelWidth - 40, panelHeight / 12); // Debajo del objetivo
+        textAreaEscribir.setEditable(true);
         textAreaEscribir.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-        add(textAreaEscribir);
+
+        // Crear JScrollPane para textAreaEscribir
+        JScrollPane scrollEscribir = new JScrollPane(textAreaEscribir);
+        scrollEscribir.setBounds(
+                20,
+                scrollObjetivo.getY() + scrollObjetivo.getHeight() + 20,
+                panelWidth - 40,
+                panelHeight / 4 // Altura ajustada igual que textAreaObjetivo
+        );
+        scrollEscribir.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        add(scrollEscribir);
 
         botonesMapa = new HashMap<>();
 
@@ -48,20 +68,20 @@ public class Teclado extends JPanel {
                 "Z", "X", "C", "V", "B", "N", "M", ",", ".", "Espacio"
         };
 
-        int rows = 4; 
-        int buttonHeight = panelHeight / (rows + 4); 
-        int buttonWidth = panelWidth / 12; 
+        int rows = 4;
+        int buttonHeight = panelHeight / (rows + 8);
+        int buttonWidth = panelWidth / 16;
 
-        int xPos = 20, yPos = panelHeight / 4;
+        int xPos = 20, yPos = scrollEscribir.getY() + scrollEscribir.getHeight() + 20;
         for (String tecla : teclas) {
             JButton boton = new JButton(tecla);
             boton.setBounds(xPos, yPos, buttonWidth, buttonHeight);
-            boton.setEnabled(false); 
-            botonesMapa.put(tecla.toUpperCase(), boton); 
+            boton.setEnabled(false);
+            botonesMapa.put(tecla.toUpperCase(), boton);
             add(boton);
 
-            xPos += buttonWidth + 5; 
-            if (xPos + buttonWidth > panelWidth) { 
+            xPos += buttonWidth + 5;
+            if (xPos + buttonWidth > panelWidth) {
                 xPos = 20;
                 yPos += buttonHeight + 5;
             }
@@ -70,22 +90,27 @@ public class Teclado extends JPanel {
         textAreaEscribir.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
+                e.consume(); // Evita el manejo automático
                 char c = e.getKeyChar();
-                if (e.getKeyChar() != '\b') {
+                if (c != '\b') { // Bloquea la tecla de retroceso
                     textAreaEscribir.append(String.valueOf(c));
                 }
             }
 
             @Override
             public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() != KeyEvent.VK_BACK_SPACE) {
+                if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+                    e.consume(); // Bloquea completamente la tecla de retroceso
+                } else {
                     actualizarColorBoton(e.getKeyCode(), true);
                 }
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-                actualizarColorBoton(e.getKeyCode(), false);
+                if (e.getKeyCode() != KeyEvent.VK_BACK_SPACE) { // Bloquea Backspace
+                    actualizarColorBoton(e.getKeyCode(), false);
+                }
             }
         });
 
@@ -109,3 +134,5 @@ public class Teclado extends JPanel {
         }
     }
 }
+
+

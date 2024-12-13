@@ -11,8 +11,8 @@ import java.awt.event.ActionEvent;
 
 public class PanelLeccion extends JPanel{
 	
-	final static char FÁCIL = '1';
-	final static char DIFÍCIL = '2';
+	final public static char FÁCIL = '1';
+	final public static char DIFÍCIL = '2';
 	
 	private FrameMecanografía frameMecanografía;
 	private Usuario user;

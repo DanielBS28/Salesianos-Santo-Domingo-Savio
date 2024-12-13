@@ -31,4 +31,7 @@
     <fullyQualifiedTypeName name="Mecanografía.FrameMecanografía"/>
     <fullyQualifiedTypeName name="Mecanografía.Teclado"/>
     <fullyQualifiedTypeName name="Mecanografía.Imágenes"/>
+    <fullyQualifiedTypeName name="Mecanografía.PanelLeccion"/>
+    <fullyQualifiedTypeName name="Mecanografía.Archivos"/>
+    <fullyQualifiedTypeName name="Mecanografía.DatosTXT"/>
 </qualifiedTypeNameHistroy>

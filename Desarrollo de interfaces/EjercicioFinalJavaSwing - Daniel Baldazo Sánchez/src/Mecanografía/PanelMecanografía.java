@@ -32,7 +32,7 @@ public class PanelMecanografía extends JPanel {
 		frameMecanografía.setSize(screenSize.width, screenSize.height);
 		frameMecanografía.setLocationRelativeTo(null);
 		frameMecanografía.setVisible(true);
-		frameMecanografía.getContentPane().add(new Teclado());
+		frameMecanografía.getContentPane().add(new Teclado(dificultad));
 
 		setLayout(null);
 
