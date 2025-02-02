@@ -60,6 +60,13 @@ public class PanelAdmin extends JPanel {
 		add(Pregunta);
 		
 		JButton AltaUsuarios = new JButton("Agregar Usuarios");
+		AltaUsuarios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				PanelAgregarUsuarios panelAgregarUsuarios = new PanelAgregarUsuarios(frameMecanografía, user);
+				frameMecanografía.getContentPane().add(panelAgregarUsuarios);
+			}
+		});
 		AltaUsuarios.setBackground(new Color(0, 128, 0));
 		AltaUsuarios.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 16));
 		AltaUsuarios.setForeground(new Color(255, 255, 255));
@@ -67,6 +74,13 @@ public class PanelAdmin extends JPanel {
 		add(AltaUsuarios);
 		
 		JButton BajaUsuarios = new JButton("Eliminar Usuarios");
+		BajaUsuarios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				PanelEliminarUsuarios panelEliminarUsuarios = new PanelEliminarUsuarios(frameMecanografía, user);
+				frameMecanografía.getContentPane().add(panelEliminarUsuarios);
+			}
+		});
 		BajaUsuarios.setBackground(new Color(255, 128, 64));
 		BajaUsuarios.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 16));
 		BajaUsuarios.setForeground(new Color(255, 255, 255));
@@ -75,6 +89,13 @@ public class PanelAdmin extends JPanel {
 		
 		
 		JButton btnProbarCorreoenvo = new JButton("Envíar correos");
+		btnProbarCorreoenvo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				PanelCorreos panelCorreos = new PanelCorreos(frameMecanografía, user);
+				frameMecanografía.getContentPane().add(panelCorreos);
+			}
+		});
 		btnProbarCorreoenvo.setForeground(Color.WHITE);
 		btnProbarCorreoenvo.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 16));
 		btnProbarCorreoenvo.setBackground(new Color(11, 181, 200));
@@ -82,6 +103,13 @@ public class PanelAdmin extends JPanel {
 		add(btnProbarCorreoenvo);
 		
 		JButton btnModificarTextos = new JButton("Modificar textos");
+		btnModificarTextos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				PanelTextos panelTextos = new PanelTextos(frameMecanografía, user);
+				frameMecanografía.getContentPane().add(panelTextos);
+			}
+		});
 		btnModificarTextos.setForeground(Color.WHITE);
 		btnModificarTextos.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 16));
 		btnModificarTextos.setBackground(new Color(235, 223, 5));
@@ -89,7 +117,6 @@ public class PanelAdmin extends JPanel {
 		add(btnModificarTextos);
 		
 		add(Imágenes.ponerFondo(fondoPanelLogin, frameMecanografía));
-
 
 	}
 }
