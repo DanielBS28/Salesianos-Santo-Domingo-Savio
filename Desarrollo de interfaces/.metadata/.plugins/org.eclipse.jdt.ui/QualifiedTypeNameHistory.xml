@@ -25,13 +25,14 @@
     <fullyQualifiedTypeName name="javax.swing.JFrame"/>
     <fullyQualifiedTypeName name="Mecanografía.ImagenDeFondo"/>
     <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
-    <fullyQualifiedTypeName name="Mecanografía.Usuario"/>
     <fullyQualifiedTypeName name="javax.swing.JPanel"/>
     <fullyQualifiedTypeName name="Mecanografía.PanelLogin"/>
     <fullyQualifiedTypeName name="Mecanografía.FrameMecanografía"/>
     <fullyQualifiedTypeName name="Mecanografía.Teclado"/>
     <fullyQualifiedTypeName name="Mecanografía.Imágenes"/>
     <fullyQualifiedTypeName name="Mecanografía.PanelLeccion"/>
+    <fullyQualifiedTypeName name="Mecanografía.Usuario"/>
+    <fullyQualifiedTypeName name="Mecanografía.EscribirTXT"/>
     <fullyQualifiedTypeName name="Mecanografía.Archivos"/>
     <fullyQualifiedTypeName name="Mecanografía.DatosTXT"/>
 </qualifiedTypeNameHistroy>

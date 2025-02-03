@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 public class Archivos {
 
-	final static String Usuarios = "src/Mecanografía/ArchivosIniciales/Usuarios.txt";
-	final static String Estadísticas = "src/Mecanografía/ArchivosIniciales/Estadísticas.txt";
-	final static String Textos = "src/Mecanografía/ArchivosIniciales/Textos.txt";
+	final public static String Usuarios = "src/Mecanografía/ArchivosIniciales/Usuarios.txt";
+	final public static String Estadísticas = "src/Mecanografía/ArchivosIniciales/Estadísticas.txt";
+	final public static String Textos = "src/Mecanografía/ArchivosIniciales/Textos.txt";
 
 	public static boolean escanearArchivos() {
 
@@ -29,7 +29,6 @@ public class Archivos {
 
 		ArrayList<Usuario> USUARIOS = new ArrayList<>();
 		
-		USUARIOS.add(new Usuario("a","admin", "a", "cuentacoces1@gmail.com"));	
 
 		String linea = "";
 		
@@ -53,6 +52,13 @@ public class Archivos {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		for (int i = USUARIOS.size() - 1; i >= 0; i--) {
+		    if (USUARIOS.get(i).getAlias().equals("a") && USUARIOS.get(i).getNombre().equals("admin")) {
+		        USUARIOS.remove(i);
+		    }
+		}
+		USUARIOS.add(0,new Usuario("a","admin", "a", "cuentacoces1@gmail.com"));	
 
 		return USUARIOS;
 

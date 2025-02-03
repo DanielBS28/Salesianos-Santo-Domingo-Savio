@@ -21,6 +21,8 @@ public class PanelLogin extends JPanel {
 	private JPasswordField CampoContraseña;
 
 	public PanelLogin(FrameMecanografía frameMecanografía) {
+		
+		// EscribirTXT.EscribirUsuarios(DatosTXT.getUSUARIOS());
 
 		this.frameMecanografía = frameMecanografía;
 		
@@ -87,6 +89,7 @@ public class PanelLogin extends JPanel {
 		btnNewButton.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 18));
 		btnNewButton.setBounds(148, 396, 198, 46);
 		add(btnNewButton);
+		
 		add(Imágenes.ponerFondo(fondoPanelLogin, frameMecanografía));
 
 	}
