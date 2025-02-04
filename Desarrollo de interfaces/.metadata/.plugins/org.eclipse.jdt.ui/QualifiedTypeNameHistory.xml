@@ -34,5 +34,6 @@
     <fullyQualifiedTypeName name="Mecanografía.Archivos"/>
     <fullyQualifiedTypeName name="Mecanografía.Usuario"/>
     <fullyQualifiedTypeName name="Mecanografía.EscribirTXT"/>
+    <fullyQualifiedTypeName name="Mecanografía.SimpleEmail"/>
     <fullyQualifiedTypeName name="Mecanografía.DatosTXT"/>
 </qualifiedTypeNameHistroy>

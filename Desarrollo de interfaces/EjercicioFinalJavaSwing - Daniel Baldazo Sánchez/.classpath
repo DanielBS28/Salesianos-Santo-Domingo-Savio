@@ -6,5 +6,8 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="src/Mecanografía/JAR/activation-1.1.1.jar"/>
+	<classpathentry kind="lib" path="src/Mecanografía/JAR/javax.mail.jar"/>
+	<classpathentry kind="lib" path="src/Mecanografía/JAR/javax.mail-api-1.6.2-javadoc.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
