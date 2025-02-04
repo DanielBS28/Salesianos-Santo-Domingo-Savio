@@ -33,6 +33,6 @@
     <fullyQualifiedTypeName name="Mecanografía.PanelLeccion"/>
     <fullyQualifiedTypeName name="Mecanografía.Archivos"/>
     <fullyQualifiedTypeName name="Mecanografía.Usuario"/>
-    <fullyQualifiedTypeName name="Mecanografía.DatosTXT"/>
     <fullyQualifiedTypeName name="Mecanografía.EscribirTXT"/>
+    <fullyQualifiedTypeName name="Mecanografía.DatosTXT"/>
 </qualifiedTypeNameHistroy>

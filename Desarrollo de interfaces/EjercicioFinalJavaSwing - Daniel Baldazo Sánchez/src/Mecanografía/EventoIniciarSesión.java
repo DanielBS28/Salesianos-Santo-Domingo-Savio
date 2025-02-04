@@ -29,27 +29,34 @@ public class EventoIniciarSesión implements ActionListener {
 
 		String alias = campoUsuario.getText();
 		String contraseña = campoContraseña.getText();
+		boolean usuarioEncontrado = false;
 
 		ArrayList<Usuario> USUARIOS = DatosTXT.getUSUARIOS();
 
-		for (int i = 0; i < USUARIOS.size(); i++) {
+		if (alias.equals("a") && contraseña.equals("a")) {
+			panelLogin.setVisible(false);
+			PanelAdmin panelAdmin = new PanelAdmin(frameMecanografía, DatosTXT.getUSUARIOS().get(0));
+			frameMecanografía.getContentPane().add(panelAdmin);
+		} else if (USUARIOS.size() <= 3)
+			JOptionPane.showInternalMessageDialog(null,
+					"Hay menos de 3 usuarios para que la aplicación funcione, debes"
+							+ "de añadir más usuarios como administrador para poder utilizar la aplicación",
+					"Error: ", 0);
+		else {
+			for (int i = 0; i < USUARIOS.size(); i++) {
 
-			Usuario user = USUARIOS.get(i);
-			if (user.getAlias().equals(alias) && user.getContrasena().equals(contraseña)) {
-				panelLogin.setVisible(false);
-
-				if (user.getAlias().equals("a")) {
-					PanelAdmin panelAdmin = new PanelAdmin(frameMecanografía, user);
-					frameMecanografía.getContentPane().add(panelAdmin);
-				} else {
+				Usuario user = USUARIOS.get(i);
+				if (user.getAlias().equals(alias) && user.getContrasena().equals(contraseña)) {
+					panelLogin.setVisible(false);
 					PanelLeccion panelLeccion = new PanelLeccion(frameMecanografía, user);
 					frameMecanografía.getContentPane().add(panelLeccion);
+					usuarioEncontrado = true;
 				}
-				return;
 			}
+			if (!usuarioEncontrado)
+				JOptionPane.showInternalMessageDialog(null,
+						"No se han encontrado usuarios o la contraseña es incorrecta", "Error: ", 0);
 		}
-		JOptionPane.showInternalMessageDialog(null, "No se han encontrado usuarios o la contraseña es incorrecta",
-				"Error: ", 0);
 
 	}
 }
