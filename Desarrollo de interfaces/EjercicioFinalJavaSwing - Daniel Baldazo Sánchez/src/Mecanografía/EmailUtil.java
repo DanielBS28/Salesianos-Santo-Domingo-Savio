@@ -9,7 +9,7 @@ import javax.swing.JTextField;
 
 public class EmailUtil {
 
-	public static boolean sendEmail(Session session, JTextField campoCorreo, JTextField campoAsunto, JTextArea mensaje) {
+	public static boolean sendEmail(Session session, String asunto, String correo, String mensaje) {
 		try {
 
 			// configurar cabeceras
@@ -17,19 +17,21 @@ public class EmailUtil {
 			msg.addHeader("Content-type", "text/HTML; charset=UTF-8");
 			msg.addHeader("format", "flowed");
 			msg.addHeader("Content-Transfer-Encoding", "8bit");
-			msg.setFrom(new InternetAddress("no_reply@example.com", campoAsunto.getText()));// Datos de ejemplo
-			msg.setReplyTo(InternetAddress.parse("no_reply_DOSA@DAM.com", false));
-			msg.setSubject(campoAsunto.getText(), "UTF-8");
-			msg.setText(mensaje.getText(), "UTF-8");
-			msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(campoCorreo.getText(), false));
+			msg.setFrom(new InternetAddress(DatosTXT.getUSUARIOS().getFirst().getCorreo(), correo));// Datos de ejemplo
+			msg.setReplyTo(InternetAddress.parse(DatosTXT.getUSUARIOS().getFirst().getCorreo(), false));
+			msg.setSubject(correo, "UTF-8");
+			msg.setText(mensaje, "UTF-8");
+			msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(asunto, false));
 			System.out.println("MENSAJE CREADO");
 			Transport.send(msg);
 			System.out.println("¡EMAIL ENVIADO!");// si no da error
+			return true;
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;		
+
 		}
-		return false;		
 	}
 
 }

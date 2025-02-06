@@ -9,7 +9,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class EventoEnviarCorreoPrueba extends JPanel implements ActionListener {
-	
+
 	private JTextField campoAsunto;
 	private JTextField campoCorreo;
 	private JTextArea Mensaje;
@@ -22,14 +22,25 @@ public class EventoEnviarCorreoPrueba extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		if(campoAsunto.getText().trim().isBlank()||Mensaje.getText().trim().isBlank()||campoCorreo.getText().isBlank())
+
+		if (campoAsunto.getText().trim().isBlank() || Mensaje.getText().trim().isBlank()
+				|| campoCorreo.getText().isBlank())
 			JOptionPane.showMessageDialog(this,
 					"Debes de llenar todos los campos del formulario: asunto, mensaje y destinatario.", "Error",
 					JOptionPane.ERROR_MESSAGE);
+		else if (SimpleEmail.EnviarEmail(campoAsunto.getText(), campoCorreo.getText(), Mensaje.getText())) {
+			JOptionPane.showMessageDialog(this, "El correo electrónico se ha enviado correctamente", "Mensaje enviado",
+					JOptionPane.NO_OPTION);
+			campoAsunto.setText("");
+			campoCorreo.setText("");
+			Mensaje.setText("");
+		}
 		else
-			SimpleEmail.EnviarEmail(campoAsunto, campoCorreo, Mensaje);
+			JOptionPane.showMessageDialog(this,
+					"Ha ocurrido un error durante el envío, no se ha enviado el mensaje.", "Error",
+					JOptionPane.ERROR_MESSAGE);
 		
+
 	}
 
 }

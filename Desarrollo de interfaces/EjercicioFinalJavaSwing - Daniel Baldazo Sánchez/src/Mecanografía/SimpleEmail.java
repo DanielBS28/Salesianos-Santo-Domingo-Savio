@@ -13,7 +13,7 @@ public class SimpleEmail {
 	 * autentificacion ssl port 465
 	 */
 
-	public static boolean EnviarEmail(JTextField campoAsunto, JTextField campoCorreo, JTextArea mensaje) {
+	public static boolean EnviarEmail(String Correo, String Asunto, String Mensaje) {
 		final String fromEmail = DatosTXT.getUSUARIOS().getFirst().getCorreo(); // email de salida
 		final String password = "fdlu qbno ztxt uknw";// contraseña del email de salida
 
@@ -39,7 +39,7 @@ public class SimpleEmail {
 		 * subject body
 		 */
 		
-		return EmailUtil.sendEmail(session,  campoCorreo, campoAsunto, mensaje);
+		return EmailUtil.sendEmail(session,  Asunto, Correo, Mensaje);
 		
 	}
 

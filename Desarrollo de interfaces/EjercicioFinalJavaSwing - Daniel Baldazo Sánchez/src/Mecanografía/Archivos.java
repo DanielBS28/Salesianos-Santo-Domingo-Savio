@@ -62,7 +62,7 @@ public class Archivos {
 		for(int i = USUARIOS.size() - 1; i >= 5; i--)
 	        USUARIOS.remove(i);
 
-		USUARIOS.add(0,new Usuario("a","admin", "a", "cuentacoces1@gmail.com"));
+		USUARIOS.add(0,new Usuario("a","admin", "a", "practicasdanielbs@gmail.com"));
 		
 		EscribirTXT.EscribirUsuarios(USUARIOS);
 
@@ -81,7 +81,7 @@ public class Archivos {
 
 			while ((linea = fis.readLine()) != null) {
 				
-				String [] lectura = linea.split("<cambiodetexto>");
+				String [] lectura = linea.split("<通配符>");
 				if(lectura.length == 2) {
 				TEXTOS.add(lectura[0]);
 				TEXTOS.add(lectura[1]);
