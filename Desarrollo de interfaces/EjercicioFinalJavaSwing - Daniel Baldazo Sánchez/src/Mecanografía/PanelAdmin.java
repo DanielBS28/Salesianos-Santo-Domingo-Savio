@@ -88,7 +88,7 @@ public class PanelAdmin extends JPanel {
 		add(BajaUsuarios);
 		
 		
-		JButton btnProbarCorreoenvo = new JButton("Envíar correos");
+		JButton btnProbarCorreoenvo = new JButton("Enviar correos");
 		btnProbarCorreoenvo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);

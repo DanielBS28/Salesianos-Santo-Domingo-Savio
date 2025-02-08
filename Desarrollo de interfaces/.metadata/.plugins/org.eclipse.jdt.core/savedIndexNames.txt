@@ -11,7 +11,6 @@ INDEX VERSION 1.134+C:\Users\yakit\Desktop\Git\2024-2025\Desarrollo de interface
 703453229.index
 1794905685.index
 1760433993.index
-1873030449.index
 4259264668.index
 1832898317.index
 3146381238.index

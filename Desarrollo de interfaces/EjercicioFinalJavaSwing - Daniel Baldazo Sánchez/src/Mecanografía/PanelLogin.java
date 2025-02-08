@@ -56,7 +56,7 @@ public class PanelLogin extends JPanel {
 		add(LabelContraseña);
 
 		JLabel Login = new JLabel("LOG IN");
-		Login.setForeground(new Color(255, 255, 255));
+		Login.setForeground(new Color(255, 153, 102));
 		Login.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 50));
 		Login.setBounds(163, 60, 307, 68);
 		add(Login);

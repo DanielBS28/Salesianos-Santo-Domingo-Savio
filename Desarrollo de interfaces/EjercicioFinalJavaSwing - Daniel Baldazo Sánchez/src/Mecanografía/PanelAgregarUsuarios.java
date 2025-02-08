@@ -44,34 +44,34 @@ public class PanelAgregarUsuarios extends JPanel {
 		volverAtrás.setBounds(123, 469, 241, 27);
 		add(volverAtrás);
 
-		JLabel pregunta = new JLabel("Introduce los datos del usuario");
+		JLabel pregunta = new JLabel("Introduzca los datos del usuario");
 		pregunta.setHorizontalAlignment(SwingConstants.CENTER);
-		pregunta.setForeground(new Color(255, 255, 255));
+		pregunta.setForeground(new Color(255, 153, 102));
 		pregunta.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 25));
 		pregunta.setBounds(38, 60, 401, 65);
 		add(pregunta);
 
 		JLabel ID = new JLabel("ID");
 		ID.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 17));
-		ID.setForeground(new Color(255, 153, 102));
+		ID.setForeground(new Color(255, 255, 255));
 		ID.setBounds(67, 183, 96, 27);
 		add(ID);
 
 		JLabel Nombre = new JLabel("Nombre");
 		Nombre.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 17));
-		Nombre.setForeground(new Color(255, 153, 102));
+		Nombre.setForeground(new Color(255, 255, 255));
 		Nombre.setBounds(226, 177, 139, 38);
 		add(Nombre);
 
 		JLabel correo = new JLabel("Correo");
 		correo.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 17));
-		correo.setForeground(new Color(255, 153, 102));
+		correo.setForeground(new Color(255, 255, 255));
 		correo.setBounds(67, 245, 114, 27);
 		add(correo);
 
 		JLabel Contraseña = new JLabel("Contraseña");
 		Contraseña.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 17));
-		Contraseña.setForeground(new Color(255, 153, 102));
+		Contraseña.setForeground(new Color(255, 255, 255));
 		Contraseña.setBounds(67, 304, 126, 27);
 		add(Contraseña);
 		

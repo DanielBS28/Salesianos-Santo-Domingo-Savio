@@ -42,7 +42,12 @@ public class EventoIniciarSesión implements ActionListener {
 					"Hay menos de 3 usuarios para que la aplicación funcione, debes"
 							+ "de añadir más usuarios como administrador para poder utilizar la aplicación",
 					"Error: ", 0);
-		else {
+		else if(DatosTXT.getTEXTOS().size() != 2){
+			JOptionPane.showInternalMessageDialog(null,
+					"No hay textos cargados o los datos son insuficientes, inicia sesión como administrador"
+					+ " para agregar los dos textos para poder jugar",
+					"Error: ", 0);
+		}else {
 			for (int i = 0; i < USUARIOS.size(); i++) {
 
 				Usuario user = USUARIOS.get(i);
