@@ -14,9 +14,20 @@ public class Teclado extends JPanel {
     private JTextPane textPaneObjetivo;
     private String textoObjetivo; // Almacena el texto objetivo para comparación
     private int posicionActual; // Controla la posición actual del texto escrito
+    private Timer Crono;
+    
+    private static int TiempoTotal = 0;
+    private static int TiempoRestante = 0;
+    private static int ErroresMax = 0;
+    private static int Errores = 0;
+    private static int Aciertos =0;
+    private static int TeclasPulsadas = 0;
+    private static int LetrasDelTexto = 0;
+
 
     public Teclado(char dificultad) {
         setLayout(null);
+       	
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int panelWidth = (int) screenSize.getWidth();
         int panelHeight = (int) screenSize.getHeight();
@@ -25,9 +36,63 @@ public class Teclado extends JPanel {
         // Configurar el área de texto objetivo como JTextPane
         if (dificultad == PanelLeccion.FÁCIL) {
             textoObjetivo = DatosTXT.TEXTOS.get(0);
+            TiempoTotal = 240;
+            ErroresMax = 5;
+            LetrasDelTexto = textoObjetivo.length()-1;
         } else {
             textoObjetivo = DatosTXT.TEXTOS.get(1);
+            TiempoTotal = 180;
+            ErroresMax = 3;
+            LetrasDelTexto = textoObjetivo.length()-1;
         }
+        
+        JLabel Aciertos = new JLabel("Aciertos");
+        Aciertos.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 20));
+        Aciertos.setForeground(new Color(0, 128, 64));
+        Aciertos.setBounds(20, panelHeight -120, 200, 40);
+        add(Aciertos); 
+        
+        JLabel AciertosValor = new JLabel("0");
+        AciertosValor.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 20));
+        AciertosValor.setForeground(new Color(0, 128, 64));
+        AciertosValor.setBounds(140, panelHeight -120, 200, 40);
+        add(AciertosValor); 
+        
+        JLabel Errores = new JLabel("Errores");
+        Errores.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 20));
+        Errores.setForeground(new Color(240, 0, 0));
+        Errores.setBounds(220, panelHeight -120, 200, 40);
+        add(Errores); 
+        
+        JLabel ErroresValor = new JLabel("0");
+        ErroresValor.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 20));
+        ErroresValor.setForeground(new Color(240, 0, 0));
+        ErroresValor.setBounds(340, panelHeight -120, 200, 40);
+        add(ErroresValor); 
+        
+        JLabel TiempoRestante = new JLabel("Tiempo restante");
+        TiempoRestante.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 20));
+        TiempoRestante.setForeground(new Color(0, 128, 255));
+        TiempoRestante.setBounds(420, panelHeight -120, 200, 40);
+        add(TiempoRestante); 
+        
+        JLabel TiempoRestanteValor = new JLabel("0");
+        TiempoRestanteValor.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 20));
+        TiempoRestanteValor.setForeground(new Color(0, 128, 255));
+        TiempoRestanteValor.setBounds(630, 744, 200, 40);
+        add(TiempoRestanteValor); 
+        
+        JLabel PPM = new JLabel("PPM");
+        PPM.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 20));
+        PPM.setForeground(new Color(255, 128, 0));
+        PPM.setBounds(710, 744, 200, 40);
+        add(PPM); 
+        
+        JLabel PPMValor = new JLabel("0");
+        PPMValor.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 20));
+        PPMValor.setForeground(new Color(255, 128, 0));
+        PPMValor.setBounds(810, 744, 200, 40);
+        add(PPMValor); 
 
         textPaneObjetivo = new JTextPane();
         textPaneObjetivo.setText(textoObjetivo);
@@ -45,7 +110,7 @@ public class Teclado extends JPanel {
         // Configurar el área de texto para escribir
         textPaneEscribir = new JTextPane();
         textPaneEscribir.setFont(new Font("Arial", Font.PLAIN, 20));
-        textPaneEscribir.setEditable(false);
+        textPaneEscribir.setEditable(true); // Permitir edición para que el KeyListener funcione
         textPaneEscribir.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
         // Crear JScrollPane para textPaneEscribir
@@ -71,8 +136,8 @@ public class Teclado extends JPanel {
         };
 
         int rows = 4;
-        int buttonHeight = panelHeight / (rows + 8);
-        int buttonWidth = panelWidth / 16;
+        int buttonHeight = panelHeight / (rows + 12);
+        int buttonWidth = panelWidth / 20;
 
         int xPos = 20, yPos = scrollEscribir.getY() + scrollEscribir.getHeight() + 20;
         for (String tecla : teclas) {
@@ -89,20 +154,26 @@ public class Teclado extends JPanel {
             }
         }
 
+        // Añadir el KeyListener con el manejo del retroceso
         textPaneEscribir.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-                e.consume(); // Evita el manejo automático
-                char c = e.getKeyChar();
-                if (posicionActual < textoObjetivo.length()) {
-                    manejarEntrada(c);
+                // Consumir el evento para evitar que el carácter se inserte automáticamente
+                e.consume();
+
+                // Solo procesar si no es retroceso
+                if (e.getKeyChar() != KeyEvent.VK_BACK_SPACE) {
+                    char c = e.getKeyChar();
+                    if (posicionActual < textoObjetivo.length()) {
+                        manejarEntrada(c);
+                    }
                 }
             }
 
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
-                    e.consume(); // Bloquea completamente la tecla de retroceso
+                    e.consume(); // Bloquea la tecla de retroceso
                 } else {
                     actualizarColorBoton(e.getKeyCode(), true);
                 }
@@ -117,7 +188,6 @@ public class Teclado extends JPanel {
         });
 
         textPaneEscribir.requestFocusInWindow();
-
         setVisible(true);
     }
 
@@ -142,8 +212,10 @@ public class Teclado extends JPanel {
             // Actualizar colores en el área objetivo
             if (c == textoObjetivo.charAt(posicionActual)) {
                 docObjetivo.setCharacterAttributes(posicionActual, 1, estiloCorrecto, true);
+                Aciertos++;
             } else {
                 docObjetivo.setCharacterAttributes(posicionActual, 1, estiloIncorrecto, true);
+                Errores++;
             }
 
             // Actualizar el área de escritura con el carácter ingresado
@@ -170,6 +242,3 @@ public class Teclado extends JPanel {
         }
     }
 }
-
-
-
