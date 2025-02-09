@@ -30,11 +30,11 @@
     <fullyQualifiedTypeName name="Mecanografía.FrameMecanografía"/>
     <fullyQualifiedTypeName name="Mecanografía.Teclado"/>
     <fullyQualifiedTypeName name="Mecanografía.Imágenes"/>
-    <fullyQualifiedTypeName name="Mecanografía.PanelLeccion"/>
     <fullyQualifiedTypeName name="Mecanografía.Archivos"/>
     <fullyQualifiedTypeName name="Mecanografía.Usuario"/>
     <fullyQualifiedTypeName name="Mecanografía.EscribirTXT"/>
     <fullyQualifiedTypeName name="Mecanografía.SimpleEmail"/>
     <fullyQualifiedTypeName name="Mecanografía.DatosTXT"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="Mecanografía.PanelLeccion"/>
 </qualifiedTypeNameHistroy>

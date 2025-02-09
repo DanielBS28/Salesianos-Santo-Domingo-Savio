@@ -15,7 +15,7 @@ public class SimpleEmail {
 	public static void main(String[] args) {
 		
 		final String fromEmail = "cuentacoces2@gmail.com"; //email de salida
-		final String password = "humu gius pmmc zekx";// contraseña del email de salida
+		final String password = "time sjwi agoa irxr";// contraseña del email de salida
 		final String toEmail = "cuentacoces2@gmail.com"; // email destinatario
 		
 		System.out.println("Configurando datos conexión SSL");

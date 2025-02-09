@@ -20,6 +20,7 @@ public class PanelLeccion extends JPanel{
 
 	public PanelLeccion(FrameMecanografía frameMecanografía, Usuario user) {
 		
+		
 		this.frameMecanografía = frameMecanografía;
 		this.user = user;
 		
@@ -44,7 +45,7 @@ public class PanelLeccion extends JPanel{
 		BotónFácil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				PanelMecanografía panel = new PanelMecanografía(frameMecanografía,FÁCIL,PanelLeccion.this);
+				PanelMecanografía panel = new PanelMecanografía(frameMecanografía,FÁCIL,PanelLeccion.this, user);
 				frameMecanografía.getContentPane().add(panel);	
 				}
 		});
@@ -65,7 +66,7 @@ public class PanelLeccion extends JPanel{
 		BotónDifícil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				PanelMecanografía panel = new PanelMecanografía(frameMecanografía,DIFÍCIL,PanelLeccion.this);
+				PanelMecanografía panel = new PanelMecanografía(frameMecanografía,DIFÍCIL,PanelLeccion.this, user);
 				frameMecanografía.getContentPane().add(panel);	
 			}
 		});

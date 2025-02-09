@@ -15,11 +15,13 @@ public class PanelMecanografía extends JPanel {
 	private FrameMecanografía frameMecanografía;
 	private PanelLeccion panelLeccion;
 	private char dificultad;
+	private Usuario user;
 
-	public PanelMecanografía(FrameMecanografía frameMecanografía, char dificultad, PanelLeccion panelLeccion) {
+	public PanelMecanografía(FrameMecanografía frameMecanografía, char dificultad, PanelLeccion panelLeccion, Usuario user) {
 		this.dificultad = dificultad;
 		this.frameMecanografía = frameMecanografía;
 		this.panelLeccion = panelLeccion;
+		this.user = user;
 
 		// Destruir el frame anterior para poder modificarlo
 		frameMecanografía.dispose();
@@ -32,7 +34,7 @@ public class PanelMecanografía extends JPanel {
 		frameMecanografía.setSize(screenSize.width, screenSize.height);
 		frameMecanografía.setLocationRelativeTo(null);
 		frameMecanografía.setVisible(true);
-		frameMecanografía.getContentPane().add(new Teclado(dificultad));
+		frameMecanografía.getContentPane().add(new Teclado(frameMecanografía, dificultad, user));
 
 		setLayout(null);
 

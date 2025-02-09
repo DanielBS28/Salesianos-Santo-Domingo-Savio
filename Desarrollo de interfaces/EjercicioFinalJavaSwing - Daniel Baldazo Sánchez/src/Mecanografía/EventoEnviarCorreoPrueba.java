@@ -28,7 +28,7 @@ public class EventoEnviarCorreoPrueba extends JPanel implements ActionListener {
 			JOptionPane.showMessageDialog(this,
 					"Debes de llenar todos los campos del formulario: asunto, mensaje y destinatario.", "Error",
 					JOptionPane.ERROR_MESSAGE);
-		else if (SimpleEmail.EnviarEmail(campoAsunto.getText(), campoCorreo.getText(), Mensaje.getText())) {
+		else if (EnviarEmail.crearEmail(campoCorreo.getText(),campoAsunto.getText(), Mensaje.getText())) {
 			JOptionPane.showMessageDialog(this, "El correo electrónico se ha enviado correctamente", "Mensaje enviado",
 					JOptionPane.NO_OPTION);
 			campoAsunto.setText("");
@@ -40,7 +40,6 @@ public class EventoEnviarCorreoPrueba extends JPanel implements ActionListener {
 					"Ha ocurrido un error durante el envío, no se ha enviado el mensaje.", "Error",
 					JOptionPane.ERROR_MESSAGE);
 		
-
 	}
 
 }
