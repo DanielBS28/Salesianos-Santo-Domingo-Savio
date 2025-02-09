@@ -1,6 +1,8 @@
 package Mecanografía;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.HashMap;
@@ -17,13 +19,14 @@ public class Teclado extends JPanel {
     private Timer Crono;
     
     private static int TiempoTotal = 0;
-    private static int TiempoRestante = 0;
+    private static int SegundosRestantes = 0;
     private static int ErroresMax = 0;
-    private static int Errores = 0;
-    private static int Aciertos =0;
+    private static int ErroresTeclas = 0;
+    private static int AciertosTeclas =0;
     private static int TeclasPulsadas = 0;
     private static int LetrasDelTexto = 0;
-
+    private static boolean PrimeraLetraPulsada = false;
+    
 
     public Teclado(char dificultad) {
         setLayout(null);
@@ -45,6 +48,8 @@ public class Teclado extends JPanel {
             ErroresMax = 3;
             LetrasDelTexto = textoObjetivo.length()-1;
         }
+        
+        SegundosRestantes = TiempoTotal;
         
         JLabel Aciertos = new JLabel("Aciertos");
         Aciertos.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 20));
@@ -76,10 +81,10 @@ public class Teclado extends JPanel {
         TiempoRestante.setBounds(420, panelHeight -120, 200, 40);
         add(TiempoRestante); 
         
-        JLabel TiempoRestanteValor = new JLabel("0");
+        JLabel TiempoRestanteValor = new JLabel(String.valueOf(TiempoTotal) +" s");
         TiempoRestanteValor.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 20));
         TiempoRestanteValor.setForeground(new Color(0, 128, 255));
-        TiempoRestanteValor.setBounds(630, 744, 200, 40);
+        TiempoRestanteValor.setBounds(610, 744, 200, 40);
         add(TiempoRestanteValor); 
         
         JLabel PPM = new JLabel("PPM");
@@ -153,6 +158,24 @@ public class Teclado extends JPanel {
                 yPos += buttonHeight + 5;
             }
         }
+        
+        	Crono = new Timer(1000, new ActionListener() {
+    			
+    			@Override
+    			public void actionPerformed(ActionEvent e) {
+    					
+    				TiempoRestanteValor.setText(String.valueOf(--Teclado.SegundosRestantes +" s"));
+    				if(ErroresTeclas == ErroresMax || SegundosRestantes == 0) {
+    					Crono.stop();
+    					textPaneEscribir.setEditable(false);
+    					JOptionPane.showMessageDialog(null, "El usuario se ha agregado correctamente.", "Usuario agregado",
+    							JOptionPane.NO_OPTION);
+    					
+    				}
+    				
+    			}
+    		});
+        
 
         // Añadir el KeyListener con el manejo del retroceso
         textPaneEscribir.addKeyListener(new KeyListener() {
@@ -165,7 +188,12 @@ public class Teclado extends JPanel {
                 if (e.getKeyChar() != KeyEvent.VK_BACK_SPACE) {
                     char c = e.getKeyChar();
                     if (posicionActual < textoObjetivo.length()) {
-                        manejarEntrada(c);
+                        manejarEntrada(c,ErroresValor, AciertosValor);
+                        TeclasPulsadas++;
+                        if(!PrimeraLetraPulsada) {
+                        	Crono.start();
+                        }
+                        PrimeraLetraPulsada = true;
                     }
                 }
             }
@@ -191,7 +219,7 @@ public class Teclado extends JPanel {
         setVisible(true);
     }
 
-    private void manejarEntrada(char c) {
+    private void manejarEntrada(char c, JLabel JLErrores, JLabel JLAciertos) {
         StyledDocument docObjetivo = textPaneObjetivo.getStyledDocument();
         StyledDocument docEscribir = textPaneEscribir.getStyledDocument();
 
@@ -212,10 +240,12 @@ public class Teclado extends JPanel {
             // Actualizar colores en el área objetivo
             if (c == textoObjetivo.charAt(posicionActual)) {
                 docObjetivo.setCharacterAttributes(posicionActual, 1, estiloCorrecto, true);
-                Aciertos++;
+                AciertosTeclas++;
+                JLAciertos.setText(String.valueOf(AciertosTeclas));
             } else {
                 docObjetivo.setCharacterAttributes(posicionActual, 1, estiloIncorrecto, true);
-                Errores++;
+                ErroresTeclas++;
+                JLErrores.setText(String.valueOf(ErroresTeclas));
             }
 
             // Actualizar el área de escritura con el carácter ingresado

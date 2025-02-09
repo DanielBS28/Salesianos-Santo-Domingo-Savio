@@ -36,4 +36,5 @@
     <fullyQualifiedTypeName name="Mecanografía.EscribirTXT"/>
     <fullyQualifiedTypeName name="Mecanografía.SimpleEmail"/>
     <fullyQualifiedTypeName name="Mecanografía.DatosTXT"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
 </qualifiedTypeNameHistroy>
