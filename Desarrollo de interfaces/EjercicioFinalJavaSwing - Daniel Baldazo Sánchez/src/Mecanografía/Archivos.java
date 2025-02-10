@@ -146,17 +146,33 @@ public class Archivos extends JPanel {
 		Nota = Nota >= 0 ? Nota : 0;
 
 		if (comprobarRecord(Nota, user, dificultad)) {
+			
+			String correo = user.getCorreo();
+			String asunto = "¡Enhorabuena has superado tu récord en la lección " + (dificultad == '1' ? "FÁCIL! " : "DIFÍCIL! ")
+				+ "| Nota obtenida: " + Nota;
+			String texto = "En la lección " + (dificultad == '1' ? "fácil " : "difícil ") + "tienes en total " +tiempoTotal + " segundos para completarla, y tiene"
+					+ "un total de " + letrasDelTexto +" letras para teclar."
+					+ "| A continuación se muestran las estadísticas de tu nuevo récord: "
+					+ " | Aciertos: " + aciertosTeclas + "| Errores: " +erroresTeclas +" | PPM: " +pPMinuto +" | Tiempo usado: " 
+					+ (tiempoTotal- segundosRestantes)+" segundos" + " | Nota: " + Nota;
+					
+			
 			JOptionPane.showMessageDialog(null, "¡ENHORABUENA! HAS SUPERADO TU RÉCORD\n"
 					+ "\nVamos a enviar un mensaje con tu nuevo récord y estadísticas a tu correo electrónico", "Enviando mensaje",
 					JOptionPane.NO_OPTION);
 			if(dificultad == '1') 
 				DatosTXT.actualizarEstadísticasFácil(segundosRestantes, teclasPulsadas, letrasDelTexto, pPMinuto,
-						 aciertosTeclas, erroresTeclas, tiempoTotal,dificultad,  user);
+						 aciertosTeclas, erroresTeclas, tiempoTotal,dificultad,  user, Nota);
 			else
 				DatosTXT.actualizarEstadísticasDifícil(segundosRestantes, teclasPulsadas, letrasDelTexto, pPMinuto,
-						 aciertosTeclas, erroresTeclas, tiempoTotal,dificultad,  user);
-		}
-
+						 aciertosTeclas, erroresTeclas, tiempoTotal,dificultad,  user, Nota);
+			
+			EscribirTXT.EscribirEstadísticas(DatosTXT.getESTADÍSTICAS());
+			EnviarEmail.crearEmail(correo, asunto, texto);
+		}else
+			JOptionPane.showMessageDialog(null, "No has superado tu récord, ¡vuelve a intentarlo en otra ocasión, lo conseguirás!", "No superaste tu récord",
+					JOptionPane.NO_OPTION);
+			
 		return Nota;
 
 	}
@@ -169,9 +185,8 @@ public class Archivos extends JPanel {
 			if (ESTADÍSTICAS.get(i).getId().equals(user.getAlias())) {
 				if (dificultad == '1' && ESTADÍSTICAS.get(i).getNotaFácil() < nota)
 					return true;
-				else if (ESTADÍSTICAS.get(i).getNotaDifícil() < nota)
+				else if (dificultad == '2' && ESTADÍSTICAS.get(i).getNotaDifícil() < nota)
 					return true;
-
 			}
 		}
 		return false;

@@ -37,6 +37,7 @@
     <fullyQualifiedTypeName name="Mecanografía.EventoAgregarUsuario"/>
     <fullyQualifiedTypeName name="Mecanografía.Estadísticas"/>
     <fullyQualifiedTypeName name="Mecanografía.Archivos"/>
-    <fullyQualifiedTypeName name="Mecanografía.DatosTXT"/>
     <fullyQualifiedTypeName name="Mecanografía.EscribirTXT"/>
+    <fullyQualifiedTypeName name="Mecanografía.DatosTXT"/>
+    <fullyQualifiedTypeName name="Mecanografía.EnviarEmail"/>
 </qualifiedTypeNameHistroy>
