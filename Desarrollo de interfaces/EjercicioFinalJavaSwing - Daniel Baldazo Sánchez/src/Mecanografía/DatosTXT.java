@@ -25,6 +25,9 @@ public class DatosTXT {
 	public static void cargarTextos() {
 		TEXTOS = Archivos.leerTextos();
 	}
+	public static void cargarEstadísticas() {
+		ESTADÍSTICAS = Archivos.leerEstadísticas();
+	}
 
 	public static ArrayList<Usuario> getUSUARIOS() {
 		return USUARIOS;

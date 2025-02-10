@@ -12,8 +12,10 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
-public class EnviarEmail {
+public class EnviarEmail{
 
 	private static String emailFrom = "practicasdanielbs@gmail.com";
 	private static String passwordFrom = "fdlu qbno ztxt uknw";
@@ -68,6 +70,9 @@ public class EnviarEmail {
 			mTransport.close();
 			return true;
 		} catch (Exception ex) {
+			JOptionPane.showMessageDialog(null,
+					"Ha ocurrido un error durante el envío, no se ha enviado el mensaje.", "Error",
+					JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
 	}

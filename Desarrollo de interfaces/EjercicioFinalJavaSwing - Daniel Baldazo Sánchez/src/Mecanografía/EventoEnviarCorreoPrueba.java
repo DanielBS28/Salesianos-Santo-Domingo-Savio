@@ -35,11 +35,7 @@ public class EventoEnviarCorreoPrueba extends JPanel implements ActionListener {
 			campoCorreo.setText("");
 			Mensaje.setText("");
 		}
-		else
-			JOptionPane.showMessageDialog(this,
-					"Ha ocurrido un error durante el envío, no se ha enviado el mensaje.", "Error",
-					JOptionPane.ERROR_MESSAGE);
-		
+			
 	}
 
 }

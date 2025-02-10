@@ -36,7 +36,7 @@ public class eventoActualizarTextos extends JPanel implements ActionListener {
                     + " Vuelve a intentarlo de nuevo por favor", "Error",
                     JOptionPane.ERROR_MESSAGE);
         } else {
-            escribirTextos(TextoFácil, TextoDifícil);
+            EscribirTXT.escribirTextos(TextoFácil, TextoDifícil);
             eliminarDatosAntiguos(DatosTXT.getTEXTOS());
             DatosTXT.getTEXTOS().add(TextoFácil);
             DatosTXT.getTEXTOS().add(TextoDifícil);
@@ -51,15 +51,5 @@ public class eventoActualizarTextos extends JPanel implements ActionListener {
         }
     }
 
-    private void escribirTextos(String textoFácil, String textoDifícil) {                    
-        Path fichero = Paths.get(Archivos.Textos);
-
-        try {
-            Files.writeString(fichero, textoFácil);                
-            Files.writeString(fichero, "<通配符>", StandardOpenOption.APPEND);    
-            Files.writeString(fichero, textoDifícil, StandardOpenOption.APPEND);                
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    
 }

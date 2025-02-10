@@ -21,6 +21,7 @@ public class Teclado extends JPanel {
     private int posicionActual; // Controla la posición actual del texto escrito
     private Timer Crono;
 
+    private static char dificultad;
     private static int TiempoTotal = 0;
     private static int SegundosRestantes = 0;
     private static int ErroresMax = 0;
@@ -36,6 +37,7 @@ public class Teclado extends JPanel {
 
         this.user = user;
         this.frameMecanografía = frameMecanografía;
+        this.dificultad = dificultad;
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int panelWidth = (int) screenSize.getWidth();
@@ -221,6 +223,7 @@ public class Teclado extends JPanel {
 
         textPaneEscribir.requestFocusInWindow();
         setVisible(true);
+        
     }
 
     private void manejarEntrada(char c, JLabel JLErrores, JLabel JLAciertos) {
@@ -276,8 +279,11 @@ public class Teclado extends JPanel {
     private void detenerJuego() {
         Crono.stop();
         textPaneEscribir.setEditable(false);
-        JOptionPane.showMessageDialog(null, "El juego ha terminado.", "Fin del juego", JOptionPane.INFORMATION_MESSAGE);
-
+        double Nota = Archivos.obtenerNota(SegundosRestantes, TeclasPulsadas, LetrasDelTexto,
+        		PPMinuto, AciertosTeclas, ErroresTeclas, TiempoTotal,dificultad, user);
+        JOptionPane.showMessageDialog(null, "ESTADÍSTICAS DE LA PARTIDA:\n"
+        		+ "Aciertos: " + AciertosTeclas +"\nErrores: " +ErroresTeclas +"\nPPM: " +PPMinuto +"\nTiempo usado: " + (TiempoTotal-SegundosRestantes)
+        		+"\n\nNota: " + Nota, "Fin del juego", JOptionPane.INFORMATION_MESSAGE);
         frameMecanografía.dispose(); // Oculta el frame para poder modificarlo
         frameMecanografía.setUndecorated(false);
         frameMecanografía.setBounds(100, 100, 500, 570);

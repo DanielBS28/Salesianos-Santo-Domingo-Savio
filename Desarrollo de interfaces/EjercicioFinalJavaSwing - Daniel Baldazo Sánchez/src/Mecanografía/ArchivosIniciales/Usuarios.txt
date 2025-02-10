@@ -1,4 +1,4 @@
-a,admin,a,practicasdanielbs@gmail.com
-daaannielito28,Daniel,1234,cuentacoces1@gmail.com
-Alfonso17,Alfonso,123QWe,cuentacoces2@gmail.com
-b,Javier,b,cuentacoces3@gmail.com
+a<通配符>admin<通配符>a<通配符>practicasdanielbs@gmail.com
+daaannielito28<通配符>Daniel<通配符>1234Ab<通配符>cuentacoces1@gmail.com
+Daniel<通配符>Daniel<通配符>ASDQw1<通配符>correodanielsanchez@gmail.com
+aaaaaaaa<通配符>aaaaa<通配符>123dsA<通配符>cuentacoces5@gmail.com

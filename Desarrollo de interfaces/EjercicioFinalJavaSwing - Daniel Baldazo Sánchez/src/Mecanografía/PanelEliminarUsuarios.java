@@ -110,6 +110,8 @@ public class PanelEliminarUsuarios extends JPanel {
             // Eliminar del JList
             listModel.remove(selectedIndex);
             EscribirTXT.EscribirUsuarios(USUARIOS);
+    		Archivos.eliminarDatosSinUsuarios(USUARIOS, DatosTXT.getESTADÍSTICAS());
+    		EscribirTXT.EscribirEstadísticas(DatosTXT.getESTADÍSTICAS());
             JOptionPane.showMessageDialog(this, "El usuario se ha eliminado correctamente.", "Usuario eliminado", JOptionPane.NO_OPTION);
 
             }else

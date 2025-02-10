@@ -49,6 +49,12 @@ public class EventoAgregarUsuario extends JPanel implements ActionListener {
 					"No se pudo agregar el usuario, el máximo de usuarios permitidos en la aplicación es 5.", "Error",
 					JOptionPane.ERROR_MESSAGE);
 			ErrorEncontrado = true;
+		} else if (contraseña.contains("<通配符>") || Correo.contains("<通配符>") || ID.contains("<通配符>")
+				|| Nombre.equals("<通配符>")) {
+			JOptionPane.showMessageDialog(this,
+					"No se pudo agregar el usuario, está prohibido usar la secuencia de carácteres \"<通配符>\" en cualquier campo", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			ErrorEncontrado = true;
 
 		} else {
 			for (int i = 0; i < USUARIOS.size() && !ErrorEncontrado; i++) {
@@ -86,6 +92,8 @@ public class EventoAgregarUsuario extends JPanel implements ActionListener {
 					JOptionPane.NO_OPTION);
 			USUARIOS.add(new Usuario(ID, Nombre, contraseña, Correo));
 			EscribirTXT.EscribirUsuarios(USUARIOS);
+			DatosTXT.getESTADÍSTICAS().add(new Estadísticas(ID, 0, 0,0,0,0,0,0,0,0,0,0,0,0,0));
+			EscribirTXT.EscribirEstadísticas(DatosTXT.getESTADÍSTICAS());
 			campoContraseña.setText("");
 			campoCorreo.setText("");
 			campoID.setText("");
