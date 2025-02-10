@@ -244,18 +244,12 @@ public class Teclado extends JPanel {
             // Restaurar el texto restante a negro en el área objetivo
             docObjetivo.setCharacterAttributes(posicionActual, textoObjetivo.length() - posicionActual, estiloNormal, true);
 
-            // Normalizar caracteres para comparación (opcional, si no se desea distinguir tildes)
+            // Obtener el carácter objetivo y el carácter ingresado
             char caracterObjetivo = textoObjetivo.charAt(posicionActual);
             char caracterIngresado = c;
 
-            // Normalizar ambos caracteres (eliminar tildes)
-            String textoObjetivoNormalizado = Normalizer.normalize(String.valueOf(caracterObjetivo), Normalizer.Form.NFD)
-                    .replaceAll("\\p{M}", "");
-            String textoIngresadoNormalizado = Normalizer.normalize(String.valueOf(caracterIngresado), Normalizer.Form.NFD)
-                    .replaceAll("\\p{M}", "");
-
-            // Comparar caracteres normalizados
-            if (textoObjetivoNormalizado.equals(textoIngresadoNormalizado)) {
+            // Comparar caracteres directamente (respetando mayúsculas/minúsculas y tildes)
+            if (caracterObjetivo == caracterIngresado) {
                 docObjetivo.setCharacterAttributes(posicionActual, 1, estiloCorrecto, true);
                 AciertosTeclas++;
                 JLAciertos.setText(String.valueOf(AciertosTeclas));
