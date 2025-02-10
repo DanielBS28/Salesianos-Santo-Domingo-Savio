@@ -255,7 +255,7 @@ public class Teclado extends JPanel {
                     .replaceAll("\\p{M}", "");
 
             // Comparar caracteres normalizados
-            if (textoObjetivoNormalizado.equalsIgnoreCase(textoIngresadoNormalizado)) {
+            if (textoObjetivoNormalizado.equals(textoIngresadoNormalizado)) {
                 docObjetivo.setCharacterAttributes(posicionActual, 1, estiloCorrecto, true);
                 AciertosTeclas++;
                 JLAciertos.setText(String.valueOf(AciertosTeclas));
