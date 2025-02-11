@@ -120,7 +120,7 @@ public class Teclado extends JPanel {
 
         // Crear JScrollPane para textPaneObjetivo
         JScrollPane scrollObjetivo = new JScrollPane(textPaneObjetivo);
-        scrollObjetivo.setBounds(20, 20, panelWidth - 40, panelHeight / 4);
+        scrollObjetivo.setBounds(20, 30, panelWidth - 40, panelHeight / 4);
         scrollObjetivo.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
         add(scrollObjetivo);
 
@@ -136,6 +136,52 @@ public class Teclado extends JPanel {
                 panelHeight / 4);
         scrollEscribir.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         add(scrollEscribir);
+        
+        JMenuBar menuBar = new JMenuBar();
+        menuBar.setBounds(0, 0, 108, 22);
+        add(menuBar);
+
+        // Creación del menú "Menu"
+        JMenu mnMenu = new JMenu("Menu");
+        menuBar.add(mnMenu);
+
+        // Creación del ítem "Ayuda para el tutorial"
+        JMenuItem Ayuda = new JMenuItem("Ayuda para el tutorial");
+        mnMenu.add(Ayuda);
+
+        // Creación del menú "Acerca de"
+        JMenu AcercaDe = new JMenu("Acerca de");
+        menuBar.add(AcercaDe);
+
+        // Creación del ítem "Información de la APP"
+        JMenuItem Información = new JMenuItem("Información de la APP");
+        AcercaDe.add(Información);
+
+        // Acción al hacer clic en "Ayuda para el tutorial"
+        Ayuda.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Crear un JLabel con una imagen
+                ImageIcon icon = new ImageIcon("src/Mecanografía/ImágenesAPP/Ayuda_Teclado.jpg"); // Cambia la ruta por la de tu imagen
+                JLabel label = new JLabel(icon);
+
+                // Crear un JOptionPane para mostrar la imagen
+                JOptionPane.showMessageDialog(null, label, "Ayuda para el tutorial", JOptionPane.PLAIN_MESSAGE);
+            }
+        });
+
+        // Acción al hacer clic en "Información de la APP"
+        Información.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Mostrar un mensaje con el nombre y la versión de la aplicación
+                JOptionPane.showMessageDialog(null, "Nombre del desarrollador: Daniel Baldazo Sánchez\nVersión: 2.0", "Información de la APP", JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+
+        // Hacer visible la ventana
+        setVisible(true);
+    
 
         botonesMapa = new HashMap<>();
         posicionActual = 0; // Inicializar posición

@@ -141,30 +141,30 @@ public class Archivos extends JPanel {
 		double Nota = 0;
 
 		Nota = (aciertosTeclas * 10) / letrasDelTexto;
-		Nota -= dificultad == '1' ? (erroresTeclas * 0.25) : (erroresTeclas * 0.5);
+		Nota -= dificultad == '1' ? (erroresTeclas * 0.20) : (erroresTeclas * 0.33);
 		Nota = Math.floor(Nota * 100) / 100;
 		Nota = Nota >= 0 ? Nota : 0;
 
 		if (comprobarRecord(Nota, user, dificultad)) {
 			
 			String correo = user.getCorreo();
-			String asunto = "¡Enhorabuena has superado tu récord en la lección " + (dificultad == '1' ? "FÁCIL! " : "DIFÍCIL! ")
+			String asunto = "¡Enhorabuena has superado tu récord en la lección " + (dificultad == '1' ? "fácil! " : "difícil! ")
 				+ "| Nota obtenida: " + Nota;
 			String texto = "En la lección " + (dificultad == '1' ? "fácil " : "difícil ") + "tienes en total " +tiempoTotal + " segundos para completarla, y tiene"
-					+ "un total de " + letrasDelTexto +" letras para teclar."
-					+ "| A continuación se muestran las estadísticas de tu nuevo récord: "
-					+ " | Aciertos: " + aciertosTeclas + "| Errores: " +erroresTeclas +" | PPM: " +pPMinuto +" | Tiempo usado: " 
-					+ (tiempoTotal- segundosRestantes)+" segundos" + " | Nota: " + Nota;
+					+ " un total de " + (letrasDelTexto+1) +" letras para teclear."
+					+ " A continuación se muestran las estadísticas de tu nuevo récord: "
+					+ " Aciertos: " + aciertosTeclas + " | Errores: " +erroresTeclas +" | PPM: " +pPMinuto +" | Tiempo usado: " 
+					+ (tiempoTotal- segundosRestantes)+" segundos" + " | Tiempo restante: "+segundosRestantes+" segundos | Nota: " + Nota;
 					
 			
 			JOptionPane.showMessageDialog(null, "¡ENHORABUENA! HAS SUPERADO TU RÉCORD\n"
 					+ "\nVamos a enviar un mensaje con tu nuevo récord y estadísticas a tu correo electrónico", "Enviando mensaje",
 					JOptionPane.NO_OPTION);
 			if(dificultad == '1') 
-				DatosTXT.actualizarEstadísticasFácil(segundosRestantes, teclasPulsadas, letrasDelTexto, pPMinuto,
+				DatosTXT.actualizarEstadísticasFácil(segundosRestantes, teclasPulsadas, letrasDelTexto+1, pPMinuto,
 						 aciertosTeclas, erroresTeclas, tiempoTotal,dificultad,  user, Nota);
 			else
-				DatosTXT.actualizarEstadísticasDifícil(segundosRestantes, teclasPulsadas, letrasDelTexto, pPMinuto,
+				DatosTXT.actualizarEstadísticasDifícil(segundosRestantes, teclasPulsadas, letrasDelTexto+1, pPMinuto,
 						 aciertosTeclas, erroresTeclas, tiempoTotal,dificultad,  user, Nota);
 			
 			EscribirTXT.EscribirEstadísticas(DatosTXT.getESTADÍSTICAS());

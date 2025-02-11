@@ -38,6 +38,6 @@
     <fullyQualifiedTypeName name="Mecanografía.Estadísticas"/>
     <fullyQualifiedTypeName name="Mecanografía.Archivos"/>
     <fullyQualifiedTypeName name="Mecanografía.EscribirTXT"/>
-    <fullyQualifiedTypeName name="Mecanografía.DatosTXT"/>
     <fullyQualifiedTypeName name="Mecanografía.EnviarEmail"/>
+    <fullyQualifiedTypeName name="Mecanografía.DatosTXT"/>
 </qualifiedTypeNameHistroy>

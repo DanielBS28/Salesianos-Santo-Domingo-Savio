@@ -31,14 +31,14 @@ public class PanelLeccion extends JPanel{
 		Bienvenida.setHorizontalAlignment(SwingConstants.CENTER);
 		Bienvenida.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 33));
 		Bienvenida.setForeground(new Color(255, 255, 255));
-		Bienvenida.setBounds(103, 51, 269, 39);
+		Bienvenida.setBounds(103, 30, 269, 39);
 		add(Bienvenida);
 		
 		JLabel Nombre = new JLabel(user.getNombre().toUpperCase());
 		Nombre.setHorizontalAlignment(SwingConstants.CENTER);
 		Nombre.setForeground(new Color(255, 153, 102));
 		Nombre.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 33));
-		Nombre.setBounds(103, 111, 269, 39);
+		Nombre.setBounds(103, 79, 269, 39);
 		add(Nombre);
 		
 		JButton BotónFácil = new JButton("Lección fácil");
@@ -52,15 +52,22 @@ public class PanelLeccion extends JPanel{
 		BotónFácil.setBackground(new Color(255, 153, 102));
 		BotónFácil.setForeground(new Color(255, 255, 255));
 		BotónFácil.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 25));
-		BotónFácil.setBounds(131, 259, 219, 52);
+		BotónFácil.setBounds(131, 211, 219, 52);
 		add(BotónFácil);
 		
 		JLabel Pregunta = new JLabel("¿Qué lección deseas practicar?");
 		Pregunta.setHorizontalAlignment(SwingConstants.CENTER);
 		Pregunta.setForeground(Color.WHITE);
 		Pregunta.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 22));
-		Pregunta.setBounds(61, 161, 352, 65);
+		Pregunta.setBounds(61, 127, 352, 65);
 		add(Pregunta);
+		
+		JButton RecordFácil = new JButton("Mostrar record lección fácil");
+		RecordFácil.addActionListener(new eventoMostrarRecordFácil(user));
+		RecordFácil.setBackground(new Color(255, 255, 255));
+		RecordFácil.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 12));
+		RecordFácil.setBounds(131, 273, 219, 21);
+		add(RecordFácil);
 		
 		JButton BotónDifícil = new JButton("Lección difícil");
 		BotónDifícil.addActionListener(new ActionListener() {
@@ -73,8 +80,15 @@ public class PanelLeccion extends JPanel{
 		BotónDifícil.setForeground(Color.WHITE);
 		BotónDifícil.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 25));
 		BotónDifícil.setBackground(new Color(255, 153, 102));
-		BotónDifícil.setBounds(131, 354, 219, 52);
+		BotónDifícil.setBounds(131, 332, 219, 52);
 		add(BotónDifícil);
+		
+		JButton RecordDifícil = new JButton("Mostrar record lección difícil");
+		RecordDifícil.addActionListener(new eventoMostrarRecordDifícil(user));
+		RecordDifícil.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 12));
+		RecordDifícil.setBackground(Color.WHITE);
+		RecordDifícil.setBounds(131, 394, 219, 21);
+		add(RecordDifícil);
 		
 		JButton btnCerrarSesion = new JButton("Cerrar Sesión");
 		btnCerrarSesion.addActionListener(new ActionListener() {
@@ -87,10 +101,14 @@ public class PanelLeccion extends JPanel{
 		btnCerrarSesion.setForeground(Color.WHITE);
 		btnCerrarSesion.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 15));
 		btnCerrarSesion.setBackground(new Color(187, 37, 30));
-		btnCerrarSesion.setBounds(123, 459, 241, 27);
+		btnCerrarSesion.setBounds(120, 459, 241, 27);
 		add(btnCerrarSesion);
 		
 		add(Imágenes.ponerFondo(fondoPanelLogin, frameMecanografía));
+		
+	
+		
+		
 		
 
 	}

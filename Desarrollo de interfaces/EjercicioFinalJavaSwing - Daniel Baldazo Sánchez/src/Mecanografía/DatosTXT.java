@@ -59,7 +59,7 @@ public class DatosTXT {
 
 	}
 
-	private static Estadísticas obtenerEstadística(Usuario user) {
+	public static Estadísticas obtenerEstadística(Usuario user) {
 
 		Estadísticas EstadísticaSeleccionada = null;
 
