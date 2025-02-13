@@ -1,12 +1,21 @@
-package Mecanografía;
+package Utilidades;
 
 import java.util.ArrayList;
 
-public class DatosTXT {
+import ClasesArchivos.Estadísticas;
+import ClasesArchivos.Usuario;
 
-	static ArrayList<Usuario> USUARIOS = new ArrayList<>();
-	static ArrayList<String> TEXTOS = new ArrayList<>();
-	static ArrayList<Estadísticas> ESTADÍSTICAS = new ArrayList<>();
+public class DatosTXT {
+	
+	/*
+	 * Esta clase se encarga de los getters y los setters de cada ArrayList
+	 * en cualquier parte del programa se utiliza esta clase para obtener los datos de
+	 * los arrays. También actualiza los datos de los arraylist.
+	 */
+
+	public static ArrayList<Usuario> USUARIOS = new ArrayList<>();
+	public static ArrayList<String> TEXTOS = new ArrayList<>();
+	public static ArrayList<Estadísticas> ESTADÍSTICAS = new ArrayList<>();
 
 	public static ArrayList<String> getTEXTOS() {
 		return TEXTOS;
@@ -46,7 +55,9 @@ public class DatosTXT {
 
 	public static void actualizarEstadísticasFácil(int segundosRestantes, int teclasPulsadas, int letrasDelTexto,
 			int pPMinuto, int aciertosTeclas, int erroresTeclas, int tiempoTotal, char dificultad, Usuario user, double nota) {
-
+		
+		//Esta función se encarga de actualizar los datos de las estádisticas de un usuario en la lección
+		//fácil si se ha superado su récord
 		Estadísticas EstadísticaSeleccionada = obtenerEstadística(user);
 		EstadísticaSeleccionada.setSegundosRestantesF(segundosRestantes);
 		EstadísticaSeleccionada.setLetralDelTextoF(letrasDelTexto);
@@ -61,6 +72,10 @@ public class DatosTXT {
 
 	public static Estadísticas obtenerEstadística(Usuario user) {
 
+		/*
+		 * Esta función se encarga de devolver la estadísticas del usuario
+		 * que le hemos pasado por parámetro
+		 */
 		Estadísticas EstadísticaSeleccionada = null;
 
 		for (int i = 0; i < ESTADÍSTICAS.size(); i++) {
@@ -74,6 +89,9 @@ public class DatosTXT {
 	public static void actualizarEstadísticasDifícil(int segundosRestantes, int teclasPulsadas, int letrasDelTexto,
 			int pPMinuto, int aciertosTeclas, int erroresTeclas, int tiempoTotal, char dificultad, Usuario user,
 			double nota) {
+		
+		//Esta función se encarga de actualizar los datos de las estádisticas de un usuario en la lección
+		//difícil si se ha superado su récord
 		
 		Estadísticas EstadísticaSeleccionada = obtenerEstadística(user);
 		EstadísticaSeleccionada.setSegundosRestantesD(segundosRestantes);

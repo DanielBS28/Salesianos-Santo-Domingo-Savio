@@ -1,27 +1,33 @@
-package Mecanografía;
+package Paneles;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.text.Normalizer;
 import java.util.HashMap;
 import javax.swing.*;
 import javax.swing.text.*;
+import Mecanografía_MAIN_y_FRAME.*;
+import ClasesArchivos.*;
+import Utilidades.Archivos;
+import Utilidades.DatosTXT;
 
-public class Teclado extends JPanel {
+public class PanelTeclado extends JPanel {
+	
+	//Este panel es el "juego" es decir donde el usuario va a poder escribir el texto, visualizarlo,
+	// ver como cambia en tiempo real los colores, los segundos etc...
 
     private FrameMecanografía frameMecanografía;
     private Usuario user;
     private HashMap<String, JButton> botonesMapa;
     private JTextPane textPaneEscribir;
     private JTextPane textPaneObjetivo;
-    private String textoObjetivo; // Almacena el texto objetivo para comparación
-    private int posicionActual; // Controla la posición actual del texto escrito
+    private String textoObjetivo; 
+    private int posicionActual; 
     private Timer Crono;
 
-    private static char dificultad;
+    private char dificultad;
     private static int TiempoTotal = 0;
     private static int SegundosRestantes = 0;
     private static int ErroresMax = 0;
@@ -32,7 +38,7 @@ public class Teclado extends JPanel {
     private static int PPMinuto = 0;
     private static boolean PrimeraLetraPulsada = false;
 
-    public Teclado(FrameMecanografía frameMecanografía, char dificultad, Usuario user) {
+    public PanelTeclado(FrameMecanografía frameMecanografía, char dificultad, Usuario user) {
         setLayout(null);
 
         this.user = user;
@@ -43,13 +49,18 @@ public class Teclado extends JPanel {
         int panelWidth = (int) screenSize.getWidth();
         int panelHeight = (int) screenSize.getHeight();
         setBounds(0, 0, panelWidth, panelHeight);
+        
+        // Si la bandera que le pasamos anteriormente es la de fácil el texto será
+        // el de la lección fácil y tendrá tiempo, errores maximos y letras del texto
+        // las de la lección fácil
 
-        // Configurar el área de texto objetivo como JTextPane
         if (dificultad == PanelLeccion.FÁCIL) {
             textoObjetivo = DatosTXT.TEXTOS.get(0);
             TiempoTotal = 240;
             ErroresMax = 5;
             LetrasDelTexto = textoObjetivo.length() - 1;
+            
+            //Si la bandera es la del texto difícil tendrá estas características
         } else {
             textoObjetivo = DatosTXT.TEXTOS.get(1);
             TiempoTotal = 180;
@@ -57,6 +68,8 @@ public class Teclado extends JPanel {
             LetrasDelTexto = textoObjetivo.length() - 1;
         }
 
+        //Esto cada vez que creo el panel teclado lo tengo que reiniciar ya que son variables
+        // de la clase y si no las reinicio se quedan las de la partida anterior.
         SegundosRestantes = TiempoTotal;
         ErroresTeclas = 0;
         AciertosTeclas = 0;
@@ -111,6 +124,7 @@ public class Teclado extends JPanel {
         PPMValor.setBounds(810, panelHeight - 120, 200, 40);
         add(PPMValor);
 
+        //Este es el texto que el usuario debe escribir
         textPaneObjetivo = new JTextPane();
         textPaneObjetivo.setText(textoObjetivo);
         textPaneObjetivo.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -118,19 +132,19 @@ public class Teclado extends JPanel {
         textPaneObjetivo.setBackground(new Color(240, 240, 240));
         textPaneObjetivo.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
 
-        // Crear JScrollPane para textPaneObjetivo
+        // JScrollPane para textPaneObjetivo
         JScrollPane scrollObjetivo = new JScrollPane(textPaneObjetivo);
         scrollObjetivo.setBounds(20, 30, panelWidth - 40, panelHeight / 4);
         scrollObjetivo.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
         add(scrollObjetivo);
 
-        // Configurar el área de texto para escribir
+        // este es el área de texto para que el usuario escriba
         textPaneEscribir = new JTextPane();
         textPaneEscribir.setFont(new Font("Arial", Font.PLAIN, 20));
         textPaneEscribir.setEditable(true); // Permitir edición para que el KeyListener funcione
         textPaneEscribir.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
-        // Crear JScrollPane para textPaneEscribir
+        //JScrollPane para textPaneEscribir
         JScrollPane scrollEscribir = new JScrollPane(textPaneEscribir);
         scrollEscribir.setBounds(20, scrollObjetivo.getY() + scrollObjetivo.getHeight() + 20, panelWidth - 40,
                 panelHeight / 4);
@@ -141,11 +155,11 @@ public class Teclado extends JPanel {
         menuBar.setBounds(0, 0, 108, 22);
         add(menuBar);
 
-        // Creación del menú "Menu"
+        // menú 
         JMenu mnMenu = new JMenu("Menu");
         menuBar.add(mnMenu);
 
-        // Creación del ítem "Ayuda para el tutorial"
+        // ítem "Ayuda para el tutorial"
         JMenuItem Ayuda = new JMenuItem("Ayuda para el tutorial");
         mnMenu.add(Ayuda);
 
@@ -157,15 +171,15 @@ public class Teclado extends JPanel {
         JMenuItem Información = new JMenuItem("Información de la APP");
         AcercaDe.add(Información);
 
-        // Acción al hacer clic en "Ayuda para el tutorial"
+        // esta es la acción que al hacer clic en "Ayuda para el tutorial" mostrará la imagen del teclado
         Ayuda.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Crear un JLabel con una imagen
-                ImageIcon icon = new ImageIcon("src/Mecanografía/ImágenesAPP/Ayuda_Teclado.jpg"); // Cambia la ruta por la de tu imagen
+                ImageIcon icon = new ImageIcon("src/Mecanografía/ImágenesAPP/Ayuda_Teclado.jpg");
                 JLabel label = new JLabel(icon);
 
-                // Crear un JOptionPane para mostrar la imagen
+                // JOptionPane para mostrar la imagen
                 JOptionPane.showMessageDialog(null, label, "Ayuda para el tutorial", JOptionPane.PLAIN_MESSAGE);
             }
         });
@@ -179,7 +193,6 @@ public class Teclado extends JPanel {
             }
         });
 
-        // Hacer visible la ventana
         setVisible(true);
     
 
@@ -210,46 +223,53 @@ public class Teclado extends JPanel {
             }
         }
 
+        //Este es el action listener del crono
         Crono = new Timer(1000, new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                TiempoRestanteValor.setText(String.valueOf(--Teclado.SegundosRestantes + " s"));
+            	
+            	//Cada segundo se va a ir actualizando el Jlabel de tiempor Restante con los segundos restantes
+                TiempoRestanteValor.setText(String.valueOf(--PanelTeclado.SegundosRestantes + " s"));
 
                 int tiempoTranscurrido = TiempoTotal - SegundosRestantes;
+                //Si el tiempo transcurrido es mayor que cero voy a mostrar las PPM en su label
                 if (tiempoTranscurrido > 0) {
                     PPMinuto = (TeclasPulsadas * 60) / tiempoTranscurrido;
-                    PPMValor.setText(String.valueOf(PPMinuto)); // Suponiendo que tienes un JLabel para mostrarlo
+                    PPMValor.setText(String.valueOf(PPMinuto)); 
                 }
-
+                //Si llego a 0 segundo el juego termina
                 if (SegundosRestantes == 0)
                     detenerJuego();
 
             }
         });
 
-        // Añadir el KeyListener con el manejo del retroceso
+        // Añado un KeyListener con la gestión de la tecla retroceso
         textPaneEscribir.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
                 // Consumir el evento para evitar que el carácter se inserte automáticamente
                 e.consume();
 
-                // Solo procesar si no es retroceso
+                // Se va a ejecutar esto si no es la tecla de retroceso
                 if (e.getKeyChar() != KeyEvent.VK_BACK_SPACE) {
                     char c = e.getKeyChar();
                     if (posicionActual < textoObjetivo.length()) {
                         manejarEntrada(c, ErroresValor, AciertosValor);
                         TeclasPulsadas++;
+                        //La primera tecla que pulso es la que iniciará el crono
                         if (!PrimeraLetraPulsada) {
                             Crono.start();
                         }
+                        // luego pongo esta variable a true
+                        // para que no se meta más en en el if de "if (!PrimeraLetraPulsada)"
                         PrimeraLetraPulsada = true;
                     }
                 }
             }
 
+            //Este es el evento para actualizar el color de la letra del teclado virtual
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
@@ -258,6 +278,7 @@ public class Teclado extends JPanel {
                     actualizarColorBoton(e.getKeyCode(), true);
                 }
             }
+            //Este es el evento para volver al color original de la letra del teclado virtual
 
             @Override
             public void keyReleased(KeyEvent e) {
@@ -271,18 +292,22 @@ public class Teclado extends JPanel {
         setVisible(true);
         
     }
+    
+    //Esta función es muy importante, con ella actulizaremos los errores, aciertos, colores de las letras...
 
     private void manejarEntrada(char c, JLabel JLErrores, JLabel JLAciertos) {
         StyledDocument docObjetivo = textPaneObjetivo.getStyledDocument();
         StyledDocument docEscribir = textPaneEscribir.getStyledDocument();
 
-        // Crear estilos
+        // Crear estilos, este es para la opción correcto
         Style estiloCorrecto = textPaneObjetivo.addStyle("Correcto", null);
         StyleConstants.setForeground(estiloCorrecto, Color.GREEN);
 
+       // este es para la opción de incorrecto
         Style estiloIncorrecto = textPaneObjetivo.addStyle("Incorrecto", null);
         StyleConstants.setForeground(estiloIncorrecto, Color.RED);
 
+        // esta es la opción normal
         Style estiloNormal = textPaneObjetivo.addStyle("Normal", null);
         StyleConstants.setForeground(estiloNormal, Color.BLACK);
 
@@ -295,11 +320,15 @@ public class Teclado extends JPanel {
             char caracterIngresado = c;
 
             // Comparar caracteres directamente (respetando mayúsculas/minúsculas y tildes)
+            
+            //Si la tecla pulsada es la misma que la del texto se pone de color verde y actualizo aciertos
             if (caracterObjetivo == caracterIngresado) {
                 docObjetivo.setCharacterAttributes(posicionActual, 1, estiloCorrecto, true);
                 AciertosTeclas++;
                 JLAciertos.setText(String.valueOf(AciertosTeclas));
             } else {
+                //Si la tecla pulsada no es la misma que la del texto se pone de color rojo y actualizo errores
+
                 docObjetivo.setCharacterAttributes(posicionActual, 1, estiloIncorrecto, true);
                 ErroresTeclas++;
                 JLErrores.setText(String.valueOf(ErroresTeclas));
@@ -308,19 +337,28 @@ public class Teclado extends JPanel {
             // Actualizar el área de escritura con el carácter ingresado
             docEscribir.insertString(docEscribir.getLength(), String.valueOf(c), null);
 
+            //Si los errores son iguales a los errores maximos permitidos de la lección o has terminado la lección
+            // el juego se detiene
             if (ErroresTeclas == ErroresMax || TeclasPulsadas == LetrasDelTexto)
                 detenerJuego();
-            posicionActual++; // Avanzar posición
+            
+            posicionActual++; // Avanzar posición si hemos llegado hasta aquí y pasar a la siguiente letra del texto
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    //Est es la función que finaliza el juego 
     private void detenerJuego() {
+    	
+    	//El crono para de contar
         Crono.stop();
         textPaneEscribir.setEditable(false);
+        //Con esta función obtento la nota y además comprueba si se ha superado el récord.
         double Nota = Archivos.obtenerNota(SegundosRestantes, TeclasPulsadas, LetrasDelTexto,
         		PPMinuto, AciertosTeclas, ErroresTeclas, TiempoTotal,dificultad, user);
+        
+        //Esto es una ventana emergente que te muestra las estadísticas de la partida que has jugado
         JOptionPane.showMessageDialog(null, "ESTADÍSTICAS DE LA PARTIDA:\n\n"
         		+ "Aciertos: " + AciertosTeclas +"\nErrores: " +ErroresTeclas +"\nPPM: " +PPMinuto +"\nTiempo restante: "+ SegundosRestantes+" "
         				+ "segundos\nTiempo usado: " + (TiempoTotal-SegundosRestantes)
@@ -346,6 +384,8 @@ public class Teclado extends JPanel {
 
     }
 
+    //Esta función colorea de color azul las teclas del teclado virtual, y añado la tecla Ñ, el espacio, el punto
+    // y la coma para poder ser coloreadas
     private void actualizarColorBoton(int keyCode, boolean presionado) {
         String tecla = KeyEvent.getKeyText(keyCode).toUpperCase();
 

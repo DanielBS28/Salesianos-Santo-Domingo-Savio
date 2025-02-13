@@ -1,17 +1,20 @@
-package Mecanografía;
+package Paneles;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import Mecanografía_MAIN_y_FRAME.*;
+import ClasesArchivos.*;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import Utilidades.Imágenes;
 
 public class PanelAdmin extends JPanel {
 
+	//Este panel es el del administrador, solo está accesible para el. (Alias: a, contraseña: a)
 	private FrameMecanografía frameMecanografía;
 	private Usuario user;
 	private static String fondoPanelLogin = "src/Mecanografía/ImágenesAPP/FondoAzulado.jpg";
@@ -37,7 +40,8 @@ public class PanelAdmin extends JPanel {
 		Nombre.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 33));
 		Nombre.setBounds(103, 111, 269, 39);
 		add(Nombre);
-
+		
+		//Cierro sesión y vuelvo al panel del login
 		JButton btnCerrarSesion = new JButton("Cerrar Sesión");
 		btnCerrarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -59,6 +63,7 @@ public class PanelAdmin extends JPanel {
 		Pregunta.setBounds(61, 161, 352, 65);
 		add(Pregunta);
 		
+		//Este botón permite cambiar de panel al de agregar usuarios
 		JButton AltaUsuarios = new JButton("Agregar Usuarios");
 		AltaUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -73,6 +78,8 @@ public class PanelAdmin extends JPanel {
 		AltaUsuarios.setBounds(38, 259, 193, 56);
 		add(AltaUsuarios);
 		
+		//Este botón permite cambiar de panel al de eliminar usuarios
+
 		JButton BajaUsuarios = new JButton("Eliminar Usuarios");
 		BajaUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -87,7 +94,8 @@ public class PanelAdmin extends JPanel {
 		BajaUsuarios.setBounds(260, 259, 193, 56);
 		add(BajaUsuarios);
 		
-		
+		//Este botón permite cambiar de panel al de enviar correos
+
 		JButton btnProbarCorreoenvo = new JButton("Enviar correos");
 		btnProbarCorreoenvo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -101,6 +109,8 @@ public class PanelAdmin extends JPanel {
 		btnProbarCorreoenvo.setBackground(new Color(11, 181, 200));
 		btnProbarCorreoenvo.setBounds(38, 352, 193, 56);
 		add(btnProbarCorreoenvo);
+		
+		//Este botón permite cambiar de panel al de modificar textos
 		
 		JButton btnModificarTextos = new JButton("Modificar textos");
 		btnModificarTextos.addActionListener(new ActionListener() {

@@ -1,16 +1,27 @@
-package Mecanografía;
+package Paneles;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import Mecanografía_MAIN_y_FRAME.*;
+import ClasesArchivos.*;
+import Eventos.eventoMostrarRecordDifícil;
+import Eventos.eventoMostrarRecordFácil;
+import Utilidades.Imágenes;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class PanelLeccion extends JPanel{
 	
+	//Este panel es el que usa el usuario para saber que lección quiere jugar, además puede ver su récord en 
+	// ambas lecciones
+	
+	//Esto son banderas para indicarle al panel mecanografía y luego al panel teclado
+	// que dificultad ha elegido el usuario
 	final public static char FÁCIL = '1';
 	final public static char DIFÍCIL = '2';
 	
@@ -34,6 +45,7 @@ public class PanelLeccion extends JPanel{
 		Bienvenida.setBounds(103, 30, 269, 39);
 		add(Bienvenida);
 		
+		//Muestra el nombre el usuario que ha iniciado sesión
 		JLabel Nombre = new JLabel(user.getNombre().toUpperCase());
 		Nombre.setHorizontalAlignment(SwingConstants.CENTER);
 		Nombre.setForeground(new Color(255, 153, 102));
@@ -41,6 +53,7 @@ public class PanelLeccion extends JPanel{
 		Nombre.setBounds(103, 79, 269, 39);
 		add(Nombre);
 		
+		//Este botón cambiará al panel mecanografía y le pasa como bandera la lección fácil
 		JButton BotónFácil = new JButton("Lección fácil");
 		BotónFácil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -62,6 +75,8 @@ public class PanelLeccion extends JPanel{
 		Pregunta.setBounds(61, 127, 352, 65);
 		add(Pregunta);
 		
+		//Esto botón creará una ventana emergente con la información del récord de la lección fácil 
+		// del usuario que a iniciado sesión
 		JButton RecordFácil = new JButton("Mostrar record lección fácil");
 		RecordFácil.addActionListener(new eventoMostrarRecordFácil(user));
 		RecordFácil.setBackground(new Color(255, 255, 255));
@@ -69,6 +84,8 @@ public class PanelLeccion extends JPanel{
 		RecordFácil.setBounds(131, 273, 219, 21);
 		add(RecordFácil);
 		
+		//Este botón cambiará al panel mecanografía y le pasa como bandera la lección difícil
+
 		JButton BotónDifícil = new JButton("Lección difícil");
 		BotónDifícil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -83,12 +100,16 @@ public class PanelLeccion extends JPanel{
 		BotónDifícil.setBounds(131, 332, 219, 52);
 		add(BotónDifícil);
 		
+		//Esto botón creará una ventana emergente con la información del récord de la lección difícil
+				// del usuario que a iniciado sesión
 		JButton RecordDifícil = new JButton("Mostrar record lección difícil");
 		RecordDifícil.addActionListener(new eventoMostrarRecordDifícil(user));
 		RecordDifícil.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 12));
 		RecordDifícil.setBackground(Color.WHITE);
 		RecordDifícil.setBounds(131, 394, 219, 21);
 		add(RecordDifícil);
+		
+		//Este botón cerrará la sesión del usuario y regresaremos al panel de login
 		
 		JButton btnCerrarSesion = new JButton("Cerrar Sesión");
 		btnCerrarSesion.addActionListener(new ActionListener() {

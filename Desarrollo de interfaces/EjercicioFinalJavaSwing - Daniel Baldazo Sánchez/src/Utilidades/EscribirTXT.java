@@ -1,4 +1,4 @@
-package Mecanografía;
+package Utilidades;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -6,11 +6,23 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import ClasesArchivos.*;
+
+import ClasesArchivos.Usuario;
 
 public class EscribirTXT {
+	
+	/*
+	 * Esta clase se encarga de escribir en los TXT los datos de los ArrayList que tengo, son los de: 
+	 * Usuarios, estadísticas y textos, además tienen como separación de los datos la palabra
+	 * "<通配符>" para hacer el split de los campos
+	 */
 
 	public static void EscribirUsuarios(ArrayList<Usuario> USUARIOS) {
 
+		/*
+		 * Esta función se encarga de escribir en el TXT de usuarios los datos de cada usuario
+		 */
 		Path fichero = Paths.get(Archivos.Usuarios);
 
 		try {
@@ -34,6 +46,9 @@ public class EscribirTXT {
 	public static void escribirTextos(String textoFácil, String textoDifícil) {
 		Path fichero = Paths.get(Archivos.Textos);
 
+		/*
+		 * Esta función se encarga de escribir en el TXT de textos tanto el texto fácil como el difícil
+		 */
 		try {
 			Files.writeString(fichero, textoFácil);
 			Files.writeString(fichero, "<通配符>", StandardOpenOption.APPEND);
@@ -44,6 +59,12 @@ public class EscribirTXT {
 	}
 
 	public static void EscribirEstadísticas(ArrayList<Estadísticas> ESTADÍSTICAS) {
+		
+		/*
+		 * Esta función se encarga de escribir en el TXT de estadísticas los datos de las
+		 * estadísticas de cada usuario tanto de la lección fácil como de la lección difícil
+		 * pero solo será su mejor estadística de cada lección
+		 */
 
 		Path fichero = Paths.get(Archivos.Estadísticas);
 

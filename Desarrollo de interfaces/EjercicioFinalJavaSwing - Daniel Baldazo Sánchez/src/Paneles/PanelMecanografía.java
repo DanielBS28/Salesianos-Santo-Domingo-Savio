@@ -1,14 +1,17 @@
-package Mecanografía;
+package Paneles;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JButton;
+
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.SwingUtilities;
+
+import Mecanografía_MAIN_y_FRAME.*;
+import ClasesArchivos.*;
+import Utilidades.Imágenes;
 
 public class PanelMecanografía extends JPanel {
+	
+	//Este panel hace de puente entre el login y el panelteclado, su función es cambiar las propiedades
+	// del frame ya que pasamos de un tamaño pequeño a pantalla completa.
 
 	final static String FondoPanelMecanografía = "src/Mecanografía/ImágenesAPP/FondoAzulado.jpg";
 
@@ -34,7 +37,9 @@ public class PanelMecanografía extends JPanel {
 		frameMecanografía.setSize(screenSize.width, screenSize.height);
 		frameMecanografía.setLocationRelativeTo(null);
 		frameMecanografía.setVisible(true);
-		frameMecanografía.getContentPane().add(new Teclado(frameMecanografía, dificultad, user));
+		
+		//Creamos el panel teclado pasándole el frame, la dificultad y el usuario que inició sesión.
+		frameMecanografía.getContentPane().add(new PanelTeclado(frameMecanografía, dificultad, user));
 
 		setLayout(null);
 

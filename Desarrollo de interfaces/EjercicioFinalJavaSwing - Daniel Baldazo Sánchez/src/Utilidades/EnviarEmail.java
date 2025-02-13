@@ -1,4 +1,4 @@
-package Mecanografía;
+package Utilidades;
 
 import java.util.Properties;
 import java.util.logging.Level;
@@ -6,16 +6,20 @@ import java.util.logging.Logger;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 public class EnviarEmail{
+	
+	/*
+	 * Esta clase es la encargada de enviar el email a un destinatario, tanto de preparar el envío como
+	 * de procesar el envío a un destinatario. Se necesita el correo de quien manda el correo
+	 * la contraseña para poder enviarlo, el correo de destino, un asunto y el mensaje.
+	 */
 
 	private static String emailFrom = "practicasdanielbs@gmail.com";
 	private static String passwordFrom = "fdlu qbno ztxt uknw";
@@ -28,7 +32,11 @@ public class EnviarEmail{
 	private static MimeMessage mCorreo;
 
 	public static boolean crearEmail(String Correo, String Asunto, String Mensaje) {
-
+		
+		/*
+		 * Esta función es la que se encarga de preparar el correo electrónico, la puse de tipo booleano y 
+		 * dará true si el mensaje se ha enviado bien, y false si hubo algún problema durante el envío.
+		 */
 		mProperties = new Properties();
 
 		emailTo = Correo;
@@ -63,6 +71,14 @@ public class EnviarEmail{
 	}
 
 	private static boolean sendEmail() {
+		
+		/*
+		 * Esta es la función que se encarga de enviar el correo mediante smtp. Si hay algún problema
+		 * la función devolverá false y hay una ventana emergente que avisa de que no se ha enviado bien,
+		 * si se ha enviado bien, devolverá true pero no hay ventana emergente aquí, la hay en la función donde
+		 * se invoca a enviar correo para tener un mensaje más "personalizado" cuando devuelva true. Pero cuando devuelva
+		 * false me interesa que la ventana emergente se cree aquí.
+		 */
 		try {
 			Transport mTransport = mSession.getTransport("smtp");
 			mTransport.connect(emailFrom, passwordFrom);

@@ -1,8 +1,10 @@
-package Mecanografía;
+package Mecanografía_MAIN_y_FRAME;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JProgressBar;
+
+import Paneles.PanelCargaInicial;
+
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;

@@ -1,8 +1,11 @@
-package Mecanografía;
+package Paneles;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import Mecanografía_MAIN_y_FRAME.*;
+import Eventos.EventoIniciarSesión;
+import Utilidades.Imágenes;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JCheckBox;
@@ -13,6 +16,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 
 public class PanelLogin extends JPanel {
+	
+	//Este panel es el encargado de que los usuarios o administrador inicien sesión
+	// y les lleve a la panel de lección si es usuario o al panel admin si es el administrador
 
 	private JTextField CampoUsuario;
 	private FrameMecanografía frameMecanografía;
@@ -22,8 +28,6 @@ public class PanelLogin extends JPanel {
 
 	public PanelLogin(FrameMecanografía frameMecanografía) {
 		
-		// EscribirTXT.EscribirUsuarios(DatosTXT.getUSUARIOS());
-
 		this.frameMecanografía = frameMecanografía;
 		
 		frameMecanografía.dispose(); // Esto es para hacer cambios en el frame es obligatorio
@@ -61,7 +65,8 @@ public class PanelLogin extends JPanel {
 		Login.setBounds(163, 60, 307, 68);
 		add(Login);
 
-
+		//Esto permite mostrar la contraseña que ha introducido el usuario, es un Jcheckbox
+		// que escucha si está seleccionado o no, si lo está se muestra la contraseño, si no sale con asteriscos
 		JCheckBox MostrarPass = new JCheckBox("Mostrar");
 		MostrarPass.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -82,6 +87,7 @@ public class PanelLogin extends JPanel {
 		CampoContraseña.setBounds(207, 292, 137, 20);
 		add(CampoContraseña);
 		
+		//Este botón invocará al evento iniciar sesión pasándole el campousuario, el campo contraseña, el panel y el frame.
 		JButton btnNewButton = new JButton("Iniciar Sesión");
 		btnNewButton.addActionListener(new EventoIniciarSesión(CampoUsuario, CampoContraseña, this, frameMecanografía));
 		btnNewButton.setForeground(new Color(255, 255, 255));

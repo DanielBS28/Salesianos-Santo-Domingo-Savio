@@ -1,11 +1,12 @@
-package Mecanografía;
+package Paneles;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
+import Mecanografía_MAIN_y_FRAME.*;
+import ClasesArchivos.*;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -14,7 +15,16 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
+import Eventos.eventoActualizarTextos;
+import Utilidades.DatosTXT;
+import Utilidades.Imágenes;
+
 public class PanelTextos extends JPanel {
+	
+	/*
+	 * Este panel es el que le permite al administrador cambiar los textos, tanto de la lección fácil como 
+	 * la lección difícil
+	 */
     
     private FrameMecanografía frameMecanografía;
     private Usuario user;
@@ -32,6 +42,12 @@ public class PanelTextos extends JPanel {
         setLayout(null);
         setBounds(0, 0, 500, 700);
         
+        //Esta función es importante que esté aquí, si no hay dos textos, el arrayList de textos se 
+        // va a vaciar y se van a poner automáticamente los textos de 
+        // "Introduzca aquí el texto para la lección fácil
+        // "Introduzca aquí el texto para la lección difícil"
+        
+        //En caso de que el número de textos cargados en el TXT sea dos, esta función no hará nada
         reajusteDeTextos();
         
         JLabel pregunta = new JLabel("Modifique los textos y guarde los cambios");
@@ -74,8 +90,8 @@ public class PanelTextos extends JPanel {
         JTPTextoDifícil.setFont(new Font("Arial", Font.PLAIN, 13));
         JTPTextoDifícil.setBackground(new Color(240, 240, 240));
         JTPTextoDifícil.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
-        JTPTextoDifícil.setLineWrap(true);  // Activa el ajuste de línea
-        JTPTextoDifícil.setWrapStyleWord(true); // Ajusta por palabras completas
+        JTPTextoDifícil.setLineWrap(true); 
+        JTPTextoDifícil.setWrapStyleWord(true); 
 
         // JScrollPane para JTPTextoDifícil
         JScrollPane scrollObjetivo2 = new JScrollPane(JTPTextoDifícil);
@@ -85,7 +101,7 @@ public class PanelTextos extends JPanel {
         scrollObjetivo2.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         add(scrollObjetivo2);
         
-        // Botón para volver atrás
+        // Botón para volver atrás (al menú del admin)
         JButton volverAtrás = new JButton("Volver atrás");
         volverAtrás.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -111,12 +127,17 @@ public class PanelTextos extends JPanel {
         
         add(Imágenes.ponerFondo(fondoPanelLogin, frameMecanografía));
         
+        //Si la función reajustedeTextos es verdadera, se van a eliminar los datos del Arraylist
+        // de textos para que cuando pongamos dos texto nuevos esté totalmente libre
         if (TextosArtificiales) 
             eventoActualizarTextos.eliminarDatosAntiguos(TEXTOS);
     }
 
     private void reajusteDeTextos() {
 
+    	//Si la cantidad de textos cargados es diferente de dos los Jlabel de texto fácil
+    	// y difícil serán los que vemos abajo, luego los borra del arraylist para que esté libre
+    	//  pero ya está hecho el settext en los Jlabel para informar al usuario
         if (TEXTOS.size() != 2) {
             TEXTOS.add("Introduzca aquí el texto para la lección fácil");
             TEXTOS.add("Introduzca aquí el texto para la lección difícil");

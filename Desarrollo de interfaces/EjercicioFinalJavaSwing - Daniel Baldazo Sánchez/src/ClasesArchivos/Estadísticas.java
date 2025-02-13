@@ -1,7 +1,12 @@
-package Mecanografía;
+package ClasesArchivos;
 
 public class Estadísticas {
-	
+
+	/**
+	 * Esta es la clase estadísticas, se guardan las estadísticas de un usuario tanto las de la lección
+	 * fácil como las de la lección difícil con sus atributos. 
+	 * **/
+
 	private String id;
 	private double NotaFácil;
 	private int AciertosTeclasF;
@@ -18,7 +23,8 @@ public class Estadísticas {
 	private int SegundosRestantesD;
 	private int LetralDelTextoD;
 	private int TiempoTotalD;
-	
+
+
 	public Estadísticas(String id, double notaFácil, int aciertosTeclasF, int erroresTeclasF, int pPMF,
 			int segundosRestantesF, int letralDelTextoF, int tiempoTotalF, double notaDifícil, int aciertosTeclasD,
 			int erroresTeclasD, int pPMD, int segundosRestantesD, int letralDelTextoD, int tiempoTotalD) {
@@ -38,6 +44,7 @@ public class Estadísticas {
 		LetralDelTextoD = letralDelTextoD;
 		TiempoTotalD = tiempoTotalD;
 	}
+	
 
 	public String getId() {
 		return id;
@@ -158,15 +165,5 @@ public class Estadísticas {
 	public void setTiempoTotalD(int tiempoTotalD) {
 		TiempoTotalD = tiempoTotalD;
 	}
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
 
 }

@@ -1,4 +1,4 @@
-package Mecanografía;
+package Paneles;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -6,8 +6,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
+import Mecanografía_MAIN_y_FRAME.*;
+import ClasesArchivos.*;
+import Eventos.EventoEnviarCorreoPrueba;
+import Utilidades.DatosTXT;
+import Utilidades.Imágenes;
 
 public class PanelCorreos extends JPanel {
+	
+	/*
+	 * Este panel es donde el administrador puede enviar correos de prueba a los usuarios de la APP
+	 */
     
     private FrameMecanografía frameMecanografía;
     private Usuario user;
@@ -33,6 +42,7 @@ public class PanelCorreos extends JPanel {
         EnviarCorreo.setBackground(new Color(11, 181, 200));
         add(EnviarCorreo);
 
+        //Este botón sirve para volver al panel del administrador pero no cierra su sesión
         JButton volverAtrás = new JButton("Volver atrás");
         volverAtrás.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -56,14 +66,17 @@ public class PanelCorreos extends JPanel {
         // Cargar usuarios en la lista
         cargarUsuariosEnLista();
 
-        // Agregar listener para actualizar el campo CorreoDestino automáticamente
+        // Este listener se encarga de obtener el usuario que se a clickado encima y se pone
+        // automáticamente el correo de ese usuario en el campo Correo destino para que se 
+       // envie un correo a ese usuario y evitar que se ponga de manera manual el correo.
         list.addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting()) {
                 int selectedIndex = list.getSelectedIndex();
                 if (selectedIndex != -1) {
+                	//De la String seleccionada filtro el correo, me quedo solo con el correo entero.
                     String selectedValue = listModel.getElementAt(selectedIndex);
                     String correo = selectedValue.split(" \\| ")[2].replace("CORREO: ", "").trim();
-                    CorreoDestino.setText(correo); // Establecer el correo en el JTextField
+                    CorreoDestino.setText(correo);
                 }
             }
         });
@@ -92,11 +105,11 @@ public class PanelCorreos extends JPanel {
         JTextArea Mensaje = new JTextArea();
         Mensaje.setBounds(25, 306, 433, 94);
         add(Mensaje);
-        Mensaje.setLineWrap(true); // Ajusta el texto automáticamente al ancho
-        Mensaje.setWrapStyleWord(true); // Evita cortar palabras a la mitad
+        Mensaje.setLineWrap(true); // Esto ajusta el texto automáticamente al ancho
+        Mensaje.setWrapStyleWord(true); // Esto evita cortar palabras a la mitad
 
         JScrollPane scrollPane = new JScrollPane(Mensaje);
-        scrollPane.setBounds(25, 306, 433, 94); // Misma posición y tamaño que antes
+        scrollPane.setBounds(25, 306, 433, 94);
         add(scrollPane);
 
         Asunto = new JTextField();
@@ -128,12 +141,15 @@ public class PanelCorreos extends JPanel {
         CorreoDestino.setBounds(288, 251, 170, 19);
         add(CorreoDestino);
         
+        // El botón enviar correo está siendo escuchado, cuando pulsamos se intentará enviar un correo
+        // la explicación del EventoEnviarCorreoPrueba está en esa clase
         EnviarCorreo.addActionListener(new EventoEnviarCorreoPrueba(Asunto,CorreoDestino, Mensaje));
 
 
         add(Imágenes.ponerFondo(fondoPanelLogin, frameMecanografía));
     }
-
+    
+    //Está función permite cargar los usuarios en la listModel que se muestra en el panel
     private void cargarUsuariosEnLista() {
         listModel.clear();
         for (int i = 1; i < USUARIOS.size(); i++) {

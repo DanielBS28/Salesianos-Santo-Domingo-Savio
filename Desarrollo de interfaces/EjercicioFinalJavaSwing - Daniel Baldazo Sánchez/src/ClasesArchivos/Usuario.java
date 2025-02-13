@@ -1,6 +1,10 @@
-package Mecanografía;
+package ClasesArchivos;
 
 public class Usuario {
+	
+	/**
+	 * Esta es la clase usuario donde guardamos los atributos de cada persona
+	 * **/
 	
 	private String alias;
 	private String nombre;

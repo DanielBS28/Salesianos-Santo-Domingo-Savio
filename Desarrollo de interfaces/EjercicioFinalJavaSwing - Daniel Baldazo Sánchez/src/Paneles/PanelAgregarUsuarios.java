@@ -1,18 +1,28 @@
-package Mecanografía;
+package Paneles;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
+import Mecanografía_MAIN_y_FRAME.*;
+import ClasesArchivos.*;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+
+import Eventos.EventoAgregarUsuario;
+import Utilidades.DatosTXT;
+import Utilidades.Imágenes;
+
 import javax.swing.JTextField;
 
 public class PanelAgregarUsuarios extends JPanel {
+	
+	/*
+	 * Este panel es el encargado de agregar los usuarios al arraylist de usuarios y actualizar el txt de usuarios
+	 */
 
 	private FrameMecanografía frameMecanografía;
 	private Usuario user;
@@ -30,6 +40,8 @@ public class PanelAgregarUsuarios extends JPanel {
 
 		setLayout(null);
 		setBounds(0, 0, 500, 700);
+		
+		//Este botón sirve para volver al panel de administrador
 		JButton volverAtrás = new JButton("Volver atrás");
 		volverAtrás.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -95,6 +107,9 @@ public class PanelAgregarUsuarios extends JPanel {
 		add(CampoContraseña);
 		CampoContraseña.setColumns(10);
 		
+		//Este botón es el que hace el evento de agregar usuario, pasandole el campoid, campocontraseña, camponombre
+		// campocorreo y el arraylist de usuarios, para ver que hace la clase EventoAgregarUsuario se puede ir a esa clase
+		//están explicadas las funcionalidades de este evento.
 		JButton agregarUsuario = new JButton("Agregar usuario");
 		agregarUsuario.addActionListener(new EventoAgregarUsuario(CampoID, CampoContraseña, CampoNombre, CampoCorreo, DatosTXT.getUSUARIOS()));
 		agregarUsuario.setBounds(106, 392, 276, 38);
