@@ -61,8 +61,7 @@ public class Archivos extends JPanel {
 
 			while ((linea = fis.readLine()) != null) {
 
-				String[] lectura = linea.trim().split("<通配符>");
-				
+				String[] lectura = linea.trim().split("<通配符>");			
 				/*
 				 * Se hace un split para separar los campos y a continuación si hay 4 campos añado 
 				 * ese usuario al ArrayList pero tiene tres medidas mas de seguridad para comprobar los datos
@@ -107,23 +106,35 @@ public class Archivos extends JPanel {
 	}
 
 	private static void eliminarDuplicados(ArrayList<Usuario> USUARIOS) {
-		
-		/*
-		 * Esta función se encarga de eliminar usuarios duplicados que tengan el mismo ID y/o el mismo correo
-		 */
-		HashSet<String> identificadoresUnicos = new HashSet<>();
-		Iterator<Usuario> iterador = USUARIOS.iterator();
 
-		while (iterador.hasNext()) {
-			Usuario usuario = iterador.next();
-			String clave = usuario.getAlias() + "-" + usuario.getCorreo(); // Clave única combinando ID y correo
+	    /*
+	     * Esta función se encarga de eliminar usuarios duplicados que tengan el mismo ID
+	     * o el mismo correo.
+	     */
 
-			if (identificadoresUnicos.contains(clave)) {
-				iterador.remove(); // Elimina el duplicado
-			} else {
-				identificadoresUnicos.add(clave); // Si nadie lo tiene lo añado al hashset de identificadores únicos
-			}
-		}
+	    HashSet<String> identificadoresUnicos = new HashSet<>();
+	    HashSet<String> correosUnicos = new HashSet<>();
+
+	    Iterator<Usuario> iterador = USUARIOS.iterator();
+
+	    while (iterador.hasNext()) {
+
+	        Usuario usuario = iterador.next();
+	        String id = usuario.getAlias();     // ID del usuario
+	        String correo = usuario.getCorreo(); // Correo del usuario
+
+	        // Verifica si el ID o el correo ya existen en los conjuntos de identificadores/correos únicos
+
+	        if (identificadoresUnicos.contains(id) || correosUnicos.contains(correo)) {
+
+	            iterador.remove(); // Elimina el duplicado
+
+	        } else {
+
+	            identificadoresUnicos.add(id);   // Agrega el ID al conjunto de identificadores únicos
+	            correosUnicos.add(correo);       // Agrega el correo al conjunto de correos únicos
+	        }
+	    }
 	}
 
 	private static void ajustarTamaño5(ArrayList<Usuario> USUARIOS) {
@@ -138,8 +149,7 @@ public class Archivos extends JPanel {
 		//Esta función itera sobre el arraylist de usuarios buscando cualquier coincidencia con los datos
 		// del administrador, si hay algo que coincide con los datos del administrador ese usuario se elimina.
 		for (int i = USUARIOS.size() - 1; i >= 0; i--) {
-			if (USUARIOS.get(i).getAlias().equals("a") || USUARIOS.get(i).getNombre().equals("admin")
-					|| USUARIOS.get(i).getCorreo().equals("practicasdanielbs@gmail.com")) {
+			if (USUARIOS.get(i).getAlias().equals("a") || USUARIOS.get(i).getCorreo().equals("practicasdanielbs@gmail.com")) {
 				USUARIOS.remove(i);
 			}
 		}
@@ -197,7 +207,7 @@ public class Archivos extends JPanel {
 		 * actualizar y escribir la estadísticas en caso de que el usuario las haya superado
 		 */
 		Nota = (aciertosTeclas * 10) / letrasDelTexto;
-		Nota -= dificultad == '1' ? (erroresTeclas * 0.20) : (erroresTeclas * 0.33);
+		Nota -= dificultad == '1' ? (erroresTeclas * 0.15) : (erroresTeclas * 0.33);
 		Nota = Math.floor(Nota * 100) / 100;
 		Nota = Nota >= 0 ? Nota : 0;
 
@@ -319,7 +329,7 @@ public class Archivos extends JPanel {
 		/*
 		 * Esta función se encarga de comprobar si un usuario existente en el arraylist de usuarios
 		 * no tiene estadísticas, si un usuario del arraylist no tiene estadísticas voy a crearle una estadística
-		 * nueva. También se encarga de eliminar datos de essstadísticas que no tengan un usuario por id asignado
+		 * nueva. También se encarga de eliminar datos de estadísticas que no tengan un usuario por id asignado
 		 * y también elimino estadísticas duplicadas
 		 */
 
