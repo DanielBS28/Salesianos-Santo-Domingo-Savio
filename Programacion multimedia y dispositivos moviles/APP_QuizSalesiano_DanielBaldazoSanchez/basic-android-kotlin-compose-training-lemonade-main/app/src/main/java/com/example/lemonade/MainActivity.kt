@@ -22,14 +22,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.lemonade.ui.theme.AppTheme
 
-// Clase principal que define la actividad de la app
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Habilita la funcionalidad de diseño sin bordes en dispositivos modernos
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContent {
-            // Establece el tema de la app y llama a la función principal de la UI
             AppTheme {
                 LemonadeApp()
             }
@@ -45,7 +42,7 @@ fun LemonadeApp() {
     var userInput by remember { mutableStateOf("") } // Almacena la entrada del usuario
     var feedback by remember { mutableStateOf("") } // Retroalimentación para el usuario
 
-    // Lista de nombres de personas que el usuario debe identificar
+    // Lista de nombres de fotos que hay en la app
     val personas = listOf(
         "Domingo Savio",
         "Don Bosco",
@@ -53,7 +50,7 @@ fun LemonadeApp() {
         "Maria Auxiliadora"
     )
 
-    // Contenedor principal con una barra superior y el cuerpo
+    // Esto es el contenedor de la parte de arriba
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -71,21 +68,19 @@ fun LemonadeApp() {
             )
         }
     ) { innerPadding ->
-        // Superficie que ocupa toda la pantalla
         Surface(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .background(MaterialTheme.colorScheme.tertiaryContainer), // Color de fondo
+                .background(MaterialTheme.colorScheme.tertiaryContainer),
             color = MaterialTheme.colorScheme.background
         ) {
-            // Estructura en columna para los elementos
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally, // Centra horizontalmente
                 verticalArrangement = Arrangement.Top, // Coloca los elementos en la parte superior
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(10.dp) // Margen interno
+                    .padding(10.dp)
             ) {
                 // Imagen del logotipo del colegio
                 Image(
@@ -109,14 +104,14 @@ fun LemonadeApp() {
                 // Campo de texto donde el usuario escribe su respuesta
                 OutlinedTextField(
                     value = userInput,
-                    onValueChange = { userInput = it }, // Actualiza el estado con el texto ingresado
+                    onValueChange = { userInput = it },
                     label = { Text("Escribe su nombre") },
-                    modifier = Modifier.fillMaxWidth() // Ocupa todo el ancho disponible
+                    modifier = Modifier.fillMaxWidth()
                 )
 
-                Spacer(modifier = Modifier.height(24.dp)) // Más espacio antes de la imagen
+                Spacer(modifier = Modifier.height(24.dp))
 
-                // Determina qué imagen mostrar según el paso actual
+                // Determina qué imagen mostrar según la iteración actual
                 val drawableRes = when (currentStep) {
                     1 -> R.drawable.domingo_savio
                     2 -> R.drawable.don_bosco
@@ -131,7 +126,6 @@ fun LemonadeApp() {
                     contentDescriptionResourceId = R.string.persona
                 )
 
-                // Muestra retroalimentación si hay contenido en `feedback`
                 if (feedback.isNotEmpty()) {
                     Text(
                         text = feedback,
@@ -150,16 +144,16 @@ fun LemonadeApp() {
 
                 // Botones de navegación (anterior y siguiente)
                 Row(
-                    horizontalArrangement = Arrangement.SpaceEvenly, // Distribuye uniformemente
+                    horizontalArrangement = Arrangement.SpaceEvenly,
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Button(
                         onClick = {
-                            feedback = "" // Limpia retroalimentación
+                            feedback = ""
                             userInput = "" // Limpia la entrada del usuario
                             currentStep = if (currentStep > 1) currentStep - 1 else 4 // Retrocede o vuelve al final
                         },
-                        shape = RoundedCornerShape(12.dp), // Bordes redondeados
+                        shape = RoundedCornerShape(12.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = Color.Gray),
                         modifier = Modifier
                             .weight(1f) // Tamaño proporcional
@@ -173,8 +167,8 @@ fun LemonadeApp() {
 
                     Button(
                         onClick = {
-                            feedback = "" // Limpia retroalimentación
-                            userInput = "" // Limpia la entrada del usuario
+                            feedback = ""
+                            userInput = ""
                             currentStep = if (currentStep < 4) currentStep + 1 else 1 // Avanza o vuelve al inicio
                         },
                         shape = RoundedCornerShape(12.dp),

@@ -85,7 +85,7 @@ public class Utilidades {
 		 * donde he utilizado los arraylist, todo lo demás está hecho con consultas, te lo pregunté
 		 * lo de los array list y te pareció buena idea :)
 		 * */
-
+		
 		ArrayList<Producto> TODOSLOSPRODUCTOS = ConsultasSQL.obtenerProductos();
 		ArrayList<Producto> CESTA = new ArrayList<>();
 		String id = "";
