@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+	<link rel="stylesheet" href="estilo.css">
+	<script src="eventos.js"></script> 
+	<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+	<h1>2.Ejercicios de eventos</h1>
+	<div id="caja1">
+		<button id="boton1" onclick="aviso1('boton1')">Pulsa 1</button>
+		<button id="boton2" onclick="aviso1('boton2')">Pulsa 2</button>
+	</div>
+	<div id="caja2">A</div>
+	<div id="caja3">A</div>
+	<div id="caja4">
+		<form>
+			<label for="precio">Precio</label>
+			<input id="precio" type="number">
+			<label for="cantidad">cantidad</label>
+			<input id="cantidad" type="number">
+			<input type="button" id="enviar" value="calcular">
+			<input id="total" readonly>
+		</form>
+	</div>
+	<div id="ejercicio6"> Ocultar el contenido </div>
+	<div id="caja6">
+		<form>
+			<label for="numero">Numero</label>
+			<input id="numero" type="text">
+			<input type="button" id="comprobar" value="comprobar">
+		</form>	
+	</div>
+	<div id="caja7" onclick="visualizarCoordenadas(event)"> COORDENADAS: </div>
+	<div id="caja8">
+		<button id="colores">Cambiar colores</button>
+	</div>
+</body>
+</html>

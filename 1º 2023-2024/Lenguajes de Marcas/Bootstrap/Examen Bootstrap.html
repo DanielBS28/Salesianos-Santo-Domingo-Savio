@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<style>
+
+.row div div{border: solid black 2px;}
+
+.mobile,.tablet,.ordenador{height: 25vh; background-color: blueviolet; display: flex; justify-content: center; align-items: center;}
+.moradas{height: 25vh; background-color: rgb(223, 43, 226);}
+.verde{height: 25vh; background-color: greenyellow;}
+.roja{height: 25vh; background-color: red; overflow: scroll;}
+.amarilla{height: 25vh; background-color: yellow;}
+
+.azul{height: 25vh; background-color: rgb(66, 66, 243);overflow: scroll;}
+
+.azules{height: 25vh;background-color: rgb(66, 66, 243); display: flex;justify-content: center; align-items: center;}
+
+.footer{height: 6vh; background-color: grey; display: flex; justify-content: center; align-items: center;}
+
+@media (min-width:992px){
+
+    .azules{background-color: orange; justify-content: flex-start;}
+}
+
+
+
+</style>
+
+
+
+</head>
+
+<body>
+    
+<div class="container">
+
+
+<div class="row g-2 mb-2">
+    <div class="col-6 d-none d-md-block d-lg-none">
+        <div class="moradas"></div>
+    </div>
+
+    <div class="col-6 d-none d-md-block d-lg-none">
+        <div class="moradas"></div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-12 d-md-none">
+        <div class="mobile"><h1>mobile</h1></div>
+    </div>
+
+    <div class="col-12 d-none d-md-block d-lg-none">
+        <div class="tablet"><h1>tablet</h1></div>
+    </div>
+
+    <div class="col-12 d-none d-lg-block">
+        <div class="ordenador"><h1>ordenador</h1></div>
+    </div>
+</div>
+
+
+
+    <div class="row g-2 mt-1">
+
+        <div class="col-6 col-md-5 col-lg-3">
+            <div class="verde"></div>
+        </div>
+
+        <div class="col-6 col-md-5 col-lg-6 offset-lg-3">
+            <div class="azul">
+                <table class="table table-bordered">
+                    <thead><tr>
+                    <th class="table-primary">Elemento</th>
+                    <th class="table-primary"> Puntuación</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>Colocación de cajas</td>
+                        <td> 3</td>
+                    </tr>
+
+                    <tr>
+                        <td class="table-primary">Colores del CSS</td>
+                        <td class="table-primary">2</td>
+
+                    </tr>
+
+                    <tr>
+                        <td class="table-success">Ocultación de cajas</td>
+                        <td> 5</td>
+                    </tr>
+
+                    <tr>
+
+                        <td></td>
+                        <td class="table-danger">10</td>
+                    </tr>
+                    </tbody>
+
+                </table>
+
+
+            </div>
+        </div>
+
+        <div class="col-6 col-md-2 col-lg-3 col-lg-4">
+            <div class="amarilla"></div>
+        </div>
+
+        <div class="col-6 col-md-7 offset-md-5 col-lg-8 offset-lg-0">
+            <div class="roja">
+
+                <form class="form-group">
+
+            
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" name="nombre" id="nombre" class="form-control">
+                        <label for="apellido" class="form-label">Apellido</label>
+                        <input type="text" name="apellido" id="apellido" class="form-control">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Introduce tu email">
+                        <label for="adj">Introduce tu archivo</label>
+                        <input type="file" name="adj" id="adj" class="form-control">
+                        <label for="des">Desplegable con tu nota</label>
+                        <select class="form-select" name="des" id="des">
+                            <option value="0" selected>Introduce tu nota</option>
+                            <option value="1">Suspenso</option>
+                            <option value="2">Aprobado</option>
+                            <option value="3">Bien</option>
+                            <option value="4">Notable</option>
+                            <option value="5">Sobresaliente</option>
+                        </select>
+                        <input class="form-check-input" type="checkbox" name="check" id="check" checked>
+                        <label for="check">Archivo html</label>
+                        <input class="form-check-input" type="checkbox" name="check2" id="check2" disabled>
+                        <label for="check2">No archivo html</label><br>
+                        <button class="btn btn-primary" type="submit">Enviar</button>
+
+                </form>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row g-2 mt-1">
+
+        <div class="col-12 order-md-3 col-md-6 order-lg-1">
+            <div class="azules"><h2>1</h2>
+            </div>
+        </div>
+
+        <div class="col-12 order-md-2 col-md-6 order-lg-2">
+            <div class="azules"><h2>2</h2></div>
+        </div>
+
+        <div class="col-12 d-none d-md-block order-md-4 col-md-6 order-lg-3">
+            <div class="azules"><h2>3</h2></div>
+        </div>
+
+        <div class="col-12 d-none d-md-block order-md-1 col-md-6 order-lg-4">
+            <div class="azules"><h2>4</h2></div>
+        </div>
+
+
+    </div>
+
+    <div class="row mt-2">
+        <div class="col d-none d-lg-block">
+            <div class="footer"><h1>footer</h1></div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+</body>
+</html>

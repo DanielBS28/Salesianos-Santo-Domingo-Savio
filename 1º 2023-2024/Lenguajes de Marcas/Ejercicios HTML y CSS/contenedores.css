@@ -1,0 +1,47 @@
+/*
+ div {
+	background-color: red;
+}
+#a{
+	float: left;width: 40vw; background-color: yellow;
+}
+#b{
+	float: left;width: 40vw; background-color: blue;
+}
+#a{
+	float: left;
+}
+*/
+
+/*
+div {
+	background-color: red;
+}
+#a{
+	float: left;width: 40vw; background-color: yellow;
+}
+#b{
+	float: left;width: 40vw; background-color: blue;
+}
+#c{
+	float: right;width: 40vw; background-color: greenyellow;
+}
+*/
+div {
+	background-color: red;
+}
+#a{
+	position: relative; width: 40vw; background-color: yellow;
+}
+#b{
+	position: relative;width: 40vw; background-color: blue;display: inline-block;
+}
+#c{
+	position: relative;width: 40vw; background-color: greenyellow;
+}
+#flex{
+	display: flex;flex-direction: row; background-color: purple;
+}
+.hijos{
+	display: flex;flex-direction: row; background-color: white;
+}

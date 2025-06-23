@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <script>
+
+        function random(numero){
+            return Math.floor(Math.random()*(numero+1));
+        }
+
+        function cambiarFondo(){
+       
+            var color = 'rgb('+random(255)+','+random(255)+','+random(255)+')';
+            document.body.style.backgroundColor=color;
+            
+
+        }
+        function bienvenida(){
+        // document.body.style.backgroundColor="blue";
+
+
+        var boton = document.getElementById("b1");
+       boton.addEventListener("click",cambiarFondo);
+        }
+    </script>
+   
+</head>
+<body onload="bienvenida()">
+    
+    <div class="caja">
+
+        <button id="b1">Cambiar color</button>
+    </div>
+    
+</body>
+</html>

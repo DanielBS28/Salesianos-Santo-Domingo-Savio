@@ -1,0 +1,39 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: yellow;
+    margin: auto;
+    border: 5px solid black;
+    height: 700px;
+    width: 800px;
+    align-items: center;
+}
+.caja1{
+    background-color: rgb(9, 255, 0);
+    border: 5px solid black;
+    height: 325px;
+    width: 58%;
+    margin: auto;
+}
+.caja2{
+    background-color: rgb(217, 0, 163);
+    border: 5px solid black;
+    height: 325px;
+    width: 38%;
+    margin: auto;
+}
+.caja3{
+    background-color: rgb(31, 187, 47);
+    border: 5px solid black;
+    height: 325px;
+    width: 48%;
+    margin: auto;
+}
+.caja4{
+    background-color: rgb(63, 233, 236);
+    border: 5px solid black;
+    height: 325px;
+    width: 48%;
+    margin: auto;
+}

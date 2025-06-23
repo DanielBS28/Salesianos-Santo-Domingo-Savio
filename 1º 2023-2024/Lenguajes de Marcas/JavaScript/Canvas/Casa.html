@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+    
+    <canvas id="lienzo" width="500" height="500" style="border:1px solid rgb(0, 0, 0)";> </canvas>
+<script type="text/javascript"> var canvas = document.getElementById("lienzo");
+var contexto = canvas.getContext("2d");
+
+contexto.fillStyle = "#ffffe1";
+contexto.fillRect(100, 250, 300, 200);
+contexto.strokeStyle = "#61423f";
+contexto.lineWidth = 2;
+contexto.strokeRect(100, 250, 300, 200);
+contexto.fillStyle = "#f6d995";
+contexto.fillRect(101, 251, 298, 18);
+
+// Triangulo 
+
+contexto.fillStyle = "#f43149";
+contexto.beginPath();
+contexto.moveTo(70,250);
+contexto.lineTo(430,250);
+contexto.lineTo(250,50);
+contexto.fill();
+
+// Contorno Triangulo
+
+contexto.strokeStyle = "#61423f";
+contexto.beginPath();
+contexto.lineWidth = 2;
+contexto.moveTo(70,250);
+contexto.lineTo(430,250);
+contexto.lineTo(250,50);
+contexto.closePath();
+contexto.stroke();
+
+// Triángulo intermedio 
+
+contexto.fillStyle = "#811d28";
+contexto.beginPath();
+contexto.moveTo(100,250);
+contexto.lineTo(400,250);
+contexto.lineTo(250,85);
+contexto.fill();
+
+// Contorno triángulo intermedio 
+
+contexto.strokeStyle = "#61423f";
+contexto.beginPath();
+contexto.lineWidth = 2;
+contexto.moveTo(100,250);
+contexto.lineTo(400,250);
+contexto.lineTo(250,85);
+contexto.closePath();
+contexto.stroke();
+
+// Triángulo dentro 
+
+contexto.fillStyle = "#a99b81";
+contexto.beginPath();
+contexto.moveTo(115,250);
+contexto.lineTo(385,250);
+contexto.lineTo(250,100);
+contexto.fill();
+
+// Contorno triángulo dentro 
+
+contexto.strokeStyle = "#61423f";
+contexto.beginPath();
+contexto.lineWidth = 2;
+contexto.moveTo(115,250);
+contexto.lineTo(385,250);
+contexto.lineTo(250,100);
+contexto.closePath();
+contexto.stroke();
+
+// Ventana tejado
+
+contexto.fillStyle = "#a87846";
+contexto.fillRect(220, 170, 60, 60);
+contexto.strokeStyle = "#61423f";
+contexto.lineWidth = 2;
+contexto.strokeRect(220, 170, 60, 60);
+
+// Cristal 1
+
+contexto.fillStyle = "#c1e5fb";
+contexto.fillRect(225, 175, 22, 22);
+contexto.strokeStyle = "#61423f";
+contexto.lineWidth = 2;
+contexto.strokeRect(225, 175, 22, 22);
+
+// Cristal 2
+
+contexto.fillStyle = "#c1e5fb";
+contexto.fillRect(225, 202, 22, 22);
+contexto.strokeStyle = "#61423f";
+contexto.lineWidth = 2;
+contexto.strokeRect(225, 202, 22, 22);
+
+// Cristal 3
+
+contexto.fillStyle = "#c1e5fb";
+contexto.fillRect(252, 202, 22, 22);
+contexto.strokeStyle = "#61423f";
+contexto.lineWidth = 2;
+contexto.strokeRect(252, 202, 22, 22);
+
+// Cristal 4
+
+contexto.fillStyle = "#c1e5fb";
+contexto.fillRect(252, 175, 22, 22);
+contexto.strokeStyle = "#61423f";
+contexto.lineWidth = 2;
+contexto.strokeRect(252, 175, 22, 22);
+
+// Borde puerta 
+
+contexto.fillStyle = "#968670";
+contexto.fillRect(137, 305, 95, 145);
+contexto.strokeStyle = "#61423f";
+contexto.lineWidth = 2;
+contexto.strokeRect(137, 305, 95, 145);
+
+// Puerta
+
+contexto.fillStyle = "#a87846";
+contexto.fillRect(143, 312, 83, 137);
+contexto.strokeStyle = "#61423f";
+contexto.lineWidth = 2;
+contexto.strokeRect(143, 312, 83, 137);
+
+// Ventana Puerta
+
+contexto.fillStyle = "#c1e5fb";
+contexto.fillRect(152, 320, 66, 30);
+contexto.strokeStyle = "#61423f";
+contexto.lineWidth = 2;
+contexto.strokeRect(152, 320, 66, 30);
+
+// Ventana cuadrada marrón
+
+contexto.fillStyle = "#a87846";
+contexto.fillRect(280, 305, 78, 75);
+contexto.strokeStyle = "#61423f";
+contexto.lineWidth = 2;
+contexto.strokeRect(280, 305, 78, 75);
+
+// Cristal 1
+
+contexto.fillStyle = "#c1e5fb";
+contexto.fillRect(285, 310, 30, 30);
+contexto.strokeStyle = "#61423f";
+contexto.lineWidth = 2;
+contexto.strokeRect(285, 310, 30, 30);
+
+// Cristal 2
+
+contexto.fillStyle = "#c1e5fb";
+contexto.fillRect(322, 310, 30, 30);
+contexto.strokeStyle = "#61423f";
+contexto.lineWidth = 2;
+contexto.strokeRect(322, 310, 30, 30);
+
+// Cristal 3
+
+contexto.fillStyle = "#c1e5fb";
+contexto.fillRect(285, 345, 30, 30);
+contexto.strokeStyle = "#61423f";
+contexto.lineWidth = 2;
+contexto.strokeRect(285, 345, 30, 30);
+
+// Cristal 4
+
+contexto.fillStyle = "#c1e5fb";
+contexto.fillRect(322, 345, 30, 30);
+contexto.strokeStyle = "#61423f";
+contexto.lineWidth = 2;
+contexto.strokeRect(322, 345, 30, 30);
+
+// Pomo
+
+contexto.fillStyle="#ffffe1";
+contexto.beginPath();
+contexto.arc(208,380,10,0,Math.PI*2);
+contexto.fill();
+contexto.strokeStyle = "#61423f";
+contexto.arc(208,380,10,0,Math.PI*2);
+contexto.lineWidth = 2;
+contexto.stroke();
+
+
+</script>
+
+</body>
+</html>

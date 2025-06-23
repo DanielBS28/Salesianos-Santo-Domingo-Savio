@@ -1,0 +1,54 @@
+body{
+	margin:0;
+}
+h1{
+	background-color: orange;
+	text-align: center;
+}
+p{
+	font-family: "Gill Sans", sans-serif;
+	text-align: justify;
+	color: white;
+}
+a{
+border: 1px solid;
+background: lightcyan;
+}table,tr,td{
+border: 1px solid black;
+border-collapse: collapse;
+}td {
+	width: 10vw; text-align: center;
+}
+
+#caja1{
+background-color: yellow;
+height: 33vh;
+width: 50vw;
+float: left;
+z-index: 2;
+}
+#caja2{
+	background-color: blue;
+	width: 50vw;
+	height: 33vh;
+	float: left;
+	z-index: 2;
+}
+#caja3{
+	background-color: pink;
+	position: relative;
+	height: 66%;
+}
+#caja4{
+	background-color: green;
+	width: 50vw;
+	height: 33vh;
+	float: right;
+}
+table{
+background-color: purple;
+color: white;
+position: absolute;
+top: 35vh;
+left: 30%;
+}

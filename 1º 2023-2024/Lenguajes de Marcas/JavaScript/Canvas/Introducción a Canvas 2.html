@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <style>
+        canvas{width:50vw; height: 50vh; border: solid black 1px;}
+    </style>
+</head>
+<body>
+    
+<canvas id="lienzo">No soporta canvas</canvas>
+<script type="text/javascript"> var canvas = document.getElementById("lienzo");
+var contexto = canvas.getContext("2d");
+contexto.fillStyle = "green";
+contexto.fillRect(0, 0, 20, 20);
+contexto.strokeStyle = "yellow";
+contexto.lineWidth = 10;
+contexto.strokeRect(20, 20, 20, 20);
+contexto.fillStyle = "rgb(0,0,255)";
+contexto.fillRect(100, 100, 20, 20);
+contexto.fillStyle = "rgb(0,0,255)";
+
+// Triangulo
+
+contexto.fillStyle = "rgb(0,200,0)";
+contexto.beginPath();
+contexto.moveTo(75,50);
+contexto.lineTo(100,75);
+contexto.lineTo(100,25);
+contexto.fill();
+
+
+contexto.strokeStyle = "rgb(0,0,255)";
+contexto.beginPath();
+contexto.lineWidth = 1;
+contexto.moveTo(50,50);
+contexto.lineTo(50,70);
+contexto.lineTo(70,70);
+contexto.closePath();
+contexto.stroke();
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Pelota</title>
+    <style> canvas {margin: 0 auto; display: block; background-color: #eee;}</style>
+</head>
+<body>
+<canvas id="lienzo" width=480px height=320px> No soporta canvas </canvas>
+
+    <script>
+        var canvas = document.getElementById("lienzo");
+
+        // Declaración de variables
+
+        var x= 240;
+        var y= 280;
+        var radio = 15;
+        var move = 1;
+        var direccionx =1;
+        var direcciony =1;
+   
+
+
+        // Declaración de funciones
+
+        function dibujarPelota(){
+
+        contexto.beginPath();
+        contexto.fillStyle="blue";
+        contexto.arc(x,y,radio,0,2*Math.PI);
+        contexto.fill();
+        contexto.closePath();}
+
+        function moverPelota(){
+        contexto.clearRect(0,0,canvas.width,canvas.height)
+        dibujarPelota();
+        
+        // Pared de arriba
+
+        //Pared derecha
+
+
+        //Pared de abajo
+        x=x+mov*direccionx;
+        y=y+mov*direcciony;
+
+
+        //Pared de izquierda 
+    
+        }
+
+        // Programa principal
+
+        if(canvas.getContext){
+        var contexto = canvas.getContext("2d");
+        setInterval(moverPelota,20);
+        
+        
+        }
+    </script>
+</body>
+</html>

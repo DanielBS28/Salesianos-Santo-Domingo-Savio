@@ -1,0 +1,125 @@
+.container{
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: rgb(70, 0, 210);
+    justify-content:space-evenly;
+    align-items: center;
+    border: 5px solid black;
+    font-size: 15px;
+}
+.caja1relleno{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+    background-color: rgb(255, 97, 194);
+    border: 5px solid black;
+    height: 30vh;
+    width: 90vw;
+    margin-bottom: 2%;
+}
+.caja1_1{
+    background-color: #2a9cff;
+    border: 5px solid black;
+    height: 30%;
+    width: 90%;
+}
+.caja1_1_2{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1%;
+    background-color: #ffffff;
+    border: 5px solid black;
+    height: 30%;
+    width: 90%;
+}
+.caja1_1_3{
+    background-color: #006716;
+    border: 5px solid black;
+    height: 40%;
+    width: 17%;
+
+}
+.caja2relleno{
+    display: flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgb(255, 229, 111);
+    border: 5px solid black;
+    height: 70vh;
+    width: 25vw;
+    
+}
+.caja2{
+    margin-top: 10px;
+    background-color: #ffef45;
+    border: 5px solid black;
+    height: 15%;
+    width: 70%;
+} 
+.caja3relleno{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    align-items: center;
+    background-color: rgb(100, 255, 118);
+    border: 5px solid black;
+    height: 70vh;
+    width: 60vw;
+    
+}
+.caja3{
+margin-left: 5%;
+    background-color: #ddf337;
+    border: 5px solid black;
+    height: 80%;
+    width: 35%;
+    position: relative;
+    top: 10%;
+    right: 3%;
+    overflow:hidden;
+
+}
+.caja3_2{
+    background-color: rgb(32, 233, 255);
+    border: 5px solid black;
+    height: 25vh;
+    width: 30vw;
+    position: relative;
+    right: 2.5%;
+    bottom: 12%;
+    overflow:hidden;
+  
+
+}
+.caja3_3{
+    background-color: rgb(32, 233, 255);
+    border: 5px solid black;
+    height: 25vh;
+    width: 30vw;
+    position: relative;
+left: 20%;
+bottom: 28%;
+overflow:hidden;
+
+
+}
+.caja4{
+    
+    background-color: rgb(255, 97, 194);
+    border: 5px solid black;
+    height: 20vh;
+    width: 90vw;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    overflow:hidden;
+}

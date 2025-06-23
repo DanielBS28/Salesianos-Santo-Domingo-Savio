@@ -1,0 +1,32 @@
+
+.container{
+    display:flex;
+    flex-direction:column-reverse;
+   justify-content:center;
+align-items: center;
+background-color: blue;
+height: 500px;
+
+
+}
+.caja1{
+    background-color: aquamarine;
+    height: 100px;
+    width: 100px;
+}
+.caja2{
+    background-color: blueviolet;
+    height: 100px;
+    width: 200px;
+}
+.caja3{
+    background-color:chocolate;
+    height: 100px;
+    width: 150px;
+}
+
+html{
+    font-size: 50px;
+text-align: center;
+
+}

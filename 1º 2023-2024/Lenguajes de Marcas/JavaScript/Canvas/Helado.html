@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Helado</title>
+</head>
+<body>
+    <canvas id ="lienzo" width ="500" height ="500" style="border: 1px black solid;"> </canvas>
+    <script type="text/javascript">
+       
+        var canvas = document.getElementById("lienzo");
+        var contexto = canvas.getContext("2d");
+
+        // Bola del helado
+
+        contexto.fillStyle="#f7f9eb"; // Color bola
+        contexto.lineWidth = 3;
+        contexto.StrokeStyle = "#434140"; // Linea contorno
+        
+        contexto.arc(267,156,119,0, 2 * Math.PI);
+        contexto.fill();
+        contexto.stroke();
+
+        // Crema Helado
+
+        contexto.fillStyle="#fceed1"; // Color bola
+        contexto.StrokeStyle = "#434140"; // Linea contorno
+        contexto.beginPath();
+        contexto.arc(267,156,119, 225 * Math.PI/180, 335 * Math.PI/180);
+        contexto.fill();
+        contexto.stroke();
+
+        // Ondulaciones
+
+        contexto.fillStyle="#f7f9eb";
+        contexto.beginPath();
+        contexto.arc(197,78,10,0, 2* Math.PI, true);
+        contexto.fill();
+
+        contexto.beginPath();
+        contexto.arc(230,95,27,0, 2* Math.PI, true);
+        contexto.fill();
+
+        contexto.beginPath();
+        contexto.arc(280,110,30,0, 2* Math.PI, true);
+        contexto.fill();
+
+        contexto.beginPath();
+        contexto.arc(335,110,25,0, 2* Math.PI, true);
+        contexto.fill();
+
+        contexto.fillStyle="#fceed1"; // Color crema
+
+        contexto.beginPath();
+        contexto.arc(260,75,13,0, 2* Math.PI, true);
+        contexto.fill();
+
+        contexto.beginPath();
+        contexto.arc(305,85,14,0, 2* Math.PI, true);
+        contexto.fill();
+        
+        // Cono del helado
+
+        contexto.fillStyle = "#f2c993"; // Color de dentro
+        contexto.beginPath();
+        contexto.moveTo(150,180);
+        contexto.lineTo(250,470);
+        contexto.lineTo(380,195);
+        contexto.fill(); // Finaliza el triángulo de dentro
+        contexto.stroke(); // Permite el contorno del triángulo
+        
+        // Circulos Helado
+
+        contexto.fillStyle="#f7f9eb"; // Color bola
+
+        contexto.beginPath();
+        contexto.arc(154,167,14,260* Math.PI/180, 95* Math.PI/180, true);
+        contexto.fill();
+        contexto.stroke();
+
+        contexto.beginPath();
+        contexto.arc(158,173,14,160* Math.PI/180,20* Math.PI/180, true);
+        contexto.fill();
+        contexto.stroke();
+
+        contexto.beginPath();
+        contexto.arc(184,176,14,170* Math.PI/180,20* Math.PI/180, true);
+        contexto.fill();
+        contexto.stroke();
+
+        contexto.beginPath();
+        contexto.arc(210,178,14,170* Math.PI/180,20* Math.PI/180, true);
+        contexto.fill();
+        contexto.stroke();
+
+        contexto.beginPath();
+        contexto.arc(237,180,14,170* Math.PI/180,20* Math.PI/180, true);
+        contexto.fill();
+        contexto.stroke();
+
+        contexto.beginPath();
+        contexto.arc(264,181,14,170* Math.PI/180,20* Math.PI/180, true);
+        contexto.fill();
+        contexto.stroke();
+
+        contexto.beginPath();
+        contexto.arc(291,183,14,170* Math.PI/180,20* Math.PI/180, true);
+        contexto.fill();
+        contexto.stroke();
+
+        contexto.beginPath();
+        contexto.arc(318,186,14,170* Math.PI/180,20* Math.PI/180, true);
+        contexto.fill();
+        contexto.stroke();
+
+        contexto.beginPath();
+        contexto.arc(345,188,14,170* Math.PI/180,20* Math.PI/180, true);
+        contexto.fill();
+        contexto.stroke();
+
+        contexto.beginPath();
+        contexto.arc(372,190,14,170* Math.PI/180,20* Math.PI/180, true);
+        contexto.fill();
+        contexto.stroke();
+        
+        contexto.beginPath();
+        contexto.arc(375,187,16,298* Math.PI/180, 88* Math.PI/180, false);
+        contexto.fill();
+        contexto.stroke();
+        
+        contexto.beginPath();
+        contexto.arc(170,168,14,220* Math.PI/180,330* Math.PI/180, false);
+        contexto.stroke();
+
+        contexto.beginPath();
+        contexto.arc(193,170,14,220* Math.PI/180,330* Math.PI/180, false);
+        contexto.stroke();
+
+        contexto.beginPath();
+        contexto.arc(225,173,14,220* Math.PI/180,330* Math.PI/180, false);
+        contexto.stroke();
+
+        contexto.beginPath();
+        contexto.arc(258,176,14,220* Math.PI/180,330* Math.PI/180, false);
+        contexto.stroke();
+
+        contexto.beginPath();
+        contexto.arc(280,177,14,220* Math.PI/180,330* Math.PI/180, false);
+        contexto.stroke();
+
+        contexto.beginPath();
+        contexto.arc(315,180,14,220* Math.PI/180,330* Math.PI/180, false);
+        contexto.stroke();
+
+        contexto.beginPath();
+        contexto.arc(338,181,14,220* Math.PI/180,330* Math.PI/180, false);
+        contexto.stroke();
+
+        contexto.beginPath();
+        contexto.arc(361,183,14,220* Math.PI/180,330* Math.PI/180, false);
+        contexto.stroke();
+
+        // Sonrisa
+
+        contexto.beginPath();
+        contexto.arc(264,116,20,160* Math.PI/180,30* Math.PI/180, true);
+        contexto.stroke();
+
+        // Ojos
+
+        contexto.beginPath();
+        contexto.arc(210,103,10,190* Math.PI/180,0* Math.PI/180, true);
+        contexto.stroke();
+
+        contexto.beginPath();
+        contexto.arc(316,110,10,190* Math.PI/180,0* Math.PI/180, true);
+        contexto.stroke();
+
+    </script>
+    <img src="Helado.PNG" alt="Hola">
+
+</body>
+</html>
